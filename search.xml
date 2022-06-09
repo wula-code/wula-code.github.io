@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Python编程惯例</title>
+    <url>/2022/06/06/Python/</url>
+    <content><![CDATA[<h2 id="Python惯例"><a href="#Python惯例" class="headerlink" title="Python惯例"></a>Python惯例</h2><p>“惯例”这个词指的是“习惯的做法，常规的办法，一贯的做法”，与这个词对应的英文单词叫“idiom”。由于Python跟其他很多编程语言在语法和使用上还是有比较显著的差别，因此作为一个Python开发者如果不能掌握这些惯例，就无法写出“Pythonic”的代码。下面我们总结了一些在Python开发中的惯用的代码。</p>
+<ol>
+<li><p>让代码既可以被导入又可以被执行。<br>if <strong>name</strong> == ‘<strong>main</strong>‘:</p>
+</li>
+<li><p>用下面的方式判断逻辑“真”或“假”。<br>if x:<br>if not x:</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python基础</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>vim语法</title>
+    <url>/2022/06/02/Vim/</url>
+    <content><![CDATA[<ol start="8">
+<li>Vim</li>
+</ol>
+<ul>
+<li><p>末行模式</p>
+<ul>
+<li><code>set nu</code> - 显示行号</li>
+<li><code>set ts=4</code> - 设置制表键的空格数</li>
+<li><code>set expandtab </code>- 将制表键扩展为空格</li>
+<li> <code> set autoindent</code> - 自动缩进</li>
+<li><code>set ruler</code>：显示光标位置</li>
+<li><code>syntax on / off</code>：打开 / 关闭语法高亮</li>
+</ul>
+</li>
+<li><p>命令模式</p>
+<ol>
+<li><p><code>ZZ</code> - 保存退出</p>
+</li>
+<li><p><code>i / I / a / A/ o / O</code> - 进入编辑模式</p>
+</li>
+<li><p>移动光标</p>
+<ol>
+<li><code>h j k l </code> ： 左  /  下  /   上  /  右</li>
+<li><code>gg / G / 100G </code>：开始 / 结尾</li>
+<li><code>0 /$：</code>语句前 / 后</li>
+<li><code>w / e</code>：单词的开始 / 结尾</li>
+<li><code>ctrl + f / b / e / y</code>：向后一页 / 向前一页  / 向后一行 / 向前一行  </li>
+</ol>
+</li>
+<li><p>内容编辑</p>
+<ol>
+<li>删除 ： <ol>
+<li><code>dd </code>：删除整行</li>
+<li><code>d$</code>：从光标位置到行尾</li>
+<li><code>d0</code>：从光标位置到行首</li>
+<li><code>dw</code>：删除光标所在的单词</li>
+<li><code>%d</code>：删除所有内容</li>
+</ol>
+</li>
+<li>撤销：<code>u</code></li>
+<li>恢复：<code>ctrl + r</code></li>
+<li>执行上一次命令：<code>.</code></li>
+<li>复制粘贴：<ol>
+<li><code>yy  /  p</code></li>
+<li><code>v -- Visual -- 移动光标选中内容 -- y -- p</code>： 进入可视模式，选中复制内容，粘贴</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>文件权限</p>
+<ol>
+<li>r ：读权限</li>
+<li>w ：写权限</li>
+<li>x ：执行权限</li>
+<li>修改文件权限： <ol>
+<li><code>chmod u + / -x 文件 </code>：给文件所有者添加/删除执行权限</li>
+<li><code>chmod g + / - x 文件</code>：给同组用户添加/删除执行权限</li>
+<li><code>chmod o + / - r文件</code>：给其他用户添加/删除执行权限</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p><code>rw-               r--            r--</code></p>
+<p>文件所有者               同组用户                 其他用户</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<p>​                </p>
+<h2 id="vim配置文件"><a href="#vim配置文件" class="headerlink" title="vim配置文件"></a>vim配置文件</h2><p>切换至用户主目录下：4‘</p>
+<ul>
+<li><code>vim .vimrc</code> ： 编辑配置文件</li>
+<li>添加配置设置：<ul>
+<li><code>set nu</code> - 显示行号</li>
+<li><code>set ts=4</code> - 设置制表键的空格数</li>
+<li><code>set expandtab </code>- 将制表键扩展为空格</li>
+<li> <code> set autoindent</code> - 自动缩进</li>
+<li><code>set ruler</code>：显示光标位置</li>
+<li><code>syntax on / off</code>：打开 / 关闭语法高亮</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux语法</title>
+    <url>/2022/06/02/linux%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h2><p>命令格式：<code>命令 [-命令参数] [-命令对象]</code></p>
+<h4 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h4><p>​    <code>ctrl + c</code>: 终止进程（结束命令的执行）</p>
+<p>​    <code>ctrl + w</code>: 删除光标所在的位置的单词</p>
+<p>​    <code>ctrl + a</code>: 光标移动到文本开头</p>
+<p>​    <code>    ctrl + e</code>: 光标移动到文本末尾</p>
+<p>​    <code>    ctrl + u</code>: 删除光标之前的内容直至行首</p>
+<p>​    <code>ctrl + k</code>: 删除光标之后的内容直至行尾</p>
+<p>​    <code>ctrl + d</code>: 输入结束</p>
+<p>​    </p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ls [选项] [目录名] / dir</code></td>
+<td>查看目录下的文件和文件夹</td>
+<td><code>-a / -l</code></td>
+<td>查看所有/查看长格式</td>
+</tr>
+<tr>
+<td><code>pwd [选项]</code></td>
+<td>打印当前工作目录</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>history </code></td>
+<td>查看历史命令 /  清空历史记录</td>
+<td><code>-c</code></td>
+<td>清空历史记录</td>
+</tr>
+<tr>
+<td><code>reboot / shutdown</code></td>
+<td>重启/关闭服务器</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>clear</code></td>
+<td>清空控制台上的输出</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>who / w</code></td>
+<td>查看连接用户的基本信息</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>who am  i</code></td>
+<td>查看自己</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>last</code></td>
+<td>最近登录</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastb</code></td>
+<td>最近登录且失败</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>查看当前日期时间</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>man</code></td>
+<td>查看命令的i详细手册</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cd ...</code></td>
+<td>切换路径</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td>查看文件属性</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>mkdir [-p]</code></td>
+<td>创建文件夹 /  创建父文件夹</td>
+<td><code>-p</code></td>
+<td>父文件夹</td>
+</tr>
+<tr>
+<td><code>rmdir</code></td>
+<td>删除空文件夹</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>touch</code></td>
+<td>创建空文件或修改文件的最后访问时间</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>rm</code></td>
+<td>删除文件或文件夹</td>
+<td><code>-i/-r/-f</code></td>
+<td>交互式删除/递归式删除/强行删除</td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>拷贝文件或文件夹</td>
+<td><code>-r</code></td>
+<td>递归式拷贝</td>
+</tr>
+<tr>
+<td><code>mv</code></td>
+<td>移动文件或文件夹 / 文件重命名</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cat / tec / rev</code></td>
+<td>查看文件</td>
+<td><code>-n</code></td>
+<td>查看行号</td>
+</tr>
+<tr>
+<td><code>head</code></td>
+<td>查看文件的头部 （默认10行）</td>
+<td><code>-x</code></td>
+<td>指定X行</td>
+</tr>
+<tr>
+<td><code>tail</code></td>
+<td>查看文件的尾部（默认10行）</td>
+<td><code>-x</code></td>
+<td>指定X行</td>
+</tr>
+<tr>
+<td><code>gzip</code></td>
+<td>压缩文件</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>gunzip</code></td>
+<td>解压缩文件</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>tar</code></td>
+<td>归档 / 解归档</td>
+<td><code>-cvf [文件名]  [归档文件名]</code></td>
+<td>创建归档：多个文件放到一个文件中</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>-xvf [文件名]</code></td>
+<td>解归档：从文件中抽取出归档文件</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><code>-zxf [文件名]</code></td>
+<td>一步到位：解压缩和解归档 适合<code>tgz</code>文件</td>
+</tr>
+<tr>
+<td><code>less / more</code></td>
+<td>逐行/页的查看文件</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>xz</code></td>
+<td>[解]压缩文件（有）较好的压缩比</td>
+<td><code>-d / -z</code></td>
+<td>解压缩 / 压缩</td>
+</tr>
+<tr>
+<td><code>wc</code></td>
+<td>统计文件的字符数、单词数、行数</td>
+<td><code>-l / -w</code></td>
+<td>只看行数 / 单词数</td>
+</tr>
+<tr>
+<td><code>grep [内容] [文件]</code></td>
+<td>搜索文件内容</td>
+<td><code>-E [正则表达式]</code></td>
+<td>正则匹配</td>
+</tr>
+<tr>
+<td><code>find [路径] [模式] [模式参数]</code></td>
+<td>查找文件</td>
+<td><code>-name / -size / -ctime / -mtime / -atime</code></td>
+<td>名字 / 大小 / 创建时间 / 修改时间 / 访问时间</td>
+</tr>
+<tr>
+<td><code>&gt; 文件</code></td>
+<td>输出重定向</td>
+<td></td>
+<td>将输出放到指定文件</td>
+</tr>
+<tr>
+<td><code>&gt;&gt; 文件</code></td>
+<td>追加输出重定向</td>
+<td></td>
+<td>在文件后追加内容</td>
+</tr>
+<tr>
+<td>2&gt; 文件</td>
+<td>错误输出重定向</td>
+<td></td>
+<td>将错误输出到指定文件</td>
+</tr>
+<tr>
+<td><code>xargs</code></td>
+<td>将一列内容转换为命令的参数</td>
+<td></td>
+<td>一般配合管道使用</td>
+</tr>
+</tbody></table>
+<h4 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h4><blockquote>
+<p>利用 <code>|</code>将多个命令连接起来，组成一个强大的命令，前一个命令的输出是后一个命令的输入</p>
+</blockquote>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="安装管理软件（服务）"><a href="#安装管理软件（服务）" class="headerlink" title="安装管理软件（服务）"></a>安装管理软件（服务）</h4><ol>
+<li><p>使用包管理工具</p>
+<ol>
+<li><code>yum </code> —–&gt; <code>apt(ubuntu)</code><ol>
+<li>搜索：<code>yum search ... </code></li>
+<li>安装：<code> yum install ...</code></li>
+<li>卸载：<code>yum remove...  /  yum erase ... </code></li>
+<li>更新：<code>yum update ...</code></li>
+<li>信息：<code>yum info ...</code></li>
+<li>查看已安装：<code>yum list installed</code></li>
+</ol>
+</li>
+<li><code>rpm </code><ol>
+<li>安装： <code>rpm -ivh 包名</code></li>
+<li>查看：<code>rpm -qa  | grep “[包名(部分)]”</code></li>
+<li>删除：<code>rpm -e &quot;[包名]&quot;</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>基于源代码构建安装 ： python3.8 / 3.9</p>
+<ol>
+<li>移除自带的python3： <code>yum erase python3</code></li>
+<li>补充底层依赖：<code>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libdb4-devel libpcap-devel xz-devel libffi-devel libxml2</code></li>
+<li>下载python源代码：<code>wget https://www.python.org/ftp/python/3.9.11/Python-3.9.11.tgz</code></li>
+<li>解压解归档：<code>tar -zxf Python-3.9.11.tgz</code></li>
+<li>进入文件夹：<code>cd Python-3.9.11</code></li>
+<li>执行安装前的配置：<code>./configure --prefix=/usr/local/python39 </code>     &lt;安装python3.9&gt;</li>
+<li>构建和安装：<code>make &amp;&amp; make install</code></li>
+<li>配置环境变量：<ol>
+<li><code>export PATH=$PATH:/usr/local/python39/bin</code>  &lt;临时配置&gt;</li>
+<li>用户环境变量：<ol>
+<li>切换到用户目录下：<code>cd ~</code></li>
+<li>将python路径写入<code>.bash_profile</code>的最后一行：<code>echo &quot;export PATH=$PATH:/usr/local/python39/bin&quot; &gt;&gt; .bash_profile</code></li>
+</ol>
+</li>
+<li>系统环境变量的位置：<code>/etc/profile</code></li>
+</ol>
+</li>
+<li>创建软链接&lt;快捷方式&gt;：<code>ln -s /usr/local/python39 </code></li>
+</ol>
+<blockquote>
+<p>如果系统没有C语言环境：<code>yum install -y gcc</code></p>
+</blockquote>
+</li>
+<li><p>直接下载和系统匹配的二进制程序</p>
+<ol>
+<li>直接下载和系统匹配的二进制程序</li>
+<li>将可执行文件目录添加进环境变量</li>
+</ol>
+</li>
+</ol>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h4><ul>
+<li><p>启动服务</p>
+<ul>
+<li><code>systemctl start server</code></li>
+</ul>
+</li>
+<li><p>停止服务</p>
+<ul>
+<li><code>systemctl stop server</code></li>
+</ul>
+</li>
+<li><p>重启服务</p>
+<ul>
+<li><code>systrmctl restart server</code></li>
+</ul>
+</li>
+<li><p>查看服务状态</p>
+<ul>
+<li><code>systemctl status server</code></li>
+</ul>
+</li>
+<li><p>开启开机自启</p>
+<ul>
+<li><code>systemctl enable  server  </code></li>
+</ul>
+</li>
+<li><p>关闭开机自启</p>
+<ul>
+<li><code>systemctl disable server</code></li>
+</ul>
+</li>
+</ul>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="CentOS安装Mysql5-7"><a href="#CentOS安装Mysql5-7" class="headerlink" title="CentOS安装Mysql5.7"></a>CentOS安装Mysql5.7</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.38-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看mariodb</span></span><br><span class="line">rpm -qa | grep mariadb / yum list installed | grep &quot;mariadb&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">移除mariodb</span></span><br><span class="line">yum remove -y mariadb-libs</span><br><span class="line">rpm -ivh mysql-community-common-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-compat-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-devel-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装libaio libaio-devel依赖</span></span><br><span class="line">yum install -y libaio libaio-devel</span><br><span class="line">rpm -ivh mysql-community-server-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动MySQL</span></span><br><span class="line">systemctl start mysqld</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看初始随机密码</span></span><br><span class="line">cat /var/log/mysqld.log | grep &quot;password&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h4><ol>
+<li>创建用户：<code>useradd </code></li>
+<li>删除用户：<code>userdel</code></li>
+<li>修改密码：<code>passwd</code></li>
+<li>设置密码过期：<code>chage</code></li>
+<li>切换用户： <code>su</code></li>
+<li>添加组：<code>groupadd</code></li>
+<li>修改组：<code>chgrp</code></li>
+<li>修改文件所有 者：<code>chown</code></li>
+</ol>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="网络命令"><a href="#网络命令" class="headerlink" title="网络命令"></a>网络命令</h4><ul>
+<li><code>netstat</code>：查看网络（端口）使用情况</li>
+<li><code> scp</code>：跨主机安全拷贝文件<ul>
+<li><code>scp &lt; 文件名 &gt;  username@host :  &lt; 路径 &gt;</code></li>
+</ul>
+</li>
+<li><code>ssh</code>：安全远程连接</li>
+<li><code>ssh &lt;username&gt;@&lt;ip地址&gt; -t &lt;命令&gt;</code>：远程执行命令</li>
+<li><code>ssh -J &lt;跳板机信息1&gt;，&lt;跳板机信息2&gt;，&lt;....&gt;  &lt;内网地址&gt;</code> ：通过跳板机连接其他主机</li>
+<li><code>ping</code> ： 检查可达性</li>
+<li><code>ifcpnfig  / ip </code>：网络接口/网卡信息</li>
+<li><code>sftp</code>：安全文件传输<ul>
+<li><code>put</code>：上传文件</li>
+<li><code>get</code>：下载文件</li>
+<li><code>quit</code>：退出</li>
+<li><code>help</code>：查看帮助</li>
+</ul>
+</li>
+</ul>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="消息机制"><a href="#消息机制" class="headerlink" title="消息机制"></a>消息机制</h4><ol>
+<li>给指定用户发消息：<code>write 指定用户 xxxx  </code></li>
+<li>广播：<code>wall xxxx</code></li>
+</ol>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><ul>
+<li><p>用户环境变量：<code>/.bash_profile</code></p>
+<ul>
+<li>修改后，只对修改用户生效</li>
+</ul>
+</li>
+<li><p>系统环境变量：<code>/etc/profile</code></p>
+<ul>
+<li>修改后，对所有使用系统的人生效</li>
+</ul>
+</li>
+</ul>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="命令别名"><a href="#命令别名" class="headerlink" title="命令别名"></a>命令别名</h4><ul>
+<li>例如：<code>alias &#39;cls=clear&#39;</code></li>
+<li>查看所有别名：<code>alias</code></li>
+</ul>
+<p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
+<h4 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h4><ul>
+<li><p>查看启用的进程：<code>ps</code></p>
+<ul>
+<li>查看所有进程（包括后台进程）<ul>
+<li><code>ps -ef</code></li>
+<li><code>pf -aux</code></li>
+</ul>
+</li>
+<li>结束进程：<code>kill [端口号（PID）]</code><ul>
+<li><code>kill -9 进程号</code></li>
+<li><code>kill KILL 进程号</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>根据进程的名字搜索进程：<code>pgrep</code></p>
+</li>
+<li><p>根据敏子结束进程： <code>pkill [进程名]</code></p>
+</li>
+<li><p>任务管理器：<code>top</code></p>
+</li>
+<li><p>进程树：<code>pstree</code></p>
+</li>
+<li><p>查看后台任务：<code>jobs</code></p>
+</li>
+<li><p>将后台进程调到前台：<code>fg  %[进程号]</code></p>
+</li>
+<li><p>在后台启动停止进程：<code>dg %[进程号]</code></p>
+</li>
+<li><p>监听状态下的TCP协议的服务：<code>netstart -ntlp</code></p>
+<ul>
+<li><code>-n</code>： 显示IP地址</li>
+<li><code>-t</code>： TCP协议</li>
+<li><code>-l</code>： 监听状态</li>
+</ul>
+</li>
+<li><p>挂起进程：<code>命令后加 &amp;</code></p>
+</li>
+</ul>
+<h4 id="定时任务和shell脚本"><a href="#定时任务和shell脚本" class="headerlink" title="定时任务和shell脚本"></a>定时任务和shell脚本</h4><p>x: true</p>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法原理</title>
+    <url>/2022/06/02/%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="算法原理简介"><a href="#算法原理简介" class="headerlink" title="算法原理简介"></a>算法原理简介</h1><h2 id="1-KNN"><a href="#1-KNN" class="headerlink" title="1. KNN"></a>1. <strong>KNN</strong></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br></pre></td></tr></table></figure>
+
+
+
+<p>说明：KNN算法总体来说比较简单，建议校招的同学写上去。社招同学在被问到还会什么算法的时候才自爆会这些简单算法。总体来说这个算法基本原理需要人人都熟悉。</p>
+<p>原理：KNN是一种既可以用于分类又可用于回归的机器学习算法。对于给定测试样本，基于距离度量找出训练集中与其最靠近的K个训练样本，然后基于这K个邻居的信息来进行预测。</p>
+<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><p>当它使用训练数据训练好模型，而用测试数据进行预测的时候：</p>
+<ol>
+<li><p>计算测试数据与各个训练数据之间的距离</p>
+</li>
+<li><p>按照距离远近进行排序</p>
+</li>
+<li><p>选取距离最小的K个点</p>
+</li>
+<li><p>确定前K个点所在类别的出现频率，出现频率最高的类别作为测试数据的预测分类/计算前K个点的平均值作为测试数据的预测值 （机制类似bagging）</p>
+</li>
+</ol>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li><p>简单，易于理解，易于实现</p>
+</li>
+<li><p>精度高，对异常值不敏感</p>
+</li>
+<li><p>特别适合于多分类问题</p>
+</li>
+</ol>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
+<li><p>对测试样本分类时的计算量大，空间开销量大</p>
+</li>
+<li><p>当样本不平衡时，对稀有类别预测准确率低</p>
+</li>
+<li><p>可解释性不强</p>
+</li>
+<li><p>使用消极学习方法，基本上不学习，预测速度较慢</p>
+</li>
+</ol>
+<h2 id="2-逻辑回归："><a href="#2-逻辑回归：" class="headerlink" title="2.逻辑回归："></a>2.<strong>逻辑回归</strong>：</h2><p>（<code>LogisticRegression</code>，简称LR）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br></pre></td></tr></table></figure>
+
+
+
+<p>擅长处理分类问题 </p>
+<h3 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h3><ul>
+<li>在线性回归的基础上加入了<code>sigmoid</code>函数。本质上使用一个线性回归模型的预测结果取逼近真实标记的对数几率。</li>
+</ul>
+<p>$$<br>y = g(z) = \frac{1}{1+e^{-2}}<br>$$</p>
+<h3 id="2-优点："><a href="#2-优点：" class="headerlink" title="2. 优点："></a>2. 优点：</h3><blockquote>
+<p>分类时相对其他算法计算量很小，速度很快，消耗资源低。</p>
+<p>可以便利地观察样本的概率分数。</p>
+</blockquote>
+<h3 id="3-缺点："><a href="#3-缺点：" class="headerlink" title="3. 缺点："></a>3. 缺点：</h3><blockquote>
+<p>容易欠拟合，一般的准确度不太高。</p>
+<p>当样本的特征空间很大时，逻辑回归的性能不是很好。</p>
+</blockquote>
+<h3 id="4-应用："><a href="#4-应用：" class="headerlink" title="4. 应用："></a>4. 应用：</h3><blockquote>
+<p>常常用于二分类问题上，但同时也可以输出概率的回归数值。</p>
+<p>例如：是否为垃圾邮件，是否患病，金融诈骗，虚假账号</p>
+</blockquote>
+<h3 id="5-参数："><a href="#5-参数：" class="headerlink" title="5 .参数："></a>5 .参数：</h3><blockquote>
+<p><code>LogisticRegression</code>默认带了正则化项，<code>penalty</code>参数可选择的值为l1和l2,默认是l2正则化</p>
+<p>L1是模型各个参数的绝对值之和，L1趋向于产生少许的特征，而其余的特征都是0</p>
+<p>L2是模型各个参数的平方和的绝对值，L2会选择更多的特征，这些特征都会接近于0</p>
+<p>算法优化参数<code>solver </code>L1:<code>liblinear    </code>L2:<code>libnear</code>,<code>lbfgs</code>,<code>newton</code>-cg,sag</p>
+<p>梯度下降：<code>max_iter </code>最大迭代次数</p>
+</blockquote>
+<h2 id="3-朴素贝叶斯算法"><a href="#3-朴素贝叶斯算法" class="headerlink" title="3. 朴素贝叶斯算法"></a>3. <strong>朴素贝叶斯算法</strong></h2><p>(高斯朴素贝叶斯，多项式朴素贝叶斯，伯努利朴素贝叶斯）</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> BernoulliNB</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-原理：-1"><a href="#1-原理：-1" class="headerlink" title="1.原理："></a>1.原理：</h3><ul>
+<li>在假设每个条件都独立的情况下，以贝叶斯定理为基础，利用概率统计对样本数据集进行分类。</li>
+</ul>
+<h3 id="2-优点：-1"><a href="#2-优点：-1" class="headerlink" title="2. 优点："></a>2. 优点：</h3><ol>
+<li><p>简单快速，预测表现良好</p>
+</li>
+<li><p>直接使用概率预测，通常容易理解</p>
+</li>
+<li><p>如果变量满足独立条件，相比逻辑回归等其他分类算法，朴素贝叶斯分类器性能更优，只需要少量训练数据</p>
+</li>
+<li><p>相较于数值变量，朴素贝叶斯分类器在多个分类变量的情况下表现更好。若是数值变量，需要正态分布假设</p>
+</li>
+</ol>
+<h3 id="3-缺点：-1"><a href="#3-缺点：-1" class="headerlink" title="3. 缺点："></a>3. 缺点：</h3><ol>
+<li><p>朴素贝叶斯模型对于属性个数较多，属性之间相关性较大时，分类效果不好。</p>
+</li>
+<li><p>需要知道先验概率，且先验概率很多时候取决于假设，假设的模型可以有很多种，因此在某些时候会由于假设的先验模型的原因导致预测效果不佳。</p>
+</li>
+<li><p>由于我们是通过先验和数据来决定后验的概率从而决定分类，所以分类决策存在一定错误率。</p>
+</li>
+<li><p>对输入数据的表达形式很敏感。</p>
+</li>
+</ol>
+<h3 id="4-应用：-1"><a href="#4-应用：-1" class="headerlink" title="4. 应用："></a>4. 应用：</h3><ul>
+<li>实时预测，多类预测，文本分类/垃圾邮件/情感分析，推荐系统（过滤用户想看到和不想看到的东西</li>
+</ul>
+<h2 id="4-决策树"><a href="#4-决策树" class="headerlink" title="4. 决策树"></a>4. <strong>决策树</strong></h2><p>原理：</p>
+<p>决策树基于树结构，从顶往下，依次对样本的（一个或多个）属性进行判断，直到决策树的叶节点并导出最终结果。决策树的划分原则就是：将无序的数据变得更加有序。</p>
+<p>​                 <img src="https://docimg10.docs.qq.com/image/Sb7k5YgbIcDzpTa_ulWbjg.png?w=976&h=186" alt="img">        </p>
+<p><strong>信息增益</strong>：</p>
+<p><code>ID3     </code>在划分数据集之前之后信息发生的变化成为信息增益</p>
+<p><code>ID3</code>算法就是在每次需要分裂时，计算每个属性的增益率，然后选择增益率最大的属性进行分裂。</p>
+<p><strong>信息增益比</strong>：</p>
+<p><code>C4.5   </code>信息增益与训练数据集的经验熵之比</p>
+<p><strong><code>CART</code>分类算法</strong>是：</p>
+<p>根据基尼（<code>gini</code>）系数来选择测试属性，<code>gini</code>系数的值越小，划分效果越好。</p>
+<p><strong>决策树模型参数</strong>：</p>
+<p><code>max_features</code>: None(所有） log2，sqrt, N特征小于50的时候一般使用所有的</p>
+<p><code>max_depth</code>: 设置决策随机森林中的决策树的最大深度，深度越大，越容易过拟合，推荐树的深度为5~20之间</p>
+<p><code>min_samples_split</code>:设置结点的最小样本数量，当样本数量可能小于此值时，结点将不会再划分</p>
+<p><code>min_samples_leaf</code>:这个值限制了叶子节点最小的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝</p>
+<h4 id="1-优点："><a href="#1-优点：" class="headerlink" title="1. 优点："></a>1. 优点：</h4><p>决策树有利于理解，可解释性好。</p>
+<p>可以进行可视化分析，容易提取出规则。</p>
+<p>比较适合处理有缺失属性的样本。</p>
+<p>测试数据集时，运行速度较快。</p>
+<h4 id="2-缺点："><a href="#2-缺点：" class="headerlink" title="2.缺点："></a>2.缺点：</h4><p>容易发生过拟合。（集成学习模型特别是随机森林可以一定程度上防止过拟合）</p>
+<p>容易忽略数据集中属性的相互关联。</p>
+<h2 id="5-集成学习"><a href="#5-集成学习" class="headerlink" title="5. 集成学习"></a>5. <strong>集成学习</strong></h2><p>一种思想:组合多个弱监督模型得到一个更好更全面的强监督模型</p>
+<p>分为：序列集成方法（<code>Boosting</code>）和并行集成方法（<code>Bagging</code>）</p>
+<p><strong>序列集成方法</strong>（<code>Boosting</code>）：<code>boosting</code>方法在弱模型上表现很好（例如浅层决策树）。首先对所有训练集进行学习，然后通过对训练中错误标记的样本赋值较高的权重不断学习，最后通过加法模型将弱分类器进行线性组合，提高整体的预测效果。</p>
+<p>代表算法：<code>AdaBoost、GBDT</code></p>
+<p><code>AdaBoost</code>参数：</p>
+<p><code>base_estimator</code>:基分类器，默认决策树，在该分类器基础上进行<code>boosting</code></p>
+<p><code>n_estimators</code>:基分类器提升（循环）次数，默认是50次，这个值过大，模型容易过拟合；值过小，模型容易欠拟合</p>
+<p><code>learning_rate</code>：学习率，表示梯度收敛速度，默认为1</p>
+<p><code>Adaboost</code>的总结： </p>
+<p>在分类错误的部分增加训练权重，而在训练的过程是通过降低偏差来不断提高最终分类器的精度。</p>
+<p>弱分类器一般会选择为CARTRE(也就是分类回归树)。由于上述高偏差和简单的要求每个分类回归树的深度不会很深。最终的总分类器是将每轮训练得到的弱分类最加权求和得到的〈(也就是加法模型)。</p>
+<p>具体步骤：</p>
+<p>1、首先，初始化训练数据的权值分布</p>
+<p>2、进行多轮迭代</p>
+<p>a 、使用具有权值分布Dm的训练数据集学习，得到基本分类器</p>
+<p>b 、计算<code>Gm(x)</code>在训练数据集上的分类误差率</p>
+<p>c 、计算<code>Gm(x)</code>的系数，<code>am</code>表示<code>Gm(x)</code>在最终分类器中的重要程度 (目的：得到基本分类器在最终分类器中所占的权重) </p>
+<p>d 、更新训练数据集的权值分布（为了得到样本的新的权值分布），用于下一轮迭代 </p>
+<p>3、组合各个弱分类器，得到最终分类器</p>
+<p><strong>并行集成方法</strong>（<code>Bagging</code>）(装袋法)：利用基础学习器之间的独立性，通过平均可以显著降低错误。因为<code>bagging</code>方法可以减小过拟合，所以通常在强分类器和复杂模型上使用时表现得很好（例如完全生长得决策树）</p>
+<p><code>Bagging</code>核心为<code>bootstrap</code>(自助采样法），算法过程如下：</p>
+<ol>
+<li><p>从原始样本集中抽取训练集，每轮从原始样本集中有放回地抽取n个训练样本，共进行k轮抽取，得到k个训练集</p>
+</li>
+<li><p>每次使用一个训练集得到一个模型，k个训练集得到k个模型</p>
+</li>
+<li><p>对于分类问题，将上步得到地k个模型采用投票方式得到分类结果。对于回归问题，计算模型地均值作为最后结果</p>
+</li>
+</ol>
+<p><code>Bagging</code>参数：</p>
+<p><code>base_estimator</code>基学习器</p>
+<p><code>n_estimators</code>基学习器数量 </p>
+<p><code>max_samples</code>随机样本集的最大个数 </p>
+<p><code>max_features</code>随机特征子集的最大个数 </p>
+<p><code>bootstrap</code>控制样本是否有放回取样(bootstrap=True,表示有放回取样) </p>
+<p><code>bootstrap_features</code>控制特征是否是有放回取样</p>
+<p><strong>bagging</strong>代表算法：</p>
+<h6 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h6><p>原理：以树模型为基础学习器的bagging算法。（描述决策树的原理 + bagging的原理）</p>
+<p>随机方式：样本随机 特征随机 参数随机 模型随机（ID3,C4.5)</p>
+<h4 id="1-优点：-1"><a href="#1-优点：-1" class="headerlink" title="1. 优点："></a>1. 优点：</h4><p>它可以拟合出来很高维度（特征很多）的数据，并且不用降维，无需做特征选择它可以判断特征的重要程度</p>
+<p>能一定程度防止过拟合</p>
+<p>对于不平衡的数据集来说，它可以平衡误差。</p>
+<p>如果有很大一部分的特征遗失，仍可以维持准确度。</p>
+<h4 id="2-缺点：-1"><a href="#2-缺点：-1" class="headerlink" title="2. 缺点："></a>2. 缺点：</h4><p>在某些噪音较大的分类或回归问题上会过拟合。</p>
+<p>取值划分较多的属性会对随机森林产生更大的影响。</p>
+<h4 id="3-Extra-Trees极限树"><a href="#3-Extra-Trees极限树" class="headerlink" title="3. Extra Trees极限树"></a>3. Extra Trees极限树</h4><p>原理：算法与随机森林算法十分相似，都是由许多决策树构成。</p>
+<p>随机方式：特征随机 参数随机 模型随机<code>（ID3 ,C4.5） </code>分裂随机 </p>
+<h4 id="4-极限树与随机森林的主要区别："><a href="#4-极限树与随机森林的主要区别：" class="headerlink" title="4. 极限树与随机森林的主要区别："></a>4. 极限树与随机森林的主要区别：</h4><ol>
+<li><p><code>randomForest</code>应用的是Bagging模型，<code>extraTree</code>使用的所有的样本，极限树的分裂是随机选取的，因为分裂是随机的，所以在某种程度上比随机森林得到的结果更加好。</p>
+</li>
+<li><p>随机森林是在一个随机子集内得到最佳分叉属性，而ET是完全随机的得到分叉值，从而实现对决策树进行分叉的。 </p>
+</li>
+</ol>
+<h4 id="5-GBDT简要原理："><a href="#5-GBDT简要原理：" class="headerlink" title="5. GBDT简要原理："></a>5. GBDT简要原理：</h4><p><code>DT</code>是<code>Decision Tree</code>决策树，<code>GB</code>是<code>Gradient Boosting</code>（梯度推进、梯度提升），GBDT是一种学习策略，<code>GBDT</code>就是用<code>Gradient Boosting</code>的策略训练出来的<code>DT</code>决策树模型。模型的结果是一组回归分类树组合<code>(CART Tree nsemble)T(1)......T(k) </code>。其中<code>T(j)</code> 模型的参数学习的是之前(j-i) 棵树预测结果的残差。</p>
+<p><code>GBDT</code>思想：就像准备考试前的复习，先做一遍习题册，然后把做错的题目挑出来，在做一次，然后把做错的题目挑出来在做一次，经过反复多轮训练，取得最好的成绩。</p>
+<h4 id="6-GBDT优缺点："><a href="#6-GBDT优缺点：" class="headerlink" title="6. GBDT优缺点："></a>6. GBDT优缺点：</h4><ol>
+<li>GBDT优点</li>
+</ol>
+<blockquote>
+<p>可以灵活处理各种类型的数据，包括连续值和离散值。</p>
+<p>在相对较少的调参时间情况下，预测的准确率也比较高，相对SVM而言。</p>
+<p>在使用一些健壮的损失函数，对异常值得鲁棒性非常强。比如Huber损失函数和Quantile损失函数。</p>
+</blockquote>
+<ol start="2">
+<li>GBDT缺点</li>
+</ol>
+<p>由于弱学习器之间存在较强依赖关系，难以并行训练。可以通过自采样的SGBT来达到部分并行。</p>
+<p><strong>重点描述：我们后一棵树，拟合（学习）前面的树预测结果的残差。为什么是残差？残差是我定义的损失函数（MSE）的一阶导，损失的一阶导是损失下降的最快的方向。</strong></p>
+<p><code>XGBoost</code>：该算法思想是基于决策树，通过<code>boosting</code>算法的方式，在<code>GBDT</code>基础上的工程实现，它不断地进行特征分裂来生长一棵树，每次添加一个树，其实是学习一个新函数，去拟合上次预测的残差，本质上是对上次预测失败的部分再进行预测并且为继续失败的部分赋予更高的权重的过程。当我们训练完成得到k棵树，我们要预测一个样本的分数，其实就是根据这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数，最后只需要将每棵树对应的分数加起来就是该样本的预测值。</p>
+<ol start="3">
+<li><code>XGBoost</code>与GBDT有什么不同：</li>
+</ol>
+<p>除了算法上与传统的GBDT有一些不同外，<code>XGBoost</code>还在工程实现上做了大量的优化。总的来说，两者之间的区别和联系可以总结成以下几个方面。</p>
+<blockquote>
+<ol>
+<li><p>GBDT是机器学习算法，<code>XGBoost</code>是该算法的工程实现。</p>
+</li>
+<li><p>在使用CART作为基分类器时，<code>XGBoost</code>显式地加入了正则项来控制模型的复杂度，有利于防止过拟合，从而提高模型的泛化能力。</p>
+</li>
+<li><p>GBDT在模型训练时只使用了代价函数的一阶导数信息，<code>XGBoost</code>对代 价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。</p>
+</li>
+<li><p>传统的GBDT采用CART作为基分类器，<code>XGBoost</code>支持多种类型的基分类器，比如线性分类器。</p>
+</li>
+<li><p>传统的GBDT在每轮迭代时使用全部的数据，<code>XGBoost</code>则采用了与随机森林相似的策略，支持对数据进行采样。</p>
+</li>
+<li><p>传统的GBDT没有设计对缺失值进行处理，<code>XGBoost</code>能够自动学习出缺失值的处理策略。</p>
+</li>
+</ol>
+</blockquote>
+<p><strong><code>VotingClassifier</code></strong></p>
+<p>导入：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble  <span class="keyword">import</span> VotingClassifier</span><br></pre></td></tr></table></figure>
+
+<p>用法：<code>VotingClassifier(estimators)</code>   其中<code>estimators</code>是列表套元组的方式<code>list of [(),(),(),....]：[(str,estimator)]</code></p>
+<h4 id="7-决策原理："><a href="#7-决策原理：" class="headerlink" title="7. 决策原理："></a>7. 决策原理：</h4><ol>
+<li>Hard硬方式：<code>voting=&#39;hard&#39;</code></li>
+</ol>
+<p>用多种机器学习方法得到的结果进行投票，少数服从多数得到结果。</p>
+<ol>
+<li>Soft软方式：<code>voting=&#39;soft&#39;</code></li>
+</ol>
+<p>将所有模型预测样本为某一类别的概率的平均值作为标准，概率最高的对应的类型为最终结果。</p>
+<h2 id="6-K-means算法——聚类"><a href="#6-K-means算法——聚类" class="headerlink" title="6. K-means算法——聚类"></a>6. <strong>K-means算法——聚类</strong></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-聚类："><a href="#1-聚类：" class="headerlink" title="1. 聚类："></a>1. 聚类：</h4><blockquote>
+<p>一种无监督的学习，事先不知道类别，自动将相似的对象归到同一个簇中</p>
+</blockquote>
+<h4 id="2-算法原理："><a href="#2-算法原理：" class="headerlink" title="2. 算法原理："></a>2. 算法原理：</h4><p> 从训练集中随机选取k个中心点，通过计算每一个样本与中心之间的距离，将样本点归到最相似的类中，接着重新计算每个类的中心，重复这样的过程，直到中心不再改变，最终确定了每个样本所属的类别以及每个类的中心。</p>
+<h4 id="3-算法步骤："><a href="#3-算法步骤：" class="headerlink" title="3. 算法步骤："></a>3. 算法步骤：</h4><ol>
+<li><p>从数据中选择k个对象作为初始聚类中心；</p>
+</li>
+<li><p>计算每个聚类对象到聚类中心的距离来划分；</p>
+</li>
+<li><p>再次计算每个聚类中心；</p>
+</li>
+<li><p>计算标准测度函数，直到达到最大迭代次数，则停止，否则，继续操作；</p>
+</li>
+<li><p>确定最优的聚类中心。</p>
+</li>
+</ol>
+<h4 id="4-应用举例"><a href="#4-应用举例" class="headerlink" title="4. 应用举例:"></a>4. 应用举例:</h4><ol>
+<li><p>文档分类器</p>
+</li>
+<li><p>客户分类</p>
+</li>
+<li><p>保险欺诈检测</p>
+</li>
+<li><p>乘车数据分析</p>
+</li>
+</ol>
+<h3 id="KMeans-模型评价："><a href="#KMeans-模型评价：" class="headerlink" title="KMeans 模型评价："></a><code>KMeans </code>模型评价：</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_samples</span><br></pre></td></tr></table></figure>
+
+
+
+<p>其中<code>silhouette_score</code>是返回所有点的平均轮廓系数,<code>silhouette_samples</code>返回每个点的轮廓系数</p>
+<p>某个点的轮廓系数定义：<br>$$<br>S=\frac{disMean_{out} - disMean_{in}}{max(disMean_{out}, disMean_{in})}<br>$$</p>
+<p>​                 <img src="https://docimg8.docs.qq.com/image/DJeW4GbxeYvHINVfabHDtQ.png?w=715&h=115" alt="img">        </p>
+<p><code>disMean&#123;in&#125;</code>为该点与本类其他点的平均距离</p>
+<p><code>disMean&#123;out&#125;</code>为该点与非本类点的平均距离。</p>
+<p><code>KMeans</code>模型评价：轮廓系数s，取值范围[-1,1]，越接近于1，说明聚类越优秀</p>
+<p>聚类的个数应该由业务需求给定，而不是根据轮廓系数来判断，轮廓系数是在已知聚类个数的需求的前提下，针对特征工程处理的优化程度的评价。</p>
+<h2 id="7-SVM-支持向量机"><a href="#7-SVM-支持向量机" class="headerlink" title="7. **SVM 支持向量机    **"></a>7. **SVM 支持向量机    **</h2><p><strong>（有监督模型/无监督模型/半监督模型）</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-最大边际分类器）"><a href="#1-最大边际分类器）" class="headerlink" title="1. (最大边际分类器）"></a>1. (最大边际分类器）</h4><p>原理：SVM是通过高维度的方式来解决低维度上的问题，是在线性不可分的情况下解决分类和回归问题的一种强有力的算法。使用不同的核函数可以在各种不同的情况下以各种高维度思路来解决低维度的问题。</p>
+<p>SVM的损失函数最初形态：</p>
+<p>​                 <img src="https://docimg9.docs.qq.com/image/H3-TqPQKVd4L68kjEZt96w.png?w=575&h=112" alt="img">        </p>
+<h4 id="2-核函数："><a href="#2-核函数：" class="headerlink" title="2. 核函数："></a>2. <strong>核函数：</strong></h4><p>核函数，又叫做“核技巧”(Kernel Trick)，是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。</p>
+<p>目的是为了解决以下问题：</p>
+<ol>
+<li><p>有了核函数之后，我们无需去担心究竟应该是什么样，因为非线性SVM中的核函数都是正定核函 数，他们都满足美世定律，确保了高维空间中任意两个向量的点积一定可以被低维空间中的这两个向量的某种计算来表示（多数时候是点积的某种变换）。</p>
+</li>
+<li><p>使用核函数计算低维度中的向量关系比计算原本的映射函数                 <img src="https://docimg8.docs.qq.com/image/K-qvA5Jj64vsrBnqyDg4Ig.png?w=188&h=67" alt="img">        要简单太多</p>
+</li>
+</ol>
+<p>计算是在原始空间中进行，所以避免了维度诅咒的问题</p>
+<p>SKlearn 中的核函数，用Kernel选择：</p>
+<p>​                 <img src="https://docimg3.docs.qq.com/image/wmdV7a9SdV8sntWR-J0cHw.png?w=1280&h=350.42944785276075" alt="img">        </p>
+<h2 id="8-降维方式"><a href="#8-降维方式" class="headerlink" title="8. 降维方式"></a>8. <strong>降维方式</strong></h2><h4 id="1-降维说明："><a href="#1-降维说明：" class="headerlink" title="1. 降维说明："></a>1. 降维说明：</h4><blockquote>
+<p>通过保留一些重要特征，减少数据的维度的方法。</p>
+<p>降维后的最终目标是各个属性维度之间线性无关。</p>
+</blockquote>
+<h4 id="2-降维的要点："><a href="#2-降维的要点：" class="headerlink" title="2. 降维的要点："></a>2. 降维的要点：</h4><blockquote>
+<p>首先让特征之间不相关，在不相关中选择最重要的特征（分布方差最大）。</p>
+<p>每个新特征是所有原特征的线性组合，原特征并没有改变，是特征工程的一个方法</p>
+<p>分布方差最大：最大限度的保留了原始数据的原貌</p>
+<p>特征值就是分布方差</p>
+</blockquote>
+<h4 id="3-降维作用"><a href="#3-降维作用" class="headerlink" title="3. 降维作用:"></a>3. 降维作用:</h4><ol>
+<li>降低时间复杂度和空间复杂度;</li>
+<li>节省了提取不必要特征的时间开销和空间开销;</li>
+<li>去掉数据集中夹杂的噪声;</li>
+<li>当数据能有较少的特征进行解释,我们可以更好的解释数据,使得我们可以提取知识;</li>
+<li>实现数据可视化</li>
+</ol>
+<h4 id="4-降维的好处："><a href="#4-降维的好处：" class="headerlink" title="4. 降维的好处："></a>4. 降维的好处：</h4><ol>
+<li>节省存储空间。数据压缩（数据在低维下更容易使用处理）。</li>
+<li>降低算法的开销，加快机器学习中的计算速度，提高效率。</li>
+<li>去除一些冗余的特征。消除冗余，去除噪声，降低维度灾难。</li>
+</ol>
+<p>数据噪声：</p>
+<blockquote>
+<p>噪声数据是指数据中存在着错误或异常（偏离期望值）的数据，这些数据对数据的分析造成了干扰。</p>
+</blockquote>
+<ol>
+<li>有利于数据可视化，以便观察和挖掘数据的特征。</li>
+</ol>
+<p>无监督降维：PCA主成分分析法 </p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br></pre></td></tr></table></figure>
+
+
+
+<p>PCA用于对一组连续正交分量中的多变量数据集进行方差最大方向的分解。是一种常用的线性降维数据分析方法，其实质是在能尽可能好的代表原特征的情况下，将原特征进行线性变换、映射至低维度空间中。也就是将N维特征映射到K维空间上，K&lt;N，这K维特征是线性无关的。</p>
+<p>注意：这是重新构造出来的K维特征，而不是简单地从N维特征中去除其余N-K维特征，因为有可能是某些新特征可能是几个原特征经过变换而来的；这也是特征选择和特征提取的根本区别。</p>
+<p>PCA核心问题：协方差矩阵的分解</p>
+<p>PCA优点：</p>
+<ol>
+<li>保留绝大部分信息；</li>
+<li>消除评价指标之间的相关影响；</li>
+<li>计算方法简单，易于在计算机上实现。</li>
+</ol>
+<p>PCA缺点：</p>
+<ol>
+<li>主成分分析往往具有一定模糊性，不如原始变量的含义那么清楚、确切。</li>
+</ol>
+<p>有监督降维：LDA线性判别分析法   <code>from sklearn.discriminant_analysis import LinearDiscriminantAnalysis</code></p>
+<p>LDA思想：投影后类内方差最小，类间方差最大。</p>
+<p>LDA算法的优点：</p>
+<ol>
+<li>在降维过程中可以使用类别的先验知识经验，而像PCA这样的无监督学习则无法使用类别先验知识。</li>
+<li>LDA在样本分类信息依赖均值而不是方差的时候，比PCA之类的算法较优。</li>
+</ol>
+<p>LDA算法的缺点：</p>
+<ol>
+<li>LDA不适合对非高斯分布样本进行降维，PCA也有这个问题。</li>
+<li>LDA降维最多降到类别数K-1的维数，如果我们降维的维度大于K-1，则不能使用LDA。当然，目前有一些LDA的进化版算法可以绕过这个问题。</li>
+<li>LDA在样本分类信息依赖方差而不是均值的时候，降维效果不好。</li>
+<li>LDA可能过度拟合数据。</li>
+</ol>
+<p>LDA和PCA的区别：</p>
+<p>相同点：</p>
+<ol>
+<li>PCA和LDA均可以对数据进行降维。</li>
+<li>两者在降维时均使用了矩阵特征分解的思想。</li>
+<li>两者都假设数据符合高斯分布。</li>
+</ol>
+<p>不同点：</p>
+<ol>
+<li>LDA是有监督的降维方法，而PCA是无监督的降维方法。</li>
+<li>LDA降维最多降到类别数K-1的维数，而PCA则没有这个限制。</li>
+<li>LDA除了可以用于降维，还可以用于分类。</li>
+<li>LDA选择分类性能最好的投影方向，而PCA选择样本点具有最大方差的投影方向。</li>
+</ol>
+<p>基础知识补充</p>
+<h2 id="9-ElasticSearch"><a href="#9-ElasticSearch" class="headerlink" title="9. ElasticSearch"></a>9. <strong><code>ElasticSearch</code></strong></h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><blockquote>
+<p> <code>ElasticSearch</code>是一个基于<code>Lucene</code>的搜索服务器，它提供了一个分布式多用户的全文搜索引擎。</p>
+</blockquote>
+<p>####原理：</p>
+<blockquote>
+<p>首先用户将数据提交到<code>ElasticSearch </code>数据库中，再通过分词控制器去将对应的语句分词，将其权重和分词结果一并存入数据，当用户搜索数据时候，再根据权重将结果排名，打分，再将返回结果呈现给用户。</p>
+</blockquote>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ol>
+<li>免费开源的搜索引擎</li>
+<li>分布式的实时文件存储，每个字段都被索引并可被搜索</li>
+<li>实时分析的分布式搜索引擎</li>
+<li>可以扩展到上百台服务器，处理 PB 级结构化或非结构化数据</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+</search>
