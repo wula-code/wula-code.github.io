@@ -544,8 +544,8 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/06/09/%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/</url>
+    <title>算法原理简介</title>
+    <url>/2022/06/02/%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="算法原理简介"><a href="#算法原理简介" class="headerlink" title="算法原理简介"></a>算法原理简介</h1><h2 id="1-KNN"><a href="#1-KNN" class="headerlink" title="1. KNN"></a>1. <strong>KNN</strong></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br></pre></td></tr></table></figure>
 
 <p>说明：KNN算法总体来说比较简单，建议校招的同学写上去。社招同学在被问到还会什么算法的时候才自爆会这些简单算法。总体来说这个算法基本原理需要人人都熟悉。</p>
@@ -992,5 +992,8 @@
 <li>可以扩展到上百台服务器，处理 PB 级结构化或非结构化数据</li>
 </ol>
 ]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
   </entry>
 </search>
