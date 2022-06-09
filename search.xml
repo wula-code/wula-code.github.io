@@ -18,10 +18,7 @@
   <entry>
     <title>vim语法</title>
     <url>/2022/06/02/Vim/</url>
-    <content><![CDATA[<ol start="8">
-<li>Vim</li>
-</ol>
-<ul>
+    <content><![CDATA[<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
 <li><p>末行模式</p>
 <ul>
 <li><code>set nu</code> - 显示行号</li>
