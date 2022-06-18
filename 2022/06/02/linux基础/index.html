@@ -42,6 +42,8 @@
     <link rel="canonical" href="http://wlstory.xyz/2022/06/02/linux%E5%9F%BA%E7%A1%80/"/>
 
                  
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
 <body class="home-template no-js">
@@ -76,8 +78,6 @@
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
               <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
-            
-              <li class="navigation__item"><a href="/archives">Blog</a></li>
             
               <li class="navigation__item"><a href="/favourite">学习笔记</a></li>
             
@@ -115,13 +115,6 @@
 
   
 <!-- Twitter -->
-
-  <li class="navigation__item">
-    <a href="https://twitter.com/onlymonniya" title="Twitter" target="_blank">
-      <i class='social fa fa-twitter'></i>
-      <span class="label">Twitter</span>
-    </a>
-  </li>
 
   
 
@@ -430,7 +423,7 @@
 <li><code>rpm </code><ol>
 <li>安装： <code>rpm -ivh 包名</code></li>
 <li>查看：<code>rpm -qa  | grep “[包名(部分)]”</code></li>
-<li>删除：<code>rpm -e &quot;[包名]&quot;</code></li>
+<li>删除：<code>rpm -e "[包名]"</code></li>
 </ol>
 </li>
 </ol>
@@ -448,7 +441,7 @@
 <li><code>export PATH=$PATH:/usr/local/python39/bin</code>  &lt;临时配置&gt;</li>
 <li>用户环境变量：<ol>
 <li>切换到用户目录下：<code>cd ~</code></li>
-<li>将python路径写入<code>.bash_profile</code>的最后一行：<code>echo &quot;export PATH=$PATH:/usr/local/python39/bin&quot; &gt;&gt; .bash_profile</code></li>
+<li>将python路径写入<code>.bash_profile</code>的最后一行：<code>echo "export PATH=$PATH:/usr/local/python39/bin" &gt;&gt; .bash_profile</code></li>
 </ol>
 </li>
 <li>系统环境变量的位置：<code>/etc/profile</code></li>
@@ -501,7 +494,7 @@
 </li>
 </ul>
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
-<h4 id="CentOS安装Mysql5-7"><a href="#CentOS安装Mysql5-7" class="headerlink" title="CentOS安装Mysql5.7"></a>CentOS安装Mysql5.7</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.38-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看mariodb</span></span><br><span class="line">rpm -qa | grep mariadb / yum list installed | grep &quot;mariadb&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">移除mariodb</span></span><br><span class="line">yum remove -y mariadb-libs</span><br><span class="line">rpm -ivh mysql-community-common-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-compat-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-devel-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装libaio libaio-devel依赖</span></span><br><span class="line">yum install -y libaio libaio-devel</span><br><span class="line">rpm -ivh mysql-community-server-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动MySQL</span></span><br><span class="line">systemctl start mysqld</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看初始随机密码</span></span><br><span class="line">cat /var/log/mysqld.log | grep &quot;password&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="CentOS安装Mysql5-7"><a href="#CentOS安装Mysql5-7" class="headerlink" title="CentOS安装Mysql5.7"></a>CentOS安装Mysql5.7</h4><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.38-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看mariodb</span></span><br><span class="line">rpm -qa | grep mariadb / yum list installed | grep "mariadb"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">移除mariodb</span></span><br><span class="line">yum remove -y mariadb-libs</span><br><span class="line">rpm -ivh mysql-community-common-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-compat-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-devel-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装libaio libaio-devel依赖</span></span><br><span class="line">yum install -y libaio libaio-devel</span><br><span class="line">rpm -ivh mysql-community-server-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动MySQL</span></span><br><span class="line">systemctl start mysqld</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看初始随机密码</span></span><br><span class="line">cat /var/log/mysqld.log | grep "password"</span><br></pre></td></tr></tbody></table></figure>
 
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
 <h4 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h4><ol>
@@ -554,7 +547,7 @@
 </ul>
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
 <h4 id="命令别名"><a href="#命令别名" class="headerlink" title="命令别名"></a>命令别名</h4><ul>
-<li>例如：<code>alias &#39;cls=clear&#39;</code></li>
+<li>例如：<code>alias 'cls=clear'</code></li>
 <li>查看所有别名：<code>alias</code></li>
 </ul>
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
@@ -638,17 +631,18 @@ ZZ
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Older Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2022/06/02/算法原理/" title="算法原理简介">算法原理简介</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2022/06/02/GIT/" title="Git">Git</a></h2>
                 <p class="excerpt">
                 
-                算法原理简介1. KNN123from sklearn.neighbors import KNeighborsClassifierfrom sklearn.neighbors import KNeighborsRegressor
+                Git的奇技淫巧🙈
+Git常用命令集合，Fork于tips项目
 
-说明：KNN算法总体来说比较简单，建议校招的同学写上去。社招同学在被
+Git是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2022-06-01T16:00:00.000Z" class="post-list__meta--date date">2022-06-02</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="-none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
-</span><a class="btn-border-small" href="/2022/06/02/算法原理/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2022/06/02/GIT/">继续阅读</a></div>
                        
             </div>
         
@@ -723,5 +717,5 @@ ZZ
     <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>

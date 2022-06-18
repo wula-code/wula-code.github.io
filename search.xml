@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Python编程惯例</title>
-    <url>/2022/06/06/Python/</url>
-    <content><![CDATA[<h2 id="Python惯例"><a href="#Python惯例" class="headerlink" title="Python惯例"></a>Python惯例</h2><p>“惯例”这个词指的是“习惯的做法，常规的办法，一贯的做法”，与这个词对应的英文单词叫“idiom”。由于Python跟其他很多编程语言在语法和使用上还是有比较显著的差别，因此作为一个Python开发者如果不能掌握这些惯例，就无法写出“Pythonic”的代码。下面我们总结了一些在Python开发中的惯用的代码。</p>
-<ol>
-<li><p>让代码既可以被导入又可以被执行。<br>if <strong>name</strong> == ‘<strong>main</strong>‘:</p>
-</li>
-<li><p>用下面的方式判断逻辑“真”或“假”。<br>if x:<br>if not x:</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python基础</category>
-      </categories>
-  </entry>
-  <entry>
     <title>vim语法</title>
     <url>/2022/06/02/Vim/</url>
     <content><![CDATA[<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
@@ -370,7 +355,7 @@
 <li><code>rpm </code><ol>
 <li>安装： <code>rpm -ivh 包名</code></li>
 <li>查看：<code>rpm -qa  | grep “[包名(部分)]”</code></li>
-<li>删除：<code>rpm -e &quot;[包名]&quot;</code></li>
+<li>删除：<code>rpm -e "[包名]"</code></li>
 </ol>
 </li>
 </ol>
@@ -388,7 +373,7 @@
 <li><code>export PATH=$PATH:/usr/local/python39/bin</code>  &lt;临时配置&gt;</li>
 <li>用户环境变量：<ol>
 <li>切换到用户目录下：<code>cd ~</code></li>
-<li>将python路径写入<code>.bash_profile</code>的最后一行：<code>echo &quot;export PATH=$PATH:/usr/local/python39/bin&quot; &gt;&gt; .bash_profile</code></li>
+<li>将python路径写入<code>.bash_profile</code>的最后一行：<code>echo "export PATH=$PATH:/usr/local/python39/bin" &gt;&gt; .bash_profile</code></li>
 </ol>
 </li>
 <li>系统环境变量的位置：<code>/etc/profile</code></li>
@@ -441,7 +426,7 @@
 </li>
 </ul>
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
-<h4 id="CentOS安装Mysql5-7"><a href="#CentOS安装Mysql5-7" class="headerlink" title="CentOS安装Mysql5.7"></a>CentOS安装Mysql5.7</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.38-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看mariodb</span></span><br><span class="line">rpm -qa | grep mariadb / yum list installed | grep &quot;mariadb&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">移除mariodb</span></span><br><span class="line">yum remove -y mariadb-libs</span><br><span class="line">rpm -ivh mysql-community-common-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-compat-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-devel-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装libaio libaio-devel依赖</span></span><br><span class="line">yum install -y libaio libaio-devel</span><br><span class="line">rpm -ivh mysql-community-server-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动MySQL</span></span><br><span class="line">systemctl start mysqld</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看初始随机密码</span></span><br><span class="line">cat /var/log/mysqld.log | grep &quot;password&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="CentOS安装Mysql5-7"><a href="#CentOS安装Mysql5-7" class="headerlink" title="CentOS安装Mysql5.7"></a>CentOS安装Mysql5.7</h4><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.38-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看mariodb</span></span><br><span class="line">rpm -qa | grep mariadb / yum list installed | grep "mariadb"</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">移除mariodb</span></span><br><span class="line">yum remove -y mariadb-libs</span><br><span class="line">rpm -ivh mysql-community-common-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-compat-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-devel-5.7.38-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装libaio libaio-devel依赖</span></span><br><span class="line">yum install -y libaio libaio-devel</span><br><span class="line">rpm -ivh mysql-community-server-5.7.38-1.el7.x86_64.rpm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动MySQL</span></span><br><span class="line">systemctl start mysqld</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看初始随机密码</span></span><br><span class="line">cat /var/log/mysqld.log | grep "password"</span><br></pre></td></tr></tbody></table></figure>
 
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
 <h4 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h4><ol>
@@ -494,7 +479,7 @@
 </ul>
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
 <h4 id="命令别名"><a href="#命令别名" class="headerlink" title="命令别名"></a>命令别名</h4><ul>
-<li>例如：<code>alias &#39;cls=clear&#39;</code></li>
+<li>例如：<code>alias 'cls=clear'</code></li>
 <li>查看所有别名：<code>alias</code></li>
 </ul>
 <p><code>-----------------------------------------------------------------------------------------------------------------------</code></p>
@@ -544,21 +529,363 @@
       </tags>
   </entry>
   <entry>
+    <title>Git</title>
+    <url>/2022/06/02/GIT/</url>
+    <content><![CDATA[<h1 id="Git的奇技淫巧-see-no-evil"><a href="#Git的奇技淫巧-see-no-evil" class="headerlink" title="Git的奇技淫巧:see_no_evil:"></a>Git的奇技淫巧<span class="github-emoji"><span>🙈</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f648.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></h1><blockquote>
+<p>Git常用命令集合，Fork于<a href="https://github.com/git-tips/tips">tips</a>项目</p>
+</blockquote>
+<p>Git是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。</p>
+<p>下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 “页面内查找” 的方式进行快速查询：<code>Ctrl/Command+f</code>。</p>
+<h2 id="开卷必读"><a href="#开卷必读" class="headerlink" title="开卷必读"></a>开卷必读</h2><p><em>如果之前未使用过 Git，可以学习 <a href="http://rogerdudler.github.io/git-guide/index.zh.html">Git 小白教程</a>入门</em></p>
+<ol>
+<li><strong>一定要先测试命令的效果后</strong>，再用于工作环境中，以防造成不能弥补的后果！<strong>到时候别拿着砍刀来找我</strong></li>
+<li>所有的命令都在<code>git version 2.7.4 (Apple Git-66)</code>下测试通过</li>
+<li>统一概念：<ul>
+<li>工作区：改动（增删文件和内容）</li>
+<li>暂存区：输入命令：<code>git add 改动的文件名</code>，此次改动就放到了 ‘暂存区’</li>
+<li>本地仓库(简称：本地)：输入命令：<code>git commit 此次修改的描述</code>，此次改动就放到了 ’本地仓库’，每个 commit，我叫它为一个 ‘版本’。</li>
+<li>远程仓库(简称：远程)：输入命令：<code>git push 远程仓库</code>，此次改动就放到了 ‘远程仓库’（GitHub 等)</li>
+<li>commit-id：输出命令：<code>git log</code>，最上面那行 <code>commit xxxxxx</code>，后面的字符串就是 commit-id</li>
+</ul>
+</li>
+<li>如果喜欢这个项目，欢迎 Star、提交 Pr、<a href="https://github.com/521xueweihan/git-tips/issues">反馈问题</a>😊</li>
+</ol>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#%E5%B1%95%E7%A4%BA%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF">展示帮助信息</a></li>
+<li><a href="#%E5%9B%9E%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E7%8A%B6%E6%80%81">回到远程仓库的状态</a></li>
+<li><a href="#%E9%87%8D%E8%AE%BE%E7%AC%AC%E4%B8%80%E4%B8%AA-commit">重设第一个commit</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA%E7%9A%84%E4%B8%8D%E5%90%8C">展示工作区和暂存区的不同</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E6%9C%80%E8%BF%91%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%8D%E5%90%8C">展示暂存区和最近版本的不同</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%9A%82%E5%AD%98%E5%8C%BA%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%92%8C%E6%9C%80%E8%BF%91%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%8D%E5%90%8C">展示暂存区、工作区和最近版本的不同</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8A%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF">快速切换到上一个分支</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E5%B7%B2%E7%BB%8F%E5%90%88%E5%B9%B6%E5%88%B0-master-%E7%9A%84%E5%88%86%E6%94%AF">删除已经合并到 master 的分支</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E6%83%85%E5%86%B5">展示本地分支关联远程仓库的情况</a></li>
+<li><a href="#%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF">关联远程分支</a></li>
+<li><a href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF">列出所有远程分支</a></li>
+<li><a href="#%E5%88%97%E5%87%BA%E6%9C%AC%E5%9C%B0%E5%92%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF">列出本地和远程分支</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF">创建并切换到本地分支</a></li>
+<li><a href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF">从远程分支中创建并切换到本地分支</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF">删除本地分支</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF">删除远程分支</a></li>
+<li><a href="#%E9%87%8D%E5%91%BD%E5%90%8D%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF">重命名本地分支</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%A0%87%E7%AD%BE">查看标签</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%A0%87%E7%AD%BE%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF">查看标签详细信息</a></li>
+<li><a href="#%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE">本地创建标签</a></li>
+<li><a href="#%E6%8E%A8%E9%80%81%E6%A0%87%E7%AD%BE%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93">推送标签到远程仓库</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%E6%A0%87%E7%AD%BE">删除本地标签</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E6%A0%87%E7%AD%BE">删除远程标签</a></li>
+<li><a href="#%E5%88%87%E5%9B%9E%E5%88%B0%E6%9F%90%E4%B8%AA%E6%A0%87%E7%AD%BE">切回到某个标签</a></li>
+<li><a href="#%E6%94%BE%E5%BC%83%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E4%BF%AE%E6%94%B9">放弃工作区的修改</a></li>
+<li><a href="#%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84%E6%96%87%E4%BB%B6">恢复删除的文件</a></li>
+<li><a href="#%E4%BB%A5%E6%96%B0%E5%A2%9E%E4%B8%80%E4%B8%AA-commit-%E7%9A%84%E6%96%B9%E5%BC%8F%E8%BF%98%E5%8E%9F%E6%9F%90%E4%B8%80%E4%B8%AA-commit-%E7%9A%84%E4%BF%AE%E6%94%B9">以新增一个 commit 的方式还原某一个 commit 的修改</a></li>
+<li><a href="#%E5%9B%9E%E5%88%B0%E6%9F%90%E4%B8%AA-commit-%E7%9A%84%E7%8A%B6%E6%80%81%E5%B9%B6%E5%88%A0%E9%99%A4%E5%90%8E%E9%9D%A2%E7%9A%84-commit">回到某个 commit 的状态，并删除后面的 commit</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%80%E4%B8%AA-commit-%E7%9A%84%E6%8F%8F%E8%BF%B0">修改上一个 commit 的描述</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B-commit-%E5%8E%86%E5%8F%B2">查看 commit 历史</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BA%E6%9C%AC%E5%9C%B0%E6%9B%B4%E6%96%B0%E8%BF%87-head-%E7%9A%84-git-%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95">显示本地更新过 HEAD 的 git 命令记录</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E4%BD%9C%E8%80%85%E5%90%8D">修改作者名</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84-url">修改远程仓库的 url</a></li>
+<li><a href="#%E5%A2%9E%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93">增加远程仓库</a></li>
+<li><a href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93">列出所有远程仓库</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E4%B8%A4%E4%B8%AA%E6%98%9F%E6%9C%9F%E5%86%85%E7%9A%84%E6%94%B9%E5%8A%A8">查看两个星期内的改动</a></li>
+<li><a href="#%E6%8A%8A-A-%E5%88%86%E6%94%AF%E7%9A%84%E6%9F%90%E4%B8%80%E4%B8%AA-commit-%E6%94%BE%E5%88%B0-B-%E5%88%86%E6%94%AF%E4%B8%8A">把 A 分支的某一个 commit，放到 B 分支上</a></li>
+<li><a href="#%E7%BB%99-git-%E5%91%BD%E4%BB%A4%E8%B5%B7%E5%88%AB%E5%90%8D">给 git 命令起别名</a></li>
+<li><a href="#%E5%AD%98%E5%82%A8%E5%BD%93%E5%89%8D%E7%9A%84%E4%BF%AE%E6%94%B9%E4%BD%86%E4%B8%8D%E7%94%A8%E6%8F%90%E4%BA%A4-commit">存储当前的修改，但不用提交 commit</a></li>
+<li><a href="#%E4%BF%9D%E5%AD%98%E5%BD%93%E5%89%8D%E7%8A%B6%E6%80%81%E5%8C%85%E6%8B%AC-untracked-%E7%9A%84%E6%96%87%E4%BB%B6">保存当前状态，包括 untracked 的文件</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%89%80%E6%9C%89-stashes">展示所有 stashes</a></li>
+<li><a href="#%E5%9B%9E%E5%88%B0%E6%9F%90%E4%B8%AA-stash-%E7%9A%84%E7%8A%B6%E6%80%81">回到某个 stash 的状态</a></li>
+<li><a href="#%E5%9B%9E%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA-stash-%E7%9A%84%E7%8A%B6%E6%80%81%E5%B9%B6%E5%88%A0%E9%99%A4%E8%BF%99%E4%B8%AA-stash">回到最后一个 stash 的状态，并删除这个 stash</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E7%9A%84-stash">删除所有的 stash</a></li>
+<li><a href="#%E4%BB%8E-stash-%E4%B8%AD%E6%8B%BF%E5%87%BA%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%AE%E6%94%B9">从 stash 中拿出某个文件的修改</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%89%80%E6%9C%89-tracked-%E7%9A%84%E6%96%87%E4%BB%B6">展示所有 tracked 的文件</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%89%80%E6%9C%89-untracked-%E7%9A%84%E6%96%87%E4%BB%B6">展示所有 untracked 的文件</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%89%80%E6%9C%89%E5%BF%BD%E7%95%A5%E7%9A%84%E6%96%87%E4%BB%B6">展示所有忽略的文件</a></li>
+<li><a href="#%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4-untracked-%E7%9A%84%E6%96%87%E4%BB%B6">强制删除 untracked 的文件</a></li>
+<li><a href="#%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4-untracked-%E7%9A%84%E7%9B%AE%E5%BD%95">强制删除 untracked 的目录</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E7%AE%80%E5%8C%96%E7%9A%84-commit-%E5%8E%86%E5%8F%B2">展示简化的 commit 历史</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%9F%90%E6%AE%B5%E4%BB%A3%E7%A0%81%E6%98%AF%E8%B0%81%E5%86%99%E7%9A%84">查看某段代码是谁写的</a></li>
+<li><a href="#%E6%8A%8A%E6%9F%90%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%E5%88%B0%E5%AF%BC%E5%87%BA%E6%88%90%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6">把某一个分支到导出成一个文件</a></li>
+<li><a href="#%E4%BB%8E%E5%8C%85%E4%B8%AD%E5%AF%BC%E5%85%A5%E5%88%86%E6%94%AF">从包中导入分支</a></li>
+<li><a href="#%E6%89%A7%E8%A1%8C-rebase-%E4%B9%8B%E5%89%8D%E8%87%AA%E5%8A%A8-stash">执行 rebase 之前自动 stash</a></li>
+<li><a href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%A0%B9%E6%8D%AE-ID-%E6%8B%89%E4%B8%8B%E6%9F%90%E4%B8%80%E7%8A%B6%E6%80%81-%E5%88%B0%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF">从远程仓库根据 ID，拉下某一状态，到本地分支</a></li>
+<li><a href="#%E8%AF%A6%E7%BB%86%E5%B1%95%E7%A4%BA%E4%B8%80%E8%A1%8C%E4%B8%AD%E7%9A%84%E4%BF%AE%E6%94%B9">详细展示一行中的修改</a></li>
+<li><a href="#%E6%B8%85%E9%99%A4-gitignore-%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AE%B0%E5%BD%95%E7%9A%84%E6%96%87%E4%BB%B6">清除 <code>.gitignore</code> 文件中记录的文件</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E6%89%80%E6%9C%89-alias-%E5%92%8C-configs">展示所有 alias 和 configs</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E5%BF%BD%E7%95%A5%E7%9A%84%E6%96%87%E4%BB%B6">展示忽略的文件</a></li>
+<li><a href="#commit-%E5%8E%86%E5%8F%B2%E4%B8%AD%E6%98%BE%E7%A4%BA-Branch1-%E6%9C%89%E7%9A%84%E4%BD%86%E6%98%AF-Branch2-%E6%B2%A1%E6%9C%89-commit">commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit</a></li>
+<li><a href="#%E5%9C%A8-commit-log-%E4%B8%AD%E6%98%BE%E7%A4%BA-GPG-%E7%AD%BE%E5%90%8D">在 commit log 中显示 GPG 签名</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE">删除全局设置</a></li>
+<li><a href="#%E6%96%B0%E5%BB%BA%E5%B9%B6%E5%88%87%E6%8D%A2%E5%88%B0%E6%96%B0%E5%88%86%E6%94%AF%E4%B8%8A%E5%90%8C%E6%97%B6%E8%BF%99%E4%B8%AA%E5%88%86%E6%94%AF%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95-commit">新建并切换到新分支上，同时这个分支没有任何 commit</a></li>
+<li><a href="#%E5%B1%95%E7%A4%BA%E4%BB%BB%E6%84%8F%E5%88%86%E6%94%AF%E6%9F%90%E4%B8%80%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%85%E5%AE%B9">展示任意分支某一文件的内容</a></li>
+<li><a href="#clone-%E4%B8%8B%E6%9D%A5%E6%8C%87%E5%AE%9A%E7%9A%84%E5%8D%95%E4%B8%80%E5%88%86%E6%94%AF">clone 下来指定的单一分支</a></li>
+<li><a href="#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E6%94%B9%E5%8A%A8">忽略某个文件的改动</a></li>
+<li><a href="#%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E7%9A%84%E6%9D%83%E9%99%90%E5%8F%98%E5%8C%96">忽略文件的权限变化</a></li>
+<li><a href="#%E4%BB%A5%E6%9C%80%E5%90%8E%E6%8F%90%E4%BA%A4%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89-Git-%E5%88%86%E6%94%AF">以最后提交的顺序列出所有 Git 分支</a></li>
+<li><a href="#%E5%9C%A8-commit-log-%E4%B8%AD%E6%9F%A5%E6%89%BE%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9">在 commit log 中查找相关内容</a></li>
+<li><a href="#%E6%8A%8A%E6%9A%82%E5%AD%98%E5%8C%BA%E7%9A%84%E6%8C%87%E5%AE%9A-file-%E6%94%BE%E5%88%B0%E5%B7%A5%E4%BD%9C%E5%8C%BA%E4%B8%AD">把暂存区的指定 file 放到工作区中</a></li>
+<li><a href="#%E5%BC%BA%E5%88%B6%E6%8E%A8%E9%80%81">强制推送</a></li>
+<li><a href="#%E4%B8%80%E5%9B%BE%E8%AF%A6%E8%A7%A3">一图详解</a></li>
+<li><a href="#%E4%BC%98%E9%9B%85%E7%9A%84%E6%8F%90%E4%BA%A4Commit%E4%BF%A1%E6%81%AF">优雅的提交Commit信息</a></li>
+<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91">联系我</a></li>
+</ul>
+<h2 id="展示帮助信息"><a href="#展示帮助信息" class="headerlink" title="展示帮助信息"></a>展示帮助信息</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">help</span> -g</span><br></pre></td></tr></tbody></table></figure>
+
+<p>The command output as below:</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">The common Git guides are:</span><br><span class="line">   attributes          Defining attributes per path</span><br><span class="line">   cli                 Git command-line interface and conventions</span><br><span class="line">   core-tutorial       A Git core tutorial <span class="keyword">for</span> developers</span><br><span class="line">   cvs-migration       Git <span class="keyword">for</span> CVS <span class="built_in">users</span></span><br><span class="line">   diffcore            Tweaking diff output</span><br><span class="line">   everyday            A useful minimum <span class="built_in">set</span> of commands <span class="keyword">for</span> Everyday Git</span><br><span class="line">   glossary            A Git Glossary</span><br><span class="line">   hooks               Hooks used by Git</span><br><span class="line">   ignore              Specifies intentionally untracked files to ignore</span><br><span class="line">   modules             Defining submodule properties</span><br><span class="line">   namespaces          Git namespaces</span><br><span class="line">   repository-layout    Git Repository Layout</span><br><span class="line">   revisions           Specifying revisions and ranges <span class="keyword">for</span> Git</span><br><span class="line">   tutorial            A tutorial introduction to Git</span><br><span class="line">   tutorial-2          A tutorial introduction to Git: part two</span><br><span class="line">   workflows           An overview of recommended workflows with Git</span><br><span class="line"></span><br><span class="line"><span class="string">'git help -a'</span> and <span class="string">'git help -g'</span> list available subcommands and some concept guides. See <span class="string">'git help &lt;command&gt;'</span> or <span class="string">'git help &lt;concept&gt;'</span> to <span class="built_in">read</span> about a specific subcommand or concept.</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="回到远程仓库的状态"><a href="#回到远程仓库的状态" class="headerlink" title="回到远程仓库的状态"></a>回到远程仓库的状态</h2><p>抛弃本地所有的修改，回到远程仓库的状态。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git fetch --all &amp;&amp; git reset --hard origin/master</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="重设第一个-commit"><a href="#重设第一个-commit" class="headerlink" title="重设第一个 commit"></a>重设第一个 commit</h2><p>也就是把所有的改动都重新放回工作区，并<strong>清空所有的 commit</strong>，这样就可以重新提交第一个 commit 了</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git update-ref -d HEAD</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示工作区和暂存区的不同"><a href="#展示工作区和暂存区的不同" class="headerlink" title="展示工作区和暂存区的不同"></a>展示工作区和暂存区的不同</h2><p>输出<strong>工作区</strong>和<strong>暂存区</strong>的 different (不同)。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></tbody></table></figure>
+
+<p>还可以展示本地仓库中任意两个 commit 之间的文件变动：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git diff &lt;commit-id&gt; &lt;commit-id&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示暂存区和最近版本的不同"><a href="#展示暂存区和最近版本的不同" class="headerlink" title="展示暂存区和最近版本的不同"></a>展示暂存区和最近版本的不同</h2><p>输出<strong>暂存区</strong>和本地最近的版本 (commit) 的 different (不同)。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示暂存区、工作区和最近版本的不同"><a href="#展示暂存区、工作区和最近版本的不同" class="headerlink" title="展示暂存区、工作区和最近版本的不同"></a>展示暂存区、工作区和最近版本的不同</h2><p>输出<strong>工作区</strong>、<strong>暂存区</strong> 和本地最近的版本 (commit) 的 different (不同)。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git diff HEAD</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="快速切换到上一个分支"><a href="#快速切换到上一个分支" class="headerlink" title="快速切换到上一个分支"></a>快速切换到上一个分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout -</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除已经合并到-master-的分支"><a href="#删除已经合并到-master-的分支" class="headerlink" title="删除已经合并到 master 的分支"></a>删除已经合并到 master 的分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git branch --merged master | grep -v <span class="string">'^\*\|  master'</span> | xargs -n 1 git branch -d</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示本地分支关联远程仓库的情况"><a href="#展示本地分支关联远程仓库的情况" class="headerlink" title="展示本地分支关联远程仓库的情况"></a>展示本地分支关联远程仓库的情况</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git branch -vv</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="关联远程分支"><a href="#关联远程分支" class="headerlink" title="关联远程分支"></a>关联远程分支</h2><p>关联之后，<code>git branch -vv</code> 就可以展示关联的远程分支名了，同时推送到远程仓库直接：<code>git push</code>，不需要指定远程仓库了。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git branch -u origin/mybranch</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者在 push 时加上 <code>-u</code> 参数</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git push origin/mybranch -u</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="列出所有远程分支"><a href="#列出所有远程分支" class="headerlink" title="列出所有远程分支"></a>列出所有远程分支</h2><p>-r 参数相当于：remote</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git branch -r</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="列出本地和远程分支"><a href="#列出本地和远程分支" class="headerlink" title="列出本地和远程分支"></a>列出本地和远程分支</h2><p>-a 参数相当于：all</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="创建并切换到本地分支"><a href="#创建并切换到本地分支" class="headerlink" title="创建并切换到本地分支"></a>创建并切换到本地分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout -b &lt;branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="从远程分支中创建并切换到本地分支"><a href="#从远程分支中创建并切换到本地分支" class="headerlink" title="从远程分支中创建并切换到本地分支"></a>从远程分支中创建并切换到本地分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git branch -d &lt;local-branchname&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git push origin --delete &lt;remote-branchname&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>或者</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git push origin :&lt;remote-branchname&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="重命名本地分支"><a href="#重命名本地分支" class="headerlink" title="重命名本地分支"></a>重命名本地分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git branch -m &lt;new-branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></tbody></table></figure>
+
+<p>展示当前分支的最近的 tag</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git describe --tags --abbrev=0</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="查看标签详细信息"><a href="#查看标签详细信息" class="headerlink" title="查看标签详细信息"></a>查看标签详细信息</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git tag -<span class="built_in">ln</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="本地创建标签"><a href="#本地创建标签" class="headerlink" title="本地创建标签"></a>本地创建标签</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git tag &lt;version-number&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>默认 tag 是打在最近的一次 commit 上，如果需要指定 commit 打 tag：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">$ git tag -a &lt;version-number&gt; -m <span class="string">"v1.0 发布(描述)"</span> &lt;commit-id&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="推送标签到远程仓库"><a href="#推送标签到远程仓库" class="headerlink" title="推送标签到远程仓库"></a>推送标签到远程仓库</h2><p>首先要保证本地创建好了标签才可以推送标签到远程仓库：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git push origin &lt;local-version-number&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>一次性推送所有标签，同步到远程仓库：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git push origin --tags</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除本地标签"><a href="#删除本地标签" class="headerlink" title="删除本地标签"></a>删除本地标签</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git tag -d &lt;tag-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除远程标签"><a href="#删除远程标签" class="headerlink" title="删除远程标签"></a>删除远程标签</h2><p>删除远程标签需要<strong>先删除本地标签</strong>，再执行下面的命令：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git push origin :refs/tags/&lt;tag-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="切回到某个标签"><a href="#切回到某个标签" class="headerlink" title="切回到某个标签"></a>切回到某个标签</h2><p>一般上线之前都会打 tag，就是为了防止上线后出现问题，方便快速回退到上一版本。下面的命令是回到某一标签下的状态：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout -b branch_name tag_name</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="放弃工作区的修改"><a href="#放弃工作区的修改" class="headerlink" title="放弃工作区的修改"></a>放弃工作区的修改</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout &lt;file-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>放弃所有修改：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="恢复删除的文件"><a href="#恢复删除的文件" class="headerlink" title="恢复删除的文件"></a>恢复删除的文件</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git rev-list -n 1 HEAD -- &lt;file_path&gt; <span class="comment">#得到 deleting_commit</span></span><br><span class="line"></span><br><span class="line">git checkout &lt;deleting_commit&gt;^ -- &lt;file_path&gt; <span class="comment">#回到删除文件 deleting_commit 之前的状态</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="以新增一个-commit-的方式还原某一个-commit-的修改"><a href="#以新增一个-commit-的方式还原某一个-commit-的修改" class="headerlink" title="以新增一个 commit 的方式还原某一个 commit 的修改"></a>以新增一个 commit 的方式还原某一个 commit 的修改</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git revert &lt;commit-id&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="回到某个-commit-的状态，并删除后面的-commit"><a href="#回到某个-commit-的状态，并删除后面的-commit" class="headerlink" title="回到某个 commit 的状态，并删除后面的 commit"></a>回到某个 commit 的状态，并删除后面的 commit</h2><p>和 revert 的区别：reset 命令会抹去某个 commit id 之后的所有 commit</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git reset &lt;commit-id&gt;  <span class="comment">#默认就是-mixed参数。</span></span><br><span class="line"></span><br><span class="line">git reset –mixed HEAD^  <span class="comment">#回退至上个版本，它将重置HEAD到另外一个commit,并且重置暂存区以便和HEAD相匹配，但是也到此为止。工作区不会被更改。</span></span><br><span class="line"></span><br><span class="line">git reset –soft HEAD~3  <span class="comment">#回退至三个版本之前，只回退了commit的信息，暂存区和工作区与回退之前保持一致。如果还要提交，直接commit即可 &nbsp;</span></span><br><span class="line"></span><br><span class="line">git reset –hard &lt;commit-id&gt;  <span class="comment">#彻底回退到指定commit-id的状态，暂存区和工作区也会变为指定commit-id版本的内容</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="修改上一个-commit-的描述"><a href="#修改上一个-commit-的描述" class="headerlink" title="修改上一个 commit 的描述"></a>修改上一个 commit 的描述</h2><p>如果暂存区有改动，同时也会将暂存区的改动提交到上一个 commit</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="查看-commit-历史"><a href="#查看-commit-历史" class="headerlink" title="查看 commit 历史"></a>查看 commit 历史</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="查看某段代码是谁写的"><a href="#查看某段代码是谁写的" class="headerlink" title="查看某段代码是谁写的"></a>查看某段代码是谁写的</h2><p>blame 的意思为‘责怪’，你懂的。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git blame &lt;file-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="显示本地更新过-HEAD-的-git-命令记录"><a href="#显示本地更新过-HEAD-的-git-命令记录" class="headerlink" title="显示本地更新过 HEAD 的 git 命令记录"></a>显示本地更新过 HEAD 的 git 命令记录</h2><p>每次更新了 HEAD 的 git 命令比如 commint、amend、cherry-pick、reset、revert 等都会被记录下来（不限分支），就像 shell 的 history 一样。<br>这样你可以 reset 到任何一次更新了 HEAD 的操作之后，而不仅仅是回到当前分支下的某个 commit 之后的状态。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="修改作者名"><a href="#修改作者名" class="headerlink" title="修改作者名"></a>修改作者名</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git commit --amend --author=<span class="string">'Author Name &lt;email@address.com&gt;'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="修改远程仓库的-url"><a href="#修改远程仓库的-url" class="headerlink" title="修改远程仓库的 url"></a>修改远程仓库的 url</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git remote set-url origin &lt;URL&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="增加远程仓库"><a href="#增加远程仓库" class="headerlink" title="增加远程仓库"></a>增加远程仓库</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git remote add origin &lt;remote-url&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="列出所有远程仓库"><a href="#列出所有远程仓库" class="headerlink" title="列出所有远程仓库"></a>列出所有远程仓库</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git remote</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="查看两个星期内的改动"><a href="#查看两个星期内的改动" class="headerlink" title="查看两个星期内的改动"></a>查看两个星期内的改动</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git whatchanged --since=<span class="string">'2 weeks ago'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="把-A-分支的某一个-commit，放到-B-分支上"><a href="#把-A-分支的某一个-commit，放到-B-分支上" class="headerlink" title="把 A 分支的某一个 commit，放到 B 分支上"></a>把 A 分支的某一个 commit，放到 B 分支上</h2><p>这个过程需要 <code>cherry-pick</code> 命令，<a href="http://sg552.iteye.com/blog/1300713#bc2367928">参考</a></p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout &lt;branch-name&gt; &amp;&amp; git cherry-pick &lt;commit-id&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="给-git-命令起别名"><a href="#给-git-命令起别名" class="headerlink" title="给 git 命令起别名"></a>给 git 命令起别名</h2><p>简化命令</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git config --global <span class="built_in">alias</span>.&lt;handle&gt; &lt;<span class="built_in">command</span>&gt;</span><br><span class="line"></span><br><span class="line">比如：git status 改成 git st，这样可以简化命令</span><br><span class="line"></span><br><span class="line">git config --global alias.st status</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="存储当前的修改，但不用提交-commit"><a href="#存储当前的修改，但不用提交-commit" class="headerlink" title="存储当前的修改，但不用提交 commit"></a>存储当前的修改，但不用提交 commit</h2><p>详解可以参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000">廖雪峰老师的 git 教程</a></p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="保存当前状态，包括-untracked-的文件"><a href="#保存当前状态，包括-untracked-的文件" class="headerlink" title="保存当前状态，包括 untracked 的文件"></a>保存当前状态，包括 untracked 的文件</h2><p>untracked 文件：新建的文件</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git stash -u</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示所有-stashes"><a href="#展示所有-stashes" class="headerlink" title="展示所有 stashes"></a>展示所有 stashes</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="回到某个-stash-的状态"><a href="#回到某个-stash-的状态" class="headerlink" title="回到某个 stash 的状态"></a>回到某个 stash 的状态</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git stash apply &lt;stash@{n}&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="回到最后一个-stash-的状态，并删除这个-stash"><a href="#回到最后一个-stash-的状态，并删除这个-stash" class="headerlink" title="回到最后一个 stash 的状态，并删除这个 stash"></a>回到最后一个 stash 的状态，并删除这个 stash</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除所有的-stash"><a href="#删除所有的-stash" class="headerlink" title="删除所有的 stash"></a>删除所有的 stash</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git stash clear</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="从-stash-中拿出某个文件的修改"><a href="#从-stash-中拿出某个文件的修改" class="headerlink" title="从 stash 中拿出某个文件的修改"></a>从 stash 中拿出某个文件的修改</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout &lt;stash@{n}&gt; -- &lt;file-path&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示所有-tracked-的文件"><a href="#展示所有-tracked-的文件" class="headerlink" title="展示所有 tracked 的文件"></a>展示所有 tracked 的文件</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git ls-files -t</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示所有-untracked-的文件"><a href="#展示所有-untracked-的文件" class="headerlink" title="展示所有 untracked 的文件"></a>展示所有 untracked 的文件</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git ls-files --others</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示所有忽略的文件"><a href="#展示所有忽略的文件" class="headerlink" title="展示所有忽略的文件"></a>展示所有忽略的文件</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git ls-files --others -i --exclude-standard</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="强制删除-untracked-的文件"><a href="#强制删除-untracked-的文件" class="headerlink" title="强制删除 untracked 的文件"></a>强制删除 untracked 的文件</h2><p>可以用来删除新建的文件。如果不指定文件文件名，则清空所有工作的 untracked 文件。<code>clean</code> 命令，<strong>注意两点</strong>：</p>
+<ol>
+<li>clean 后，删除的文件无法找回</li>
+<li>不会影响 tracked 的文件的改动，只会删除 untracked 的文件</li>
+</ol>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git clean &lt;file-name&gt; -f</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="强制删除-untracked-的目录"><a href="#强制删除-untracked-的目录" class="headerlink" title="强制删除 untracked 的目录"></a>强制删除 untracked 的目录</h2><p>可以用来删除新建的目录，<strong>注意</strong>:这个命令也可以用来删除 untracked 的文件。详情见上一条</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git clean &lt;directory-name&gt; -<span class="built_in">df</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示简化的-commit-历史"><a href="#展示简化的-commit-历史" class="headerlink" title="展示简化的 commit 历史"></a>展示简化的 commit 历史</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --pretty=oneline --graph --decorate --all</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="把某一个分支到导出成一个文件"><a href="#把某一个分支到导出成一个文件" class="headerlink" title="把某一个分支到导出成一个文件"></a>把某一个分支到导出成一个文件</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git bundle create &lt;file&gt; &lt;branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="从包中导入分支"><a href="#从包中导入分支" class="headerlink" title="从包中导入分支"></a>从包中导入分支</h2><p>新建一个分支，分支内容就是上面 <code>git bundle create</code> 命令导出的内容</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> repo.bundle &lt;repo-dir&gt; -b &lt;branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="执行-rebase-之前自动-stash"><a href="#执行-rebase-之前自动-stash" class="headerlink" title="执行 rebase 之前自动 stash"></a>执行 rebase 之前自动 stash</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git rebase --autostash</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="从远程仓库根据-ID，拉下某一状态，到本地分支"><a href="#从远程仓库根据-ID，拉下某一状态，到本地分支" class="headerlink" title="从远程仓库根据 ID，拉下某一状态，到本地分支"></a>从远程仓库根据 ID，拉下某一状态，到本地分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git fetch origin pull/&lt;<span class="built_in">id</span>&gt;/head:&lt;branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="详细展示一行中的修改"><a href="#详细展示一行中的修改" class="headerlink" title="详细展示一行中的修改"></a>详细展示一行中的修改</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git diff --word-diff</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="清除-gitignore-文件中记录的文件"><a href="#清除-gitignore-文件中记录的文件" class="headerlink" title="清除 gitignore 文件中记录的文件"></a>清除 gitignore 文件中记录的文件</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git clean -X -f</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示所有-alias-和-configs"><a href="#展示所有-alias-和-configs" class="headerlink" title="展示所有 alias 和 configs"></a>展示所有 alias 和 configs</h2><p><strong>注意：</strong> config 分为：当前目录（local）和全局（golbal）的 config，默认为当前目录的 config</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git config --<span class="built_in">local</span> --list (当前目录)</span><br><span class="line">git config --global --list (全局)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示忽略的文件"><a href="#展示忽略的文件" class="headerlink" title="展示忽略的文件"></a>展示忽略的文件</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git status --ignored</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="commit-历史中显示-Branch1-有的，但是-Branch2-没有-commit"><a href="#commit-历史中显示-Branch1-有的，但是-Branch2-没有-commit" class="headerlink" title="commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit"></a>commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> Branch1 ^Branch2</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="在-commit-log-中显示-GPG-签名"><a href="#在-commit-log-中显示-GPG-签名" class="headerlink" title="在 commit log 中显示 GPG 签名"></a>在 commit log 中显示 GPG 签名</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --show-signature</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除全局设置"><a href="#删除全局设置" class="headerlink" title="删除全局设置"></a>删除全局设置</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git config --global --<span class="built_in">unset</span> &lt;entry-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="新建并切换到新分支上，同时这个分支没有任何-commit"><a href="#新建并切换到新分支上，同时这个分支没有任何-commit" class="headerlink" title="新建并切换到新分支上，同时这个分支没有任何 commit"></a>新建并切换到新分支上，同时这个分支没有任何 commit</h2><p>相当于保存修改，但是重写 commit 历史</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git checkout --orphan &lt;branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="展示任意分支某一文件的内容"><a href="#展示任意分支某一文件的内容" class="headerlink" title="展示任意分支某一文件的内容"></a>展示任意分支某一文件的内容</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git show &lt;branch-name&gt;:&lt;file-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="clone-下来指定的单一分支"><a href="#clone-下来指定的单一分支" class="headerlink" title="clone 下来指定的单一分支"></a>clone 下来指定的单一分支</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b &lt;branch-name&gt; --single-branch https://github.com/user/repo.git</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="忽略某个文件的改动"><a href="#忽略某个文件的改动" class="headerlink" title="忽略某个文件的改动"></a>忽略某个文件的改动</h2><p>关闭 track 指定文件的改动，也就是 Git 将不会在记录这个文件的改动</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git update-index --assume-unchanged path/to/file</span><br></pre></td></tr></tbody></table></figure>
+
+<p>恢复 track 指定文件的改动</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git update-index --no-assume-unchanged path/to/file</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="忽略文件的权限变化"><a href="#忽略文件的权限变化" class="headerlink" title="忽略文件的权限变化"></a>忽略文件的权限变化</h2><p>不再将文件的权限变化视作改动</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git config core.fileMode <span class="literal">false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="以最后提交的顺序列出所有-Git-分支"><a href="#以最后提交的顺序列出所有-Git-分支" class="headerlink" title="以最后提交的顺序列出所有 Git 分支"></a>以最后提交的顺序列出所有 Git 分支</h2><p>最新的放在最上面</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git for-each-ref --<span class="built_in">sort</span>=-committerdate --format=<span class="string">'%(refname:short)'</span> refs/heads/</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="在-commit-log-中查找相关内容"><a href="#在-commit-log-中查找相关内容" class="headerlink" title="在 commit log 中查找相关内容"></a>在 commit log 中查找相关内容</h2><p>通过 grep 查找，given-text：所需要查找的字段</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> --all --grep=<span class="string">'&lt;given-text&gt;'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="把暂存区的指定-file-放到工作区中"><a href="#把暂存区的指定-file-放到工作区中" class="headerlink" title="把暂存区的指定 file 放到工作区中"></a>把暂存区的指定 file 放到工作区中</h2><p>不添加参数，默认是 <code>-mixed</code></p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git reset &lt;file-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="强制推送"><a href="#强制推送" class="headerlink" title="强制推送"></a>强制推送</h2><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git push -f &lt;remote-name&gt; &lt;branch-name&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="一图详解"><a href="#一图详解" class="headerlink" title="一图详解"></a>一图详解</h2><p><img src="E:\桌面\数据分析\文档\git-tips-master\assets\git.png"></p>
+<h2 id="优雅的提交Commit信息"><a href="#优雅的提交Commit信息" class="headerlink" title="优雅的提交Commit信息"></a>优雅的提交Commit信息</h2><p>使用<a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines">Angular团队提交规范</a></p>
+<p>主要有以下组成</p>
+<ul>
+<li>标题行: 必填, 描述主要修改类型和内容</li>
+<li>主题内容: 描述为什么修改, 做了什么样的修改, 以及开发的思路等等</li>
+<li>页脚注释: 放 Breaking Changes 或 Closed Issues</li>
+</ul>
+<p>常用的修改项</p>
+<ul>
+<li>type: commit 的类型</li>
+<li>feat: 新特性</li>
+<li>fix: 修改问题</li>
+<li>refactor: 代码重构</li>
+<li>docs: 文档修改</li>
+<li>style: 代码格式修改, 注意不是 css 修改</li>
+<li>test: 测试用例修改</li>
+<li>chore: 其他修改, 比如构建流程, 依赖管理.</li>
+<li>scope: commit 影响的范围, 比如: route, component, utils, build…</li>
+<li>subject: commit 的概述</li>
+<li>body: commit 具体修改内容, 可以分为多行</li>
+<li>footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.</li>
+</ul>
+<h3 id="使用Commitizen代替-git-commit"><a href="#使用Commitizen代替-git-commit" class="headerlink" title="使用Commitizen代替 git commit"></a>使用<code>Commitizen</code>代替 git commit</h3><p>可以使用<a href="https://github.com/commitizen/cz-cli">cz-cli</a>工具代替 <code>git commit</code></p>
+<p>全局安装</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">npm install -g commitizen cz-conventional-changelog</span><br><span class="line"></span><br><span class="line">echo '{ "path": "cz-conventional-changelog" }' &gt; ~/.czrc</span><br></pre></td></tr></tbody></table></figure>
+
+<p>全局安装后使用 <code>git cz</code> 代替 <code>git commit</code>就可以了,如下图</p>
+<p><img src="E:\桌面\数据分析\文档\git-tips-master\assets\gitcz.png"></p>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
+<li>博客园：<a href="http://www.cnblogs.com/xueweihan/">削微寒</a></li>
+<li>或者直接提 Pr，Issues</li>
+</ul>
+<p><strong><a href="#%E7%9B%AE%E5%BD%95">⬆ 返回顶部</a></strong></p>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>算法原理简介</title>
     <url>/2022/06/02/%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1 id="算法原理简介"><a href="#算法原理简介" class="headerlink" title="算法原理简介"></a>算法原理简介</h1><h2 id="1-KNN"><a href="#1-KNN" class="headerlink" title="1. KNN"></a>1. <strong>KNN</strong></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="算法原理简介"><a href="#算法原理简介" class="headerlink" title="算法原理简介"></a>算法原理简介</h1><h2 id="1-KNN"><a href="#1-KNN" class="headerlink" title="1. KNN"></a>1. <strong>KNN</strong></h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br></pre></td></tr></tbody></table></figure>
 
-<p>说明：KNN算法总体来说比较简单，建议校招的同学写上去。社招同学在被问到还会什么算法的时候才自爆会这些简单算法。总体来说这个算法基本原理需要人人都熟悉。</p>
-<p>原理：KNN是一种既可以用于分类又可用于回归的机器学习算法。对于给定测试样本，基于距离度量找出训练集中与其最靠近的K个训练样本，然后基于这K个邻居的信息来进行预测。</p>
+<p>说明：KNN 算法总体来说比较简单，建议校招的同学写上去。社招同学在被问到还会什么算法的时候才自爆会这些简单算法。总体来说这个算法基本原理需要人人都熟悉。</p>
+<p>原理：KNN 是一种既可以用于分类又可用于回归的机器学习算法。对于给定测试样本，基于距离度量找出训练集中与其最靠近的 K 个训练样本，然后基于这 K 个邻居的信息来进行预测。</p>
 <h4 id="1-步骤："><a href="#1-步骤：" class="headerlink" title="1. 步骤："></a>1. <strong>步骤：</strong></h4><p>当它使用训练数据训练好模型，而用测试数据进行预测的时候：</p>
 <ol>
 <li><p>计算测试数据与各个训练数据之间的距离</p>
 </li>
 <li><p>按照距离远近进行排序</p>
 </li>
-<li><p>选取距离最小的K个点</p>
+<li><p>选取距离最小的 K 个点</p>
 </li>
-<li><p>确定前K个点所在类别的出现频率，出现频率最高的类别作为测试数据的预测分类/计算前K个点的平均值作为测试数据的预测值 （机制类似bagging）</p>
+<li><p>确定前 K 个点所在类别的出现频率，出现频率最高的类别作为测试数据的预测分类/计算前 K 个点的平均值作为测试数据的预测值 （机制类似 bagging）</p>
 </li>
 </ol>
 <h4 id="2-优点："><a href="#2-优点：" class="headerlink" title="2.优点："></a>2.优点：</h4><ol>
@@ -579,10 +906,10 @@
 <li><p>使用消极学习方法，基本上不学习，预测速度较慢</p>
 </li>
 </ol>
-<h2 id="2-逻辑回归"><a href="#2-逻辑回归" class="headerlink" title="2. 逻辑回归"></a>2. 逻辑回归</h2><p>（<code>LogisticRegression</code>，简称LR）</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br></pre></td></tr></table></figure>
+<h2 id="2-逻辑回归"><a href="#2-逻辑回归" class="headerlink" title="2. 逻辑回归"></a>2. <strong>逻辑回归</strong></h2><p>（<code>LogisticRegression</code>，简称 LR）</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br></pre></td></tr></tbody></table></figure>
 
-<p>擅长处理分类问题 </p>
+<p>擅长处理分类问题</p>
 <h3 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h3><ul>
 <li>在线性回归的基础上加入了<code>sigmoid</code>函数。本质上使用一个线性回归模型的预测结果取逼近真实标记的对数几率。</li>
 </ul>
@@ -600,14 +927,14 @@
 <p>例如：是否为垃圾邮件，是否患病，金融诈骗，虚假账号</p>
 </blockquote>
 <h3 id="5-参数："><a href="#5-参数：" class="headerlink" title="5 .参数："></a>5 .参数：</h3><blockquote>
-<p><code>LogisticRegression</code>默认带了正则化项，<code>penalty</code>参数可选择的值为l1和l2,默认是l2正则化</p>
-<p>L1是模型各个参数的绝对值之和，L1趋向于产生少许的特征，而其余的特征都是0</p>
-<p>L2是模型各个参数的平方和的绝对值，L2会选择更多的特征，这些特征都会接近于0</p>
-<p>算法优化参数<code>solver </code>L1:<code>liblinear    </code>L2:<code>libnear</code>,<code>lbfgs</code>,<code>newton</code>-cg,sag</p>
+<p><code>LogisticRegression</code>默认带了正则化项，<code>penalty</code>参数可选择的值为 l1 和 l2,默认是 l2 正则化</p>
+<p>L1 是模型各个参数的绝对值之和，L1 趋向于产生少许的特征，而其余的特征都是 0</p>
+<p>L2 是模型各个参数的平方和的绝对值，L2 会选择更多的特征，这些特征都会接近于 0</p>
+<p>算法优化参数<code>solver </code>L1:<code>liblinear </code>L2:<code>libnear</code>,<code>lbfgs</code>,<code>newton</code>-cg,sag</p>
 <p>梯度下降：<code>max_iter </code>最大迭代次数</p>
 </blockquote>
 <h2 id="3-朴素贝叶斯算法"><a href="#3-朴素贝叶斯算法" class="headerlink" title="3. 朴素贝叶斯算法"></a>3. 朴素贝叶斯算法</h2><p>(高斯朴素贝叶斯，多项式朴素贝叶斯，伯努利朴素贝叶斯）</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> BernoulliNB</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> BernoulliNB</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="1-原理：-1"><a href="#1-原理：-1" class="headerlink" title="1.原理："></a>1.原理：</h3><ul>
 <li>在假设每个条件都独立的情况下，以贝叶斯定理为基础，利用概率统计对样本数据集进行分类。</li>
@@ -678,15 +1005,15 @@
 </tr>
 </tbody></table>
 <p><strong>信息增益</strong>：</p>
-<p><code>ID3     </code>在划分数据集之前之后信息发生的变化成为信息增益</p>
+<p><code>ID3 </code>在划分数据集之前之后信息发生的变化成为信息增益</p>
 <p><code>ID3</code>算法就是在每次需要分裂时，计算每个属性的增益率，然后选择增益率最大的属性进行分裂。</p>
 <p><strong>信息增益比</strong>：</p>
-<p><code>C4.5   </code>信息增益与训练数据集的经验熵之比</p>
+<p><code>C4.5 </code>信息增益与训练数据集的经验熵之比</p>
 <p><strong><code>CART</code>分类算法</strong>是：</p>
 <p>根据基尼（<code>gini</code>）系数来选择测试属性，<code>gini</code>系数的值越小，划分效果越好。</p>
 <p><strong>决策树模型参数</strong>：</p>
-<p><code>max_features</code>: None(所有） log2，sqrt, N特征小于50的时候一般使用所有的</p>
-<p><code>max_depth</code>: 设置决策随机森林中的决策树的最大深度，深度越大，越容易过拟合，推荐树的深度为5~20之间</p>
+<p><code>max_features</code>: None(所有） log2，sqrt, N 特征小于 50 的时候一般使用所有的</p>
+<p><code>max_depth</code>: 设置决策随机森林中的决策树的最大深度，深度越大，越容易过拟合，推荐树的深度为 5~20 之间</p>
 <p><code>min_samples_split</code>:设置结点的最小样本数量，当样本数量可能小于此值时，结点将不会再划分</p>
 <p><code>min_samples_leaf</code>:这个值限制了叶子节点最小的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝</p>
 <h3 id="1-优点："><a href="#1-优点：" class="headerlink" title="1.优点："></a>1.优点：</h3><p>决策树有利于理解，可解释性好。</p>
@@ -701,46 +1028,46 @@
 <p>代表算法：<code>AdaBoost、GBDT</code></p>
 <p><code>AdaBoost</code>参数：</p>
 <p><code>base_estimator</code>:基分类器，默认决策树，在该分类器基础上进行<code>boosting</code></p>
-<p><code>n_estimators</code>:基分类器提升（循环）次数，默认是50次，这个值过大，模型容易过拟合；值过小，模型容易欠拟合</p>
-<p><code>learning_rate</code>：学习率，表示梯度收敛速度，默认为1</p>
-<p><code>Adaboost</code>的总结： </p>
+<p><code>n_estimators</code>:基分类器提升（循环）次数，默认是 50 次，这个值过大，模型容易过拟合；值过小，模型容易欠拟合</p>
+<p><code>learning_rate</code>：学习率，表示梯度收敛速度，默认为 1</p>
+<p><code>Adaboost</code>的总结：</p>
 <p>在分类错误的部分增加训练权重，而在训练的过程是通过降低偏差来不断提高最终分类器的精度。</p>
-<p>弱分类器一般会选择为CARTRE(也就是分类回归树)。由于上述高偏差和简单的要求每个分类回归树的深度不会很深。最终的总分类器是将每轮训练得到的弱分类最加权求和得到的〈(也就是加法模型)。</p>
+<p>弱分类器一般会选择为 CARTRE(也就是分类回归树)。由于上述高偏差和简单的要求每个分类回归树的深度不会很深。最终的总分类器是将每轮训练得到的弱分类最加权求和得到的〈(也就是加法模型)。</p>
 <p>具体步骤：</p>
 <p>1、首先，初始化训练数据的权值分布</p>
 <p>2、进行多轮迭代</p>
-<p>a 、使用具有权值分布Dm的训练数据集学习，得到基本分类器</p>
+<p>a 、使用具有权值分布 Dm 的训练数据集学习，得到基本分类器</p>
 <p>b 、计算<code>Gm(x)</code>在训练数据集上的分类误差率</p>
-<p>c 、计算<code>Gm(x)</code>的系数，<code>am</code>表示<code>Gm(x)</code>在最终分类器中的重要程度 (目的：得到基本分类器在最终分类器中所占的权重) </p>
-<p>d 、更新训练数据集的权值分布（为了得到样本的新的权值分布），用于下一轮迭代 </p>
+<p>c 、计算<code>Gm(x)</code>的系数，<code>am</code>表示<code>Gm(x)</code>在最终分类器中的重要程度 (目的：得到基本分类器在最终分类器中所占的权重)</p>
+<p>d 、更新训练数据集的权值分布（为了得到样本的新的权值分布），用于下一轮迭代</p>
 <p>3、组合各个弱分类器，得到最终分类器</p>
 <p><strong>并行集成方法</strong>（<code>Bagging</code>）(装袋法)：利用基础学习器之间的独立性，通过平均可以显著降低错误。因为<code>bagging</code>方法可以减小过拟合，所以通常在强分类器和复杂模型上使用时表现得很好（例如完全生长得决策树）</p>
 <p><code>Bagging</code>核心为<code>bootstrap</code>(自助采样法），算法过程如下：</p>
 <ol>
-<li><p>从原始样本集中抽取训练集，每轮从原始样本集中有放回地抽取n个训练样本，共进行k轮抽取，得到k个训练集</p>
+<li><p>从原始样本集中抽取训练集，每轮从原始样本集中有放回地抽取 n 个训练样本，共进行 k 轮抽取，得到 k 个训练集</p>
 </li>
-<li><p>每次使用一个训练集得到一个模型，k个训练集得到k个模型</p>
+<li><p>每次使用一个训练集得到一个模型，k 个训练集得到 k 个模型</p>
 </li>
-<li><p>对于分类问题，将上步得到地k个模型采用投票方式得到分类结果。对于回归问题，计算模型地均值作为最后结果</p>
+<li><p>对于分类问题，将上步得到地 k 个模型采用投票方式得到分类结果。对于回归问题，计算模型地均值作为最后结果</p>
 </li>
 </ol>
 <p><code>Bagging</code>参数：</p>
 <ul>
 <li><p><code>base_estimator</code>基学习器</p>
 </li>
-<li><p><code>n_estimators</code>基学习器数量 </p>
+<li><p><code>n_estimators</code>基学习器数量</p>
 </li>
-<li><p><code>max_samples</code>随机样本集的最大个数 </p>
+<li><p><code>max_samples</code>随机样本集的最大个数</p>
 </li>
-<li><p><code>max_features</code>随机特征子集的最大个数 </p>
+<li><p><code>max_features</code>随机特征子集的最大个数</p>
 </li>
-<li><p><code>bootstrap</code>控制样本是否有放回取样(bootstrap=True,表示有放回取样) </p>
+<li><p><code>bootstrap</code>控制样本是否有放回取样(bootstrap=True,表示有放回取样)</p>
 </li>
 <li><p><code>bootstrap_features</code>控制特征是否是有放回取样</p>
 </li>
 </ul>
 <p><strong>bagging</strong>代表算法：</p>
-<h6 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h6><p>原理：以树模型为基础学习器的bagging算法。（描述决策树的原理 + bagging的原理）</p>
+<h6 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h6><p>原理：以树模型为基础学习器的 bagging 算法。（描述决策树的原理 + bagging 的原理）</p>
 <p>随机方式：样本随机 特征随机 参数随机 模型随机（ID3,C4.5)</p>
 <h4 id="1-优点：-1"><a href="#1-优点：-1" class="headerlink" title="1. 优点："></a>1. 优点：</h4><p>它可以拟合出来很高维度（特征很多）的数据，并且不用降维，无需做特征选择它可以判断特征的重要程度</p>
 <p>能一定程度防止过拟合</p>
@@ -748,71 +1075,71 @@
 <p>如果有很大一部分的特征遗失，仍可以维持准确度。</p>
 <h4 id="2-缺点：-1"><a href="#2-缺点：-1" class="headerlink" title="2. 缺点："></a>2. 缺点：</h4><p>在某些噪音较大的分类或回归问题上会过拟合。</p>
 <p>取值划分较多的属性会对随机森林产生更大的影响。</p>
-<h4 id="3-Extra-Trees极限树"><a href="#3-Extra-Trees极限树" class="headerlink" title="3. Extra Trees极限树"></a>3. Extra Trees极限树</h4><p><em>原理</em>：算法与随机森林算法十分相似，都是由许多决策树构成。</p>
-<p><em>随机方式</em>：特征随机 参数随机 模型随机<code>（ID3 ,C4.5） </code>分裂随机 </p>
-<h4 id="4-极限树与随机森林的主要区别："><a href="#4-极限树与随机森林的主要区别：" class="headerlink" title="4. 极限树与随机森林的主要区别："></a>4. 极限树与随机森林的主要区别：</h4><p><code>randomForest</code>应用的是Bagging模型，<code>extraTree</code>使用的所有的样本，极限树的分裂是随机选取的，因为分裂是随机的，所以在某种程度上比随机森林得到的结果更加好。</p>
-<p>随机森林是在一个随机子集内得到最佳分叉属性，而ET是完全随机的得到分叉值，从而实现对决策树进行分叉的。 </p>
-<h4 id="5-GBDT简要原理："><a href="#5-GBDT简要原理：" class="headerlink" title="5. GBDT简要原理："></a>5. GBDT简要原理：</h4><p><code>DT</code>是<code>Decision Tree</code>决策树，<code>GB</code>是<code>Gradient Boosting</code>（梯度推进、梯度提升），GBDT是一种学习策略，<code>GBDT</code>就是用<code>Gradient Boosting</code>的策略训练出来的<code>DT</code>决策树模型。模型的结果是一组回归分类树组合<code>(CART Tree nsemble)T(1)......T(k) </code>。其中<code>T(j)</code> 模型的参数学习的是之前<code>(j-i)</code> 棵树预测结果的残差。</p>
+<h4 id="3-Extra-Trees-极限树"><a href="#3-Extra-Trees-极限树" class="headerlink" title="3. Extra Trees 极限树"></a>3. Extra Trees 极限树</h4><p>_原理_：算法与随机森林算法十分相似，都是由许多决策树构成。</p>
+<p>_随机方式_：特征随机 参数随机 模型随机<code>（ID3 ,C4.5） </code>分裂随机</p>
+<h4 id="4-极限树与随机森林的主要区别："><a href="#4-极限树与随机森林的主要区别：" class="headerlink" title="4. 极限树与随机森林的主要区别："></a>4. 极限树与随机森林的主要区别：</h4><p><code>randomForest</code>应用的是 Bagging 模型，<code>extraTree</code>使用的所有的样本，极限树的分裂是随机选取的，因为分裂是随机的，所以在某种程度上比随机森林得到的结果更加好。</p>
+<p>随机森林是在一个随机子集内得到最佳分叉属性，而 ET 是完全随机的得到分叉值，从而实现对决策树进行分叉的。</p>
+<h4 id="5-GBDT-简要原理："><a href="#5-GBDT-简要原理：" class="headerlink" title="5. GBDT 简要原理："></a>5. GBDT 简要原理：</h4><p><code>DT</code>是<code>Decision Tree</code>决策树，<code>GB</code>是<code>Gradient Boosting</code>（梯度推进、梯度提升），GBDT 是一种学习策略，<code>GBDT</code>就是用<code>Gradient Boosting</code>的策略训练出来的<code>DT</code>决策树模型。模型的结果是一组回归分类树组合<code>(CART Tree nsemble)T(1)......T(k) </code>。其中<code>T(j)</code> 模型的参数学习的是之前<code>(j-i)</code> 棵树预测结果的残差。</p>
 <p><code>GBDT</code>思想：就像准备考试前的复习，先做一遍习题册，然后把做错的题目挑出来，在做一次，然后把做错的题目挑出来在做一次，经过反复多轮训练，取得最好的成绩。</p>
-<h4 id="6-GBDT优缺点："><a href="#6-GBDT优缺点：" class="headerlink" title="6. GBDT优缺点："></a>6. GBDT优缺点：</h4><ol>
-<li>GBDT优点</li>
+<h4 id="6-GBDT-优缺点："><a href="#6-GBDT-优缺点：" class="headerlink" title="6. GBDT 优缺点："></a>6. GBDT 优缺点：</h4><ol>
+<li>GBDT 优点</li>
 </ol>
 <blockquote>
 <p>可以灵活处理各种类型的数据，包括连续值和离散值。</p>
-<p>在相对较少的调参时间情况下，预测的准确率也比较高，相对SVM而言。</p>
-<p>在使用一些健壮的损失函数，对异常值得鲁棒性非常强。比如Huber损失函数和Quantile损失函数。</p>
+<p>在相对较少的调参时间情况下，预测的准确率也比较高，相对 SVM 而言。</p>
+<p>在使用一些健壮的损失函数，对异常值得鲁棒性非常强。比如 Huber 损失函数和 Quantile 损失函数。</p>
 </blockquote>
 <ol start="2">
-<li>GBDT缺点</li>
+<li>GBDT 缺点</li>
 </ol>
 <blockquote>
-<p> 由于弱学习器之间存在较强依赖关系，难以并行训练。可以通过自采样的SGBT来达到部分并行。</p>
+<p>由于弱学习器之间存在较强依赖关系，难以并行训练。可以通过自采样的 SGBT 来达到部分并行。</p>
 </blockquote>
 <p><strong>重点描述：我们后一棵树，拟合（学习）前面的树预测结果的残差。为什么是残差？残差是我定义的损失函数（MSE）的一阶导，损失的一阶导是损失下降的最快的方向。</strong></p>
 <blockquote>
-<p> <code>XGBoost</code>：该算法思想是基于决策树，通过<code>boosting</code>算法的方式，在<code>GBDT</code>基础上的工程实现，它不断地进行特征分裂来生长一棵树，每次添加一个树，其实是学习一个新函数，去拟合上次预测的残差，本质上是对上次预测失败的部分再进行预测并且为继续失败的部分赋予更高的权重的过程。当我们训练完成得到k棵树，我们要预测一个样本的分数，其实就是根据这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数，最后只需要将每棵树对应的分数加起来就是该样本的预测值。</p>
+<p><code>XGBoost</code>：该算法思想是基于决策树，通过<code>boosting</code>算法的方式，在<code>GBDT</code>基础上的工程实现，它不断地进行特征分裂来生长一棵树，每次添加一个树，其实是学习一个新函数，去拟合上次预测的残差，本质上是对上次预测失败的部分再进行预测并且为继续失败的部分赋予更高的权重的过程。当我们训练完成得到 k 棵树，我们要预测一个样本的分数，其实就是根据这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数，最后只需要将每棵树对应的分数加起来就是该样本的预测值。</p>
 </blockquote>
 <ol start="3">
-<li><code>XGBoost</code>与GBDT有什么不同：</li>
+<li><code>XGBoost</code>与 GBDT 有什么不同：</li>
 </ol>
-<p>除了算法上与传统的GBDT有一些不同外，<code>XGBoost</code>还在工程实现上做了大量的优化。总的来说，两者之间的区别和联系可以总结成以下几个方面。</p>
+<p>除了算法上与传统的 GBDT 有一些不同外，<code>XGBoost</code>还在工程实现上做了大量的优化。总的来说，两者之间的区别和联系可以总结成以下几个方面。</p>
 <blockquote>
 <ol>
-<li><p>GBDT是机器学习算法，<code>XGBoost</code>是该算法的工程实现。</p>
+<li><p>GBDT 是机器学习算法，<code>XGBoost</code>是该算法的工程实现。</p>
 </li>
-<li><p>在使用CART作为基分类器时，<code>XGBoost</code>显式地加入了正则项来控制模型的复杂度，有利于防止过拟合，从而提高模型的泛化能力。</p>
+<li><p>在使用 CART 作为基分类器时，<code>XGBoost</code>显式地加入了正则项来控制模型的复杂度，有利于防止过拟合，从而提高模型的泛化能力。</p>
 </li>
-<li><p>GBDT在模型训练时只使用了代价函数的一阶导数信息，<code>XGBoost</code>对代 价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。</p>
+<li><p>GBDT 在模型训练时只使用了代价函数的一阶导数信息，<code>XGBoost</code>对代 价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。</p>
 </li>
-<li><p>传统的GBDT采用CART作为基分类器，<code>XGBoost</code>支持多种类型的基分类器，比如线性分类器。</p>
+<li><p>传统的 GBDT 采用 CART 作为基分类器，<code>XGBoost</code>支持多种类型的基分类器，比如线性分类器。</p>
 </li>
-<li><p>传统的GBDT在每轮迭代时使用全部的数据，<code>XGBoost</code>则采用了与随机森林相似的策略，支持对数据进行采样。</p>
+<li><p>传统的 GBDT 在每轮迭代时使用全部的数据，<code>XGBoost</code>则采用了与随机森林相似的策略，支持对数据进行采样。</p>
 </li>
-<li><p>传统的GBDT没有设计对缺失值进行处理，<code>XGBoost</code>能够自动学习出缺失值的处理策略。</p>
+<li><p>传统的 GBDT 没有设计对缺失值进行处理，<code>XGBoost</code>能够自动学习出缺失值的处理策略。</p>
 </li>
 </ol>
 </blockquote>
 <p><strong><code>VotingClassifier</code></strong></p>
 <p>导入：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble  <span class="keyword">import</span> VotingClassifier</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble  <span class="keyword">import</span> VotingClassifier</span><br></pre></td></tr></tbody></table></figure>
 
-<p>用法：<code>VotingClassifier(estimators)</code>   其中<code>estimators</code>是列表套元组的方式<code>list of [(),(),(),....]：[(str,estimator)]</code></p>
+<p>用法：<code>VotingClassifier(estimators)</code> 其中<code>estimators</code>是列表套元组的方式<code>list of [(),(),(),....]：[(str,estimator)]</code></p>
 <h4 id="7-决策原理："><a href="#7-决策原理：" class="headerlink" title="7. 决策原理："></a>7. 决策原理：</h4><ol>
-<li>Hard硬方式：<code>voting=&#39;hard&#39;</code></li>
+<li>Hard 硬方式：<code>voting='hard'</code></li>
 </ol>
 <p>用多种机器学习方法得到的结果进行投票，少数服从多数得到结果。</p>
 <ol>
-<li>Soft软方式：<code>voting=&#39;soft&#39;</code></li>
+<li>Soft 软方式：<code>voting='soft'</code></li>
 </ol>
 <p>将所有模型预测样本为某一类别的概率的平均值作为标准，概率最高的对应的类型为最终结果。</p>
-<h2 id="6-K-means算法——聚类"><a href="#6-K-means算法——聚类" class="headerlink" title="6. K-means算法——聚类"></a>6. <strong>K-means算法——聚类</strong></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></table></figure>
+<h2 id="6-K-means-算法——聚类"><a href="#6-K-means-算法——聚类" class="headerlink" title="6. K-means 算法——聚类"></a>6. <strong>K-means 算法——聚类</strong></h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="1-聚类："><a href="#1-聚类：" class="headerlink" title="1. 聚类："></a>1. 聚类：</h4><blockquote>
 <p>一种无监督的学习，事先不知道类别，自动将相似的对象归到同一个簇中</p>
 </blockquote>
-<h4 id="2-算法原理："><a href="#2-算法原理：" class="headerlink" title="2. 算法原理："></a>2. 算法原理：</h4><p> 从训练集中随机选取k个中心点，通过计算每一个样本与中心之间的距离，将样本点归到最相似的类中，接着重新计算每个类的中心，重复这样的过程，直到中心不再改变，最终确定了每个样本所属的类别以及每个类的中心。</p>
+<h4 id="2-算法原理："><a href="#2-算法原理：" class="headerlink" title="2. 算法原理："></a>2. 算法原理：</h4><p>从训练集中随机选取 k 个中心点，通过计算每一个样本与中心之间的距离，将样本点归到最相似的类中，接着重新计算每个类的中心，重复这样的过程，直到中心不再改变，最终确定了每个样本所属的类别以及每个类的中心。</p>
 <h4 id="3-算法步骤："><a href="#3-算法步骤：" class="headerlink" title="3. 算法步骤："></a>3. 算法步骤：</h4><ol>
-<li><p>从数据中选择k个对象作为初始聚类中心；</p>
+<li><p>从数据中选择 k 个对象作为初始聚类中心；</p>
 </li>
 <li><p>计算每个聚类对象到聚类中心的距离来划分；</p>
 </li>
@@ -833,78 +1160,32 @@
 <li><p>乘车数据分析</p>
 </li>
 </ol>
-<h3 id="KMeans-模型评价："><a href="#KMeans-模型评价：" class="headerlink" title="KMeans 模型评价："></a><code>KMeans </code>模型评价：</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_samples</span><br></pre></td></tr></table></figure>
+<h3 id="KMeans-模型评价："><a href="#KMeans-模型评价：" class="headerlink" title="KMeans 模型评价："></a><code>KMeans </code>模型评价：</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_samples</span><br></pre></td></tr></tbody></table></figure>
 
 <p>其中<code>silhouette_score</code>是返回所有点的平均轮廓系数,<code>silhouette_samples</code>返回每个点的轮廓系数</p>
-<p>某个点的轮廓系数定义：<br>$$<br>S=\frac{disMean_{out} - disMean_{in}}{max(disMean_{out}, disMean_{in})}<br>$$</p>
-<p><code>disMean&#123;in&#125;</code>为该点与本类其他点的平均距离</p>
-<p><code>disMean&#123;out&#125;</code>为该点与非本类点的平均距离。</p>
-<p><code>KMeans</code>模型评价：轮廓系数s，取值范围[-1,1]，越接近于1，说明聚类越优秀</p>
+<p>某个点的轮廓系数定义：</p>
+<p>$$<br>S=\frac{disMean_{out} - disMean_{in}}{max(disMean_{out}, disMean_{in})}<br>$$</p>
+<p><code>disMean{in}</code>为该点与本类其他点的平均距离</p>
+<p><code>disMean{out}</code>为该点与非本类点的平均距离。</p>
+<p><code>KMeans</code>模型评价：轮廓系数 s，取值范围[-1,1]，越接近于 1，说明聚类越优秀</p>
 <p>聚类的个数应该由业务需求给定，而不是根据轮廓系数来判断，轮廓系数是在已知聚类个数的需求的前提下，针对特征工程处理的优化程度的评价。</p>
 <h2 id="7-SVM-支持向量机"><a href="#7-SVM-支持向量机" class="headerlink" title="7. SVM 支持向量机"></a>7. <strong>SVM 支持向量机</strong></h2><p><strong>（有监督模型/无监督模型/半监督模型）</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="1-最大边际分类器）"><a href="#1-最大边际分类器）" class="headerlink" title="1. (最大边际分类器）"></a>1. (最大边际分类器）</h4><p>原理：SVM是通过高维度的方式来解决低维度上的问题，是在线性不可分的情况下解决分类和回归问题的一种强有力的算法。使用不同的核函数可以在各种不同的情况下以各种高维度思路来解决低维度的问题。</p>
-<p>SVM的损失函数最初形态：<br>$$<br>\underset{\omega,b}{min}\frac{||\omega||^2}{2}<br>\<br>subject , to , y_i(\omega \cdot x + b) \geq 1 , i=1,2,……,N<br>$$</p>
+<h4 id="1-最大边际分类器）"><a href="#1-最大边际分类器）" class="headerlink" title="1. (最大边际分类器）"></a>1. (最大边际分类器）</h4><p>原理：SVM 是通过高维度的方式来解决低维度上的问题，是在线性不可分的情况下解决分类和回归问题的一种强有力的算法。使用不同的核函数可以在各种不同的情况下以各种高维度思路来解决低维度的问题。</p>
+<p>SVM 的损失函数最初形态：</p>
+<p>$$<br>\underset{\omega,b}{min}\frac{||\omega||^2}{2}<br>\<br>subject , to , y_i(\omega \cdot x + b) \geq 1 , i=1,2,……,N<br>$$</p>
 <h4 id="2-核函数："><a href="#2-核函数：" class="headerlink" title="2. 核函数："></a>2. <strong>核函数：</strong></h4><p>核函数，又叫做“核技巧”(Kernel Trick)，是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。</p>
 <p>目的是为了解决以下问题：</p>
 <ol>
-<li><p>有了核函数之后，我们无需去担心究竟应该是什么样，因为非线性SVM中的核函数都是正定核函 数，他们都满足美世定律，确保了高维空间中任意两个向量的点积一定可以被低维空间中的这两个向量的某种计算来表示（多数时候是点积的某种变换）。</p>
+<li><p>有了核函数之后，我们无需去担心究竟应该是什么样，因为非线性 SVM 中的核函数都是正定核函 数，他们都满足美世定律，确保了高维空间中任意两个向量的点积一定可以被低维空间中的这两个向量的某种计算来表示（多数时候是点积的某种变换）。</p>
 </li>
 <li><p>使用核函数计算低维度中的向量关系比计算原本的映射函数$\Phi(x_i)\Phi(x_{test})$要简单太多</p>
 </li>
 </ol>
 <p>计算是在原始空间中进行，所以避免了维度诅咒的问题</p>
 <p><code>SKlearn </code>中的核函数，用<code>Kernel</code>选择：</p>
-<table>
-<thead>
-<tr>
-<th>输入</th>
-<th>含义</th>
-<th>解决问题</th>
-<th>核函数的表达式</th>
-<th>参数    gamma</th>
-<th>参数   degree</th>
-<th>参数    coef0</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>liner</code></td>
-<td>线性核</td>
-<td>线性</td>
-<td>$ K(x,y)= x^T y = x\cdot y $</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td><code>poly</code></td>
-<td>多项式核</td>
-<td>偏线性</td>
-<td>$ K(x,y)=(\gamma(x\cdot y) + r)^d $</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>sigmoid</code></td>
-<td>双曲正切核</td>
-<td>非线性</td>
-<td>$K(x,y) = tanh(\gamma(x\cdot y) + r)$</td>
-<td>Yes</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>rbf</code></td>
-<td>高斯径向基</td>
-<td>偏非线性</td>
-<td>$K(x,y)=e^{-\gamma</td>
-<td></td>
-<td>x-y</td>
-<td></td>
-</tr>
-</tbody></table>
+<p>| 输入      | 含义       | 解决问题 | 核函数的表达式                        | 参数 gamma | 参数 degree | 参数 coef0 |<br>| ——— | ———- | ——– | ————————————- | ———- | ———– | ———- | ————— | — | — | — |<br>| <code>liner</code>   | 线性核     | 线性     | $ K(x,y)= x^T y = x\cdot y $          | No         | No          | No         |<br>| <code>poly</code>    | 多项式核   | 偏线性   | $ K(x,y)=(\gamma(x\cdot y) + r)^d $   | Yes        | Yes         | Yes        |<br>| <code>sigmoid</code> | 双曲正切核 | 非线性   | $K(x,y) = tanh(\gamma(x\cdot y) + r)$ | Yes        | No          | Yes        |<br>| <code>rbf</code>     | 高斯径向基 | 偏非线性 | $K(x,y)=e^{-\gamma                    |            | x-y         |            | ^2}, \gamma&gt;0 $ | Yes | No  | No  |</p>
 <h2 id="8-降维方式"><a href="#8-降维方式" class="headerlink" title="8. 降维方式"></a>8. <strong>降维方式</strong></h2><h4 id="1-降维说明："><a href="#1-降维说明：" class="headerlink" title="1. 降维说明："></a>1. 降维说明：</h4><blockquote>
 <p>通过保留一些重要特征，减少数据的维度的方法。</p>
 <p>降维后的最终目标是各个属性维度之间线性无关。</p>
@@ -934,53 +1215,53 @@
 <ol>
 <li>有利于数据可视化，以便观察和挖掘数据的特征。</li>
 </ol>
-<p>无监督降维：PCA主成分分析法 </p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br></pre></td></tr></table></figure>
+<p>无监督降维：PCA 主成分分析法</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br></pre></td></tr></tbody></table></figure>
 
-<p>PCA用于对一组连续正交分量中的多变量数据集进行方差最大方向的分解。是一种常用的线性降维数据分析方法，其实质是在能尽可能好的代表原特征的情况下，将原特征进行线性变换、映射至低维度空间中。也就是将N维特征映射到K维空间上，K&lt;N，这K维特征是线性无关的。</p>
-<p>注意：这是重新构造出来的K维特征，而不是简单地从N维特征中去除其余N-K维特征，因为有可能是某些新特征可能是几个原特征经过变换而来的；这也是特征选择和特征提取的根本区别。</p>
-<p>PCA核心问题：协方差矩阵的分解</p>
-<p>PCA优点：</p>
+<p>PCA 用于对一组连续正交分量中的多变量数据集进行方差最大方向的分解。是一种常用的线性降维数据分析方法，其实质是在能尽可能好的代表原特征的情况下，将原特征进行线性变换、映射至低维度空间中。也就是将 N 维特征映射到 K 维空间上，K&lt;N，这 K 维特征是线性无关的。</p>
+<p>注意：这是重新构造出来的 K 维特征，而不是简单地从 N 维特征中去除其余 N-K 维特征，因为有可能是某些新特征可能是几个原特征经过变换而来的；这也是特征选择和特征提取的根本区别。</p>
+<p>PCA 核心问题：协方差矩阵的分解</p>
+<p>PCA 优点：</p>
 <ol>
 <li>保留绝大部分信息；</li>
 <li>消除评价指标之间的相关影响；</li>
 <li>计算方法简单，易于在计算机上实现。</li>
 </ol>
-<p>PCA缺点：</p>
+<p>PCA 缺点：</p>
 <ol>
 <li>主成分分析往往具有一定模糊性，不如原始变量的含义那么清楚、确切。</li>
 </ol>
-<p>有监督降维：LDA线性判别分析法   <code>from sklearn.discriminant_analysis import LinearDiscriminantAnalysis</code></p>
-<p>LDA思想：投影后类内方差最小，类间方差最大。</p>
-<p>LDA算法的优点：</p>
+<p>有监督降维：LDA 线性判别分析法 <code>from sklearn.discriminant_analysis import LinearDiscriminantAnalysis</code></p>
+<p>LDA 思想：投影后类内方差最小，类间方差最大。</p>
+<p>LDA 算法的优点：</p>
 <ol>
-<li>在降维过程中可以使用类别的先验知识经验，而像PCA这样的无监督学习则无法使用类别先验知识。</li>
-<li>LDA在样本分类信息依赖均值而不是方差的时候，比PCA之类的算法较优。</li>
+<li>在降维过程中可以使用类别的先验知识经验，而像 PCA 这样的无监督学习则无法使用类别先验知识。</li>
+<li>LDA 在样本分类信息依赖均值而不是方差的时候，比 PCA 之类的算法较优。</li>
 </ol>
-<p>LDA算法的缺点：</p>
+<p>LDA 算法的缺点：</p>
 <ol>
-<li>LDA不适合对非高斯分布样本进行降维，PCA也有这个问题。</li>
-<li>LDA降维最多降到类别数K-1的维数，如果我们降维的维度大于K-1，则不能使用LDA。当然，目前有一些LDA的进化版算法可以绕过这个问题。</li>
-<li>LDA在样本分类信息依赖方差而不是均值的时候，降维效果不好。</li>
-<li>LDA可能过度拟合数据。</li>
+<li>LDA 不适合对非高斯分布样本进行降维，PCA 也有这个问题。</li>
+<li>LDA 降维最多降到类别数 K-1 的维数，如果我们降维的维度大于 K-1，则不能使用 LDA。当然，目前有一些 LDA 的进化版算法可以绕过这个问题。</li>
+<li>LDA 在样本分类信息依赖方差而不是均值的时候，降维效果不好。</li>
+<li>LDA 可能过度拟合数据。</li>
 </ol>
-<p>LDA和PCA的区别：</p>
+<p>LDA 和 PCA 的区别：</p>
 <p>相同点：</p>
 <ol>
-<li>PCA和LDA均可以对数据进行降维。</li>
+<li>PCA 和 LDA 均可以对数据进行降维。</li>
 <li>两者在降维时均使用了矩阵特征分解的思想。</li>
 <li>两者都假设数据符合高斯分布。</li>
 </ol>
 <p>不同点：</p>
 <ol>
-<li>LDA是有监督的降维方法，而PCA是无监督的降维方法。</li>
-<li>LDA降维最多降到类别数K-1的维数，而PCA则没有这个限制。</li>
-<li>LDA除了可以用于降维，还可以用于分类。</li>
-<li>LDA选择分类性能最好的投影方向，而PCA选择样本点具有最大方差的投影方向。</li>
+<li>LDA 是有监督的降维方法，而 PCA 是无监督的降维方法。</li>
+<li>LDA 降维最多降到类别数 K-1 的维数，而 PCA 则没有这个限制。</li>
+<li>LDA 除了可以用于降维，还可以用于分类。</li>
+<li>LDA 选择分类性能最好的投影方向，而 PCA 选择样本点具有最大方差的投影方向。</li>
 </ol>
 <p>基础知识补充</p>
 <h2 id="9-ElasticSearch"><a href="#9-ElasticSearch" class="headerlink" title="9. ElasticSearch"></a>9. <strong><code>ElasticSearch</code></strong></h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><blockquote>
-<p> <code>ElasticSearch</code>是一个基于<code>Lucene</code>的搜索服务器，它提供了一个分布式多用户的全文搜索引擎。</p>
+<p><code>ElasticSearch</code>是一个基于<code>Lucene</code>的搜索服务器，它提供了一个分布式多用户的全文搜索引擎。</p>
 </blockquote>
 <h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><blockquote>
 <p>首先用户将数据提交到<code>ElasticSearch </code>数据库中，再通过分词控制器去将对应的语句分词，将其权重和分词结果一并存入数据，当用户搜索数据时候，再根据权重将结果排名，打分，再将返回结果呈现给用户。</p>
@@ -991,6 +1272,80 @@
 <li>实时分析的分布式搜索引擎</li>
 <li>可以扩展到上百台服务器，处理 PB 级结构化或非结构化数据</li>
 </ol>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逻辑斯蒂回归参数</title>
+    <url>/2022/06/03/%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<ul>
+<li><p><strong>penalty：</strong>惩罚项，<strong>str类型</strong>，可选参数为<code>l1和l2</code>，默认为<strong>l2</strong>。用于指定惩罚项中使用的规范。<code>newton-cg</code>、<code>sag</code>和<code>lbfgs</code>求解算法只支持L2规范。<code>L1G</code>规范假设的是模型的参数满足拉普拉斯分布，L2假设的模型参数满足高斯分布，所谓的范式就是加上对参数的约束，使得模型更不会过拟合(overfit)，但是如果要说是不是加了约束就会好，这个没有人能回答，只能说，加约束的情况下，理论上应该可以获得泛化能力更强的结果。</p>
+</li>
+<li><p><strong>dual：</strong>对偶或原始方法，bool类型，默认为False。对偶方法只用在求解线性多核(<code>liblinear</code>)的L2惩罚项上。当样本数量&gt;样本特征的时候，dual通常设置为False。</p>
+</li>
+<li><p><strong>tol：</strong>停止求解的标准，float类型，默认为1e-4。就是求解到多少的时候，停止，认为已经求出最优解。</p>
+</li>
+<li><p><strong>c：</strong>正则化系数λ的倒数，float类型，默认为1.0。必须是正浮点型数。像SVM一样，越小的数值表示越强的正则化。</p>
+</li>
+<li><p><strong>fit_intercept：</strong>是否存在截距或偏差，bool类型，默认为True。</p>
+</li>
+<li><p><strong>intercept_scaling：</strong>仅在正则化项为”<code>liblinear</code>“，且<code>fit_intercept</code>设置为<code>True</code>时有用。float类型，默认为1。</p>
+</li>
+<li><p>class_weight：</p>
+<p>用于标示分类模型中各种类型的权重，可以是一个字典或者’balanced’字符串，默认为不输入，也就是不考虑权重，即为None。如果选择输入的话，可以选择balanced让类库自己计算类型权重，或者自己输入各个类型的权重。举个例子，比如对于0,1的二元模型，我们可以定义class_weight={0:0.9,1:0.1}，这样类型0的权重为90%，而类型1的权重为10%。如果class_weight选择balanced，那么类库会根据训练样本量来计算权重。某种类型样本量越多，则权重越低，样本量越少，则权重越高。当class_weight为balanced时，类权重计算方法如下：n_samples / (n_classes * np.bincount(y))。n_samples为样本数，n_classes为类别数量，np.bincount(y)会输出每个类的样本数，例如y=[1,0,0,1,1],则np.bincount(y)=[2,3]。</p>
+<ul>
+<li>那么class_weight有什么作用呢？<ul>
+<li>在分类模型中，我们经常会遇到两类问题：</li>
+<li>1.第一种是误分类的代价很高。比如对合法用户和非法用户进行分类，将非法用户分类为合法用户的代价很高，我们宁愿将合法用户分类为非法用户，这时可以人工再甄别，但是却不愿将非法用户分类为合法用户。这时，我们可以适当提高非法用户的权重。</li>
+<li>\2. 第二种是样本是高度失衡的，比如我们有合法用户和非法用户的二元样本数据10000条，里面合法用户有9995条，非法用户只有5条，如果我们不考虑权重，则我们可以将所有的测试集都预测为合法用户，这样预测准确率理论上有99.95%，但是却没有任何意义。这时，我们可以选择balanced，让类库自动提高非法用户样本的权重。提高了某种分类的权重，相比不考虑权重，会有更多的样本分类划分到高权重的类别，从而可以解决上面两类问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>random_state：</strong>随机数种子，int类型，可选参数，默认为无，仅在正则化优化算法为sag,liblinear时有用。</p>
+</li>
+<li><p>solver：</p>
+<p>优化算法选择参数，只有五个可选参数，即newton-cg,lbfgs,liblinear,sag,saga。默认为liblinear。solver参数决定了我们对逻辑回归损失函数的优化方法，有四种算法可以选择，分别是：</p>
+<ul>
+<li><strong>liblinear：</strong>使用了开源的liblinear库实现，内部使用了坐标轴下降法来迭代优化损失函数。</li>
+<li><strong>lbfgs：</strong>拟牛顿法的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</li>
+<li><strong>newton-cg：</strong>也是牛顿法家族的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</li>
+<li><strong>sag：</strong>即随机平均梯度下降，是梯度下降法的变种，和普通梯度下降法的区别是每次迭代仅仅用一部分的样本来计算梯度，适合于样本数据多的时候。</li>
+<li><strong>saga：</strong>线性收敛的随机优化算法的的变重。</li>
+<li>总结：<ul>
+<li>liblinear适用于小数据集，而sag和saga适用于大数据集因为速度更快。</li>
+<li>对于多分类问题，只有newton-cg,sag,saga和lbfgs能够处理多项损失，而liblinear受限于一对剩余(OvR)。啥意思，就是用liblinear的时候，如果是多分类问题，得先把一种类别作为一个类别，剩余的所有类别作为另外一个类别。一次类推，遍历所有类别，进行分类。</li>
+<li>newton-cg,sag和lbfgs这三种优化算法时都需要损失函数的一阶或者二阶连续导数，因此不能用于没有连续导数的L1正则化，只能用于L2正则化。而liblinear和saga通吃L1正则化和L2正则化。</li>
+<li>同时，sag每次仅仅使用了部分样本进行梯度迭代，所以当样本量少的时候不要选择它，而如果样本量非常大，比如大于10万，sag是第一选择。但是sag不能用于L1正则化，所以当你有大量的样本，又需要L1正则化的话就要自己做取舍了。要么通过对样本采样来降低样本量，要么回到L2正则化。</li>
+<li>从上面的描述，大家可能觉得，既然newton-cg, lbfgs和sag这么多限制，如果不是大样本，我们选择liblinear不就行了嘛！错，因为liblinear也有自己的弱点！我们知道，逻辑回归有二元逻辑回归和多元逻辑回归。对于多元逻辑回归常见的有one-vs-rest(OvR)和many-vs-many(MvM)两种。而MvM一般比OvR分类相对准确一些。郁闷的是liblinear只支持OvR，不支持MvM，这样如果我们需要相对精确的多元逻辑回归时，就不能选择liblinear了。也意味着如果我们需要相对精确的多元逻辑回归不能使用L1正则化了。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>max_iter：</strong>算法收敛最大迭代次数，int类型，默认为10。仅在正则化优化算法为newton-cg, sag和lbfgs才有用，算法收敛的最大迭代次数。</p>
+</li>
+<li><p>multi_class：</p>
+<p>分类方式选择参数，str类型，可选参数为ovr和multinomial，默认为ovr。ovr即前面提到的one-vs-rest(OvR)，而multinomial即前面提到的many-vs-many(MvM)。如果是二元逻辑回归，ovr和multinomial并没有任何区别，区别主要在多元逻辑回归上。</p>
+<ul>
+<li>OvR和MvM有什么不同？<ul>
+<li>OvR的思想很简单，无论你是多少元逻辑回归，我们都可以看做二元逻辑回归。具体做法是，对于第K类的分类决策，我们把所有第K类的样本作为正例，除了第K类样本以外的所有样本都作为负例，然后在上面做二元逻辑回归，得到第K类的分类模型。其他类的分类模型获得以此类推。</li>
+<li>而MvM则相对复杂，这里举MvM的特例one-vs-one(OvO)作讲解。如果模型有T类，我们每次在所有的T类样本里面选择两类样本出来，不妨记为T1类和T2类，把所有的输出为T1和T2的样本放在一起，把T1作为正例，T2作为负例，进行二元逻辑回归，得到模型参数。我们一共需要T(T-1)/2次分类。</li>
+<li>可以看出OvR相对简单，但分类效果相对略差（这里指大多数样本分布情况，某些样本分布下OvR可能更好）。而MvM分类相对精确，但是分类速度没有OvR快。如果选择了ovr，则4种损失函数的优化方法liblinear，newton-cg,lbfgs和sag都可以选择。但是如果选择了multinomial,则只能选择newton-cg, lbfgs和sag了。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>verbose：</strong>日志冗长度，int类型。默认为0。就是不输出训练过程，1的时候偶尔输出结果，大于1，对于每个子模型都输出。</p>
+</li>
+<li><p><strong>warm_start：</strong>热启动参数，bool类型。默认为False。如果为True，则下一次训练是以追加树的形式进行（重新使用上一次的调用作为初始化）。</p>
+</li>
+<li><p><strong>n_jobs：</strong>并行数。int类型，默认为1。1的时候，用CPU的一个内核运行程序，2的时候，用CPU的2个内核运行程序。为-1的时候，用所有CPU的内核运行程序。</p>
+</li>
+</ul>
+<p><strong>累死我了….终于写完所有参数了。</strong></p>
+<p>除此之外，LogisticRegression也有一些方法供我们使用：</p>
 ]]></content>
       <tags>
         <tag>笔记</tag>

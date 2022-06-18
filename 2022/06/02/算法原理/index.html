@@ -42,6 +42,8 @@
     <link rel="canonical" href="http://wlstory.xyz/2022/06/02/%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/"/>
 
                  
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 </head>
 
 <body class="home-template no-js">
@@ -76,8 +78,6 @@
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
               <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
-            
-              <li class="navigation__item"><a href="/archives">Blog</a></li>
             
               <li class="navigation__item"><a href="/favourite">学习笔记</a></li>
             
@@ -115,13 +115,6 @@
 
   
 <!-- Twitter -->
-
-  <li class="navigation__item">
-    <a href="https://twitter.com/onlymonniya" title="Twitter" target="_blank">
-      <i class='social fa fa-twitter'></i>
-      <span class="label">Twitter</span>
-    </a>
-  </li>
 
   
 
@@ -166,19 +159,19 @@
   </header>
 
   <section class="post">
-    <h1 id="算法原理简介"><a href="#算法原理简介" class="headerlink" title="算法原理简介"></a>算法原理简介</h1><h2 id="1-KNN"><a href="#1-KNN" class="headerlink" title="1. KNN"></a>1. <strong>KNN</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br></pre></td></tr></table></figure>
+    <h1 id="算法原理简介"><a href="#算法原理简介" class="headerlink" title="算法原理简介"></a>算法原理简介</h1><h2 id="1-KNN"><a href="#1-KNN" class="headerlink" title="1. KNN"></a>1. <strong>KNN</strong></h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br></pre></td></tr></tbody></table></figure>
 
-<p>说明：KNN算法总体来说比较简单，建议校招的同学写上去。社招同学在被问到还会什么算法的时候才自爆会这些简单算法。总体来说这个算法基本原理需要人人都熟悉。</p>
-<p>原理：KNN是一种既可以用于分类又可用于回归的机器学习算法。对于给定测试样本，基于距离度量找出训练集中与其最靠近的K个训练样本，然后基于这K个邻居的信息来进行预测。</p>
+<p>说明：KNN 算法总体来说比较简单，建议校招的同学写上去。社招同学在被问到还会什么算法的时候才自爆会这些简单算法。总体来说这个算法基本原理需要人人都熟悉。</p>
+<p>原理：KNN 是一种既可以用于分类又可用于回归的机器学习算法。对于给定测试样本，基于距离度量找出训练集中与其最靠近的 K 个训练样本，然后基于这 K 个邻居的信息来进行预测。</p>
 <h4 id="1-步骤："><a href="#1-步骤：" class="headerlink" title="1. 步骤："></a>1. <strong>步骤：</strong></h4><p>当它使用训练数据训练好模型，而用测试数据进行预测的时候：</p>
 <ol>
 <li><p>计算测试数据与各个训练数据之间的距离</p>
 </li>
 <li><p>按照距离远近进行排序</p>
 </li>
-<li><p>选取距离最小的K个点</p>
+<li><p>选取距离最小的 K 个点</p>
 </li>
-<li><p>确定前K个点所在类别的出现频率，出现频率最高的类别作为测试数据的预测分类/计算前K个点的平均值作为测试数据的预测值 （机制类似bagging）</p>
+<li><p>确定前 K 个点所在类别的出现频率，出现频率最高的类别作为测试数据的预测分类/计算前 K 个点的平均值作为测试数据的预测值 （机制类似 bagging）</p>
 </li>
 </ol>
 <h4 id="2-优点："><a href="#2-优点：" class="headerlink" title="2.优点："></a>2.优点：</h4><ol>
@@ -199,10 +192,10 @@
 <li><p>使用消极学习方法，基本上不学习，预测速度较慢</p>
 </li>
 </ol>
-<h2 id="2-逻辑回归"><a href="#2-逻辑回归" class="headerlink" title="2. 逻辑回归"></a>2. 逻辑回归</h2><p>（<code>LogisticRegression</code>，简称LR）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br></pre></td></tr></table></figure>
+<h2 id="2-逻辑回归"><a href="#2-逻辑回归" class="headerlink" title="2. 逻辑回归"></a>2. <strong>逻辑回归</strong></h2><p>（<code>LogisticRegression</code>，简称 LR）</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br></pre></td></tr></tbody></table></figure>
 
-<p>擅长处理分类问题 </p>
+<p>擅长处理分类问题</p>
 <h3 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h3><ul>
 <li>在线性回归的基础上加入了<code>sigmoid</code>函数。本质上使用一个线性回归模型的预测结果取逼近真实标记的对数几率。</li>
 </ul>
@@ -220,14 +213,14 @@
 <p>例如：是否为垃圾邮件，是否患病，金融诈骗，虚假账号</p>
 </blockquote>
 <h3 id="5-参数："><a href="#5-参数：" class="headerlink" title="5 .参数："></a>5 .参数：</h3><blockquote>
-<p><code>LogisticRegression</code>默认带了正则化项，<code>penalty</code>参数可选择的值为l1和l2,默认是l2正则化</p>
-<p>L1是模型各个参数的绝对值之和，L1趋向于产生少许的特征，而其余的特征都是0</p>
-<p>L2是模型各个参数的平方和的绝对值，L2会选择更多的特征，这些特征都会接近于0</p>
-<p>算法优化参数<code>solver </code>L1:<code>liblinear    </code>L2:<code>libnear</code>,<code>lbfgs</code>,<code>newton</code>-cg,sag</p>
+<p><code>LogisticRegression</code>默认带了正则化项，<code>penalty</code>参数可选择的值为 l1 和 l2,默认是 l2 正则化</p>
+<p>L1 是模型各个参数的绝对值之和，L1 趋向于产生少许的特征，而其余的特征都是 0</p>
+<p>L2 是模型各个参数的平方和的绝对值，L2 会选择更多的特征，这些特征都会接近于 0</p>
+<p>算法优化参数<code>solver </code>L1:<code>liblinear </code>L2:<code>libnear</code>,<code>lbfgs</code>,<code>newton</code>-cg,sag</p>
 <p>梯度下降：<code>max_iter </code>最大迭代次数</p>
 </blockquote>
 <h2 id="3-朴素贝叶斯算法"><a href="#3-朴素贝叶斯算法" class="headerlink" title="3. 朴素贝叶斯算法"></a>3. 朴素贝叶斯算法</h2><p>(高斯朴素贝叶斯，多项式朴素贝叶斯，伯努利朴素贝叶斯）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> BernoulliNB</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> GaussianNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> MultinomialNB</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.naive_bayes <span class="keyword">import</span> BernoulliNB</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="1-原理：-1"><a href="#1-原理：-1" class="headerlink" title="1.原理："></a>1.原理：</h3><ul>
 <li>在假设每个条件都独立的情况下，以贝叶斯定理为基础，利用概率统计对样本数据集进行分类。</li>
@@ -298,15 +291,15 @@
 </tr>
 </tbody></table>
 <p><strong>信息增益</strong>：</p>
-<p><code>ID3     </code>在划分数据集之前之后信息发生的变化成为信息增益</p>
+<p><code>ID3 </code>在划分数据集之前之后信息发生的变化成为信息增益</p>
 <p><code>ID3</code>算法就是在每次需要分裂时，计算每个属性的增益率，然后选择增益率最大的属性进行分裂。</p>
 <p><strong>信息增益比</strong>：</p>
-<p><code>C4.5   </code>信息增益与训练数据集的经验熵之比</p>
+<p><code>C4.5 </code>信息增益与训练数据集的经验熵之比</p>
 <p><strong><code>CART</code>分类算法</strong>是：</p>
 <p>根据基尼（<code>gini</code>）系数来选择测试属性，<code>gini</code>系数的值越小，划分效果越好。</p>
 <p><strong>决策树模型参数</strong>：</p>
-<p><code>max_features</code>: None(所有） log2，sqrt, N特征小于50的时候一般使用所有的</p>
-<p><code>max_depth</code>: 设置决策随机森林中的决策树的最大深度，深度越大，越容易过拟合，推荐树的深度为5~20之间</p>
+<p><code>max_features</code>: None(所有） log2，sqrt, N 特征小于 50 的时候一般使用所有的</p>
+<p><code>max_depth</code>: 设置决策随机森林中的决策树的最大深度，深度越大，越容易过拟合，推荐树的深度为 5~20 之间</p>
 <p><code>min_samples_split</code>:设置结点的最小样本数量，当样本数量可能小于此值时，结点将不会再划分</p>
 <p><code>min_samples_leaf</code>:这个值限制了叶子节点最小的样本数，如果某叶子节点数目小于样本数，则会和兄弟节点一起被剪枝</p>
 <h3 id="1-优点："><a href="#1-优点：" class="headerlink" title="1.优点："></a>1.优点：</h3><p>决策树有利于理解，可解释性好。</p>
@@ -321,46 +314,46 @@
 <p>代表算法：<code>AdaBoost、GBDT</code></p>
 <p><code>AdaBoost</code>参数：</p>
 <p><code>base_estimator</code>:基分类器，默认决策树，在该分类器基础上进行<code>boosting</code></p>
-<p><code>n_estimators</code>:基分类器提升（循环）次数，默认是50次，这个值过大，模型容易过拟合；值过小，模型容易欠拟合</p>
-<p><code>learning_rate</code>：学习率，表示梯度收敛速度，默认为1</p>
-<p><code>Adaboost</code>的总结： </p>
+<p><code>n_estimators</code>:基分类器提升（循环）次数，默认是 50 次，这个值过大，模型容易过拟合；值过小，模型容易欠拟合</p>
+<p><code>learning_rate</code>：学习率，表示梯度收敛速度，默认为 1</p>
+<p><code>Adaboost</code>的总结：</p>
 <p>在分类错误的部分增加训练权重，而在训练的过程是通过降低偏差来不断提高最终分类器的精度。</p>
-<p>弱分类器一般会选择为CARTRE(也就是分类回归树)。由于上述高偏差和简单的要求每个分类回归树的深度不会很深。最终的总分类器是将每轮训练得到的弱分类最加权求和得到的〈(也就是加法模型)。</p>
+<p>弱分类器一般会选择为 CARTRE(也就是分类回归树)。由于上述高偏差和简单的要求每个分类回归树的深度不会很深。最终的总分类器是将每轮训练得到的弱分类最加权求和得到的〈(也就是加法模型)。</p>
 <p>具体步骤：</p>
 <p>1、首先，初始化训练数据的权值分布</p>
 <p>2、进行多轮迭代</p>
-<p>a 、使用具有权值分布Dm的训练数据集学习，得到基本分类器</p>
+<p>a 、使用具有权值分布 Dm 的训练数据集学习，得到基本分类器</p>
 <p>b 、计算<code>Gm(x)</code>在训练数据集上的分类误差率</p>
-<p>c 、计算<code>Gm(x)</code>的系数，<code>am</code>表示<code>Gm(x)</code>在最终分类器中的重要程度 (目的：得到基本分类器在最终分类器中所占的权重) </p>
-<p>d 、更新训练数据集的权值分布（为了得到样本的新的权值分布），用于下一轮迭代 </p>
+<p>c 、计算<code>Gm(x)</code>的系数，<code>am</code>表示<code>Gm(x)</code>在最终分类器中的重要程度 (目的：得到基本分类器在最终分类器中所占的权重)</p>
+<p>d 、更新训练数据集的权值分布（为了得到样本的新的权值分布），用于下一轮迭代</p>
 <p>3、组合各个弱分类器，得到最终分类器</p>
 <p><strong>并行集成方法</strong>（<code>Bagging</code>）(装袋法)：利用基础学习器之间的独立性，通过平均可以显著降低错误。因为<code>bagging</code>方法可以减小过拟合，所以通常在强分类器和复杂模型上使用时表现得很好（例如完全生长得决策树）</p>
 <p><code>Bagging</code>核心为<code>bootstrap</code>(自助采样法），算法过程如下：</p>
 <ol>
-<li><p>从原始样本集中抽取训练集，每轮从原始样本集中有放回地抽取n个训练样本，共进行k轮抽取，得到k个训练集</p>
+<li><p>从原始样本集中抽取训练集，每轮从原始样本集中有放回地抽取 n 个训练样本，共进行 k 轮抽取，得到 k 个训练集</p>
 </li>
-<li><p>每次使用一个训练集得到一个模型，k个训练集得到k个模型</p>
+<li><p>每次使用一个训练集得到一个模型，k 个训练集得到 k 个模型</p>
 </li>
-<li><p>对于分类问题，将上步得到地k个模型采用投票方式得到分类结果。对于回归问题，计算模型地均值作为最后结果</p>
+<li><p>对于分类问题，将上步得到地 k 个模型采用投票方式得到分类结果。对于回归问题，计算模型地均值作为最后结果</p>
 </li>
 </ol>
 <p><code>Bagging</code>参数：</p>
 <ul>
 <li><p><code>base_estimator</code>基学习器</p>
 </li>
-<li><p><code>n_estimators</code>基学习器数量 </p>
+<li><p><code>n_estimators</code>基学习器数量</p>
 </li>
-<li><p><code>max_samples</code>随机样本集的最大个数 </p>
+<li><p><code>max_samples</code>随机样本集的最大个数</p>
 </li>
-<li><p><code>max_features</code>随机特征子集的最大个数 </p>
+<li><p><code>max_features</code>随机特征子集的最大个数</p>
 </li>
-<li><p><code>bootstrap</code>控制样本是否有放回取样(bootstrap=True,表示有放回取样) </p>
+<li><p><code>bootstrap</code>控制样本是否有放回取样(bootstrap=True,表示有放回取样)</p>
 </li>
 <li><p><code>bootstrap_features</code>控制特征是否是有放回取样</p>
 </li>
 </ul>
 <p><strong>bagging</strong>代表算法：</p>
-<h6 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h6><p>原理：以树模型为基础学习器的bagging算法。（描述决策树的原理 + bagging的原理）</p>
+<h6 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h6><p>原理：以树模型为基础学习器的 bagging 算法。（描述决策树的原理 + bagging 的原理）</p>
 <p>随机方式：样本随机 特征随机 参数随机 模型随机（ID3,C4.5)</p>
 <h4 id="1-优点：-1"><a href="#1-优点：-1" class="headerlink" title="1. 优点："></a>1. 优点：</h4><p>它可以拟合出来很高维度（特征很多）的数据，并且不用降维，无需做特征选择它可以判断特征的重要程度</p>
 <p>能一定程度防止过拟合</p>
@@ -368,71 +361,71 @@
 <p>如果有很大一部分的特征遗失，仍可以维持准确度。</p>
 <h4 id="2-缺点：-1"><a href="#2-缺点：-1" class="headerlink" title="2. 缺点："></a>2. 缺点：</h4><p>在某些噪音较大的分类或回归问题上会过拟合。</p>
 <p>取值划分较多的属性会对随机森林产生更大的影响。</p>
-<h4 id="3-Extra-Trees极限树"><a href="#3-Extra-Trees极限树" class="headerlink" title="3. Extra Trees极限树"></a>3. Extra Trees极限树</h4><p><em>原理</em>：算法与随机森林算法十分相似，都是由许多决策树构成。</p>
-<p><em>随机方式</em>：特征随机 参数随机 模型随机<code>（ID3 ,C4.5） </code>分裂随机 </p>
-<h4 id="4-极限树与随机森林的主要区别："><a href="#4-极限树与随机森林的主要区别：" class="headerlink" title="4. 极限树与随机森林的主要区别："></a>4. 极限树与随机森林的主要区别：</h4><p><code>randomForest</code>应用的是Bagging模型，<code>extraTree</code>使用的所有的样本，极限树的分裂是随机选取的，因为分裂是随机的，所以在某种程度上比随机森林得到的结果更加好。</p>
-<p>随机森林是在一个随机子集内得到最佳分叉属性，而ET是完全随机的得到分叉值，从而实现对决策树进行分叉的。 </p>
-<h4 id="5-GBDT简要原理："><a href="#5-GBDT简要原理：" class="headerlink" title="5. GBDT简要原理："></a>5. GBDT简要原理：</h4><p><code>DT</code>是<code>Decision Tree</code>决策树，<code>GB</code>是<code>Gradient Boosting</code>（梯度推进、梯度提升），GBDT是一种学习策略，<code>GBDT</code>就是用<code>Gradient Boosting</code>的策略训练出来的<code>DT</code>决策树模型。模型的结果是一组回归分类树组合<code>(CART Tree nsemble)T(1)......T(k) </code>。其中<code>T(j)</code> 模型的参数学习的是之前<code>(j-i)</code> 棵树预测结果的残差。</p>
+<h4 id="3-Extra-Trees-极限树"><a href="#3-Extra-Trees-极限树" class="headerlink" title="3. Extra Trees 极限树"></a>3. Extra Trees 极限树</h4><p>_原理_：算法与随机森林算法十分相似，都是由许多决策树构成。</p>
+<p>_随机方式_：特征随机 参数随机 模型随机<code>（ID3 ,C4.5） </code>分裂随机</p>
+<h4 id="4-极限树与随机森林的主要区别："><a href="#4-极限树与随机森林的主要区别：" class="headerlink" title="4. 极限树与随机森林的主要区别："></a>4. 极限树与随机森林的主要区别：</h4><p><code>randomForest</code>应用的是 Bagging 模型，<code>extraTree</code>使用的所有的样本，极限树的分裂是随机选取的，因为分裂是随机的，所以在某种程度上比随机森林得到的结果更加好。</p>
+<p>随机森林是在一个随机子集内得到最佳分叉属性，而 ET 是完全随机的得到分叉值，从而实现对决策树进行分叉的。</p>
+<h4 id="5-GBDT-简要原理："><a href="#5-GBDT-简要原理：" class="headerlink" title="5. GBDT 简要原理："></a>5. GBDT 简要原理：</h4><p><code>DT</code>是<code>Decision Tree</code>决策树，<code>GB</code>是<code>Gradient Boosting</code>（梯度推进、梯度提升），GBDT 是一种学习策略，<code>GBDT</code>就是用<code>Gradient Boosting</code>的策略训练出来的<code>DT</code>决策树模型。模型的结果是一组回归分类树组合<code>(CART Tree nsemble)T(1)......T(k) </code>。其中<code>T(j)</code> 模型的参数学习的是之前<code>(j-i)</code> 棵树预测结果的残差。</p>
 <p><code>GBDT</code>思想：就像准备考试前的复习，先做一遍习题册，然后把做错的题目挑出来，在做一次，然后把做错的题目挑出来在做一次，经过反复多轮训练，取得最好的成绩。</p>
-<h4 id="6-GBDT优缺点："><a href="#6-GBDT优缺点：" class="headerlink" title="6. GBDT优缺点："></a>6. GBDT优缺点：</h4><ol>
-<li>GBDT优点</li>
+<h4 id="6-GBDT-优缺点："><a href="#6-GBDT-优缺点：" class="headerlink" title="6. GBDT 优缺点："></a>6. GBDT 优缺点：</h4><ol>
+<li>GBDT 优点</li>
 </ol>
 <blockquote>
 <p>可以灵活处理各种类型的数据，包括连续值和离散值。</p>
-<p>在相对较少的调参时间情况下，预测的准确率也比较高，相对SVM而言。</p>
-<p>在使用一些健壮的损失函数，对异常值得鲁棒性非常强。比如Huber损失函数和Quantile损失函数。</p>
+<p>在相对较少的调参时间情况下，预测的准确率也比较高，相对 SVM 而言。</p>
+<p>在使用一些健壮的损失函数，对异常值得鲁棒性非常强。比如 Huber 损失函数和 Quantile 损失函数。</p>
 </blockquote>
 <ol start="2">
-<li>GBDT缺点</li>
+<li>GBDT 缺点</li>
 </ol>
 <blockquote>
-<p> 由于弱学习器之间存在较强依赖关系，难以并行训练。可以通过自采样的SGBT来达到部分并行。</p>
+<p>由于弱学习器之间存在较强依赖关系，难以并行训练。可以通过自采样的 SGBT 来达到部分并行。</p>
 </blockquote>
 <p><strong>重点描述：我们后一棵树，拟合（学习）前面的树预测结果的残差。为什么是残差？残差是我定义的损失函数（MSE）的一阶导，损失的一阶导是损失下降的最快的方向。</strong></p>
 <blockquote>
-<p> <code>XGBoost</code>：该算法思想是基于决策树，通过<code>boosting</code>算法的方式，在<code>GBDT</code>基础上的工程实现，它不断地进行特征分裂来生长一棵树，每次添加一个树，其实是学习一个新函数，去拟合上次预测的残差，本质上是对上次预测失败的部分再进行预测并且为继续失败的部分赋予更高的权重的过程。当我们训练完成得到k棵树，我们要预测一个样本的分数，其实就是根据这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数，最后只需要将每棵树对应的分数加起来就是该样本的预测值。</p>
+<p><code>XGBoost</code>：该算法思想是基于决策树，通过<code>boosting</code>算法的方式，在<code>GBDT</code>基础上的工程实现，它不断地进行特征分裂来生长一棵树，每次添加一个树，其实是学习一个新函数，去拟合上次预测的残差，本质上是对上次预测失败的部分再进行预测并且为继续失败的部分赋予更高的权重的过程。当我们训练完成得到 k 棵树，我们要预测一个样本的分数，其实就是根据这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数，最后只需要将每棵树对应的分数加起来就是该样本的预测值。</p>
 </blockquote>
 <ol start="3">
-<li><code>XGBoost</code>与GBDT有什么不同：</li>
+<li><code>XGBoost</code>与 GBDT 有什么不同：</li>
 </ol>
-<p>除了算法上与传统的GBDT有一些不同外，<code>XGBoost</code>还在工程实现上做了大量的优化。总的来说，两者之间的区别和联系可以总结成以下几个方面。</p>
+<p>除了算法上与传统的 GBDT 有一些不同外，<code>XGBoost</code>还在工程实现上做了大量的优化。总的来说，两者之间的区别和联系可以总结成以下几个方面。</p>
 <blockquote>
 <ol>
-<li><p>GBDT是机器学习算法，<code>XGBoost</code>是该算法的工程实现。</p>
+<li><p>GBDT 是机器学习算法，<code>XGBoost</code>是该算法的工程实现。</p>
 </li>
-<li><p>在使用CART作为基分类器时，<code>XGBoost</code>显式地加入了正则项来控制模型的复杂度，有利于防止过拟合，从而提高模型的泛化能力。</p>
+<li><p>在使用 CART 作为基分类器时，<code>XGBoost</code>显式地加入了正则项来控制模型的复杂度，有利于防止过拟合，从而提高模型的泛化能力。</p>
 </li>
-<li><p>GBDT在模型训练时只使用了代价函数的一阶导数信息，<code>XGBoost</code>对代 价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。</p>
+<li><p>GBDT 在模型训练时只使用了代价函数的一阶导数信息，<code>XGBoost</code>对代 价函数进行二阶泰勒展开，可以同时使用一阶和二阶导数。</p>
 </li>
-<li><p>传统的GBDT采用CART作为基分类器，<code>XGBoost</code>支持多种类型的基分类器，比如线性分类器。</p>
+<li><p>传统的 GBDT 采用 CART 作为基分类器，<code>XGBoost</code>支持多种类型的基分类器，比如线性分类器。</p>
 </li>
-<li><p>传统的GBDT在每轮迭代时使用全部的数据，<code>XGBoost</code>则采用了与随机森林相似的策略，支持对数据进行采样。</p>
+<li><p>传统的 GBDT 在每轮迭代时使用全部的数据，<code>XGBoost</code>则采用了与随机森林相似的策略，支持对数据进行采样。</p>
 </li>
-<li><p>传统的GBDT没有设计对缺失值进行处理，<code>XGBoost</code>能够自动学习出缺失值的处理策略。</p>
+<li><p>传统的 GBDT 没有设计对缺失值进行处理，<code>XGBoost</code>能够自动学习出缺失值的处理策略。</p>
 </li>
 </ol>
 </blockquote>
 <p><strong><code>VotingClassifier</code></strong></p>
 <p>导入：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble  <span class="keyword">import</span> VotingClassifier</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble  <span class="keyword">import</span> VotingClassifier</span><br></pre></td></tr></tbody></table></figure>
 
-<p>用法：<code>VotingClassifier(estimators)</code>   其中<code>estimators</code>是列表套元组的方式<code>list of [(),(),(),....]：[(str,estimator)]</code></p>
+<p>用法：<code>VotingClassifier(estimators)</code> 其中<code>estimators</code>是列表套元组的方式<code>list of [(),(),(),....]：[(str,estimator)]</code></p>
 <h4 id="7-决策原理："><a href="#7-决策原理：" class="headerlink" title="7. 决策原理："></a>7. 决策原理：</h4><ol>
-<li>Hard硬方式：<code>voting=&#39;hard&#39;</code></li>
+<li>Hard 硬方式：<code>voting='hard'</code></li>
 </ol>
 <p>用多种机器学习方法得到的结果进行投票，少数服从多数得到结果。</p>
 <ol>
-<li>Soft软方式：<code>voting=&#39;soft&#39;</code></li>
+<li>Soft 软方式：<code>voting='soft'</code></li>
 </ol>
 <p>将所有模型预测样本为某一类别的概率的平均值作为标准，概率最高的对应的类型为最终结果。</p>
-<h2 id="6-K-means算法——聚类"><a href="#6-K-means算法——聚类" class="headerlink" title="6. K-means算法——聚类"></a>6. <strong>K-means算法——聚类</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></table></figure>
+<h2 id="6-K-means-算法——聚类"><a href="#6-K-means-算法——聚类" class="headerlink" title="6. K-means 算法——聚类"></a>6. <strong>K-means 算法——聚类</strong></h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></tbody></table></figure>
 
 <h4 id="1-聚类："><a href="#1-聚类：" class="headerlink" title="1. 聚类："></a>1. 聚类：</h4><blockquote>
 <p>一种无监督的学习，事先不知道类别，自动将相似的对象归到同一个簇中</p>
 </blockquote>
-<h4 id="2-算法原理："><a href="#2-算法原理：" class="headerlink" title="2. 算法原理："></a>2. 算法原理：</h4><p> 从训练集中随机选取k个中心点，通过计算每一个样本与中心之间的距离，将样本点归到最相似的类中，接着重新计算每个类的中心，重复这样的过程，直到中心不再改变，最终确定了每个样本所属的类别以及每个类的中心。</p>
+<h4 id="2-算法原理："><a href="#2-算法原理：" class="headerlink" title="2. 算法原理："></a>2. 算法原理：</h4><p>从训练集中随机选取 k 个中心点，通过计算每一个样本与中心之间的距离，将样本点归到最相似的类中，接着重新计算每个类的中心，重复这样的过程，直到中心不再改变，最终确定了每个样本所属的类别以及每个类的中心。</p>
 <h4 id="3-算法步骤："><a href="#3-算法步骤：" class="headerlink" title="3. 算法步骤："></a>3. 算法步骤：</h4><ol>
-<li><p>从数据中选择k个对象作为初始聚类中心；</p>
+<li><p>从数据中选择 k 个对象作为初始聚类中心；</p>
 </li>
 <li><p>计算每个聚类对象到聚类中心的距离来划分；</p>
 </li>
@@ -453,78 +446,32 @@
 <li><p>乘车数据分析</p>
 </li>
 </ol>
-<h3 id="KMeans-模型评价："><a href="#KMeans-模型评价：" class="headerlink" title="KMeans 模型评价："></a><code>KMeans </code>模型评价：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_samples</span><br></pre></td></tr></table></figure>
+<h3 id="KMeans-模型评价："><a href="#KMeans-模型评价：" class="headerlink" title="KMeans 模型评价："></a><code>KMeans </code>模型评价：</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> silhouette_samples</span><br></pre></td></tr></tbody></table></figure>
 
 <p>其中<code>silhouette_score</code>是返回所有点的平均轮廓系数,<code>silhouette_samples</code>返回每个点的轮廓系数</p>
-<p>某个点的轮廓系数定义：<br>$$<br>S=\frac{disMean_{out} - disMean_{in}}{max(disMean_{out}, disMean_{in})}<br>$$</p>
-<p><code>disMean&#123;in&#125;</code>为该点与本类其他点的平均距离</p>
-<p><code>disMean&#123;out&#125;</code>为该点与非本类点的平均距离。</p>
-<p><code>KMeans</code>模型评价：轮廓系数s，取值范围[-1,1]，越接近于1，说明聚类越优秀</p>
+<p>某个点的轮廓系数定义：</p>
+<p>$$<br>S=\frac{disMean_{out} - disMean_{in}}{max(disMean_{out}, disMean_{in})}<br>$$</p>
+<p><code>disMean{in}</code>为该点与本类其他点的平均距离</p>
+<p><code>disMean{out}</code>为该点与非本类点的平均距离。</p>
+<p><code>KMeans</code>模型评价：轮廓系数 s，取值范围[-1,1]，越接近于 1，说明聚类越优秀</p>
 <p>聚类的个数应该由业务需求给定，而不是根据轮廓系数来判断，轮廓系数是在已知聚类个数的需求的前提下，针对特征工程处理的优化程度的评价。</p>
 <h2 id="7-SVM-支持向量机"><a href="#7-SVM-支持向量机" class="headerlink" title="7. SVM 支持向量机"></a>7. <strong>SVM 支持向量机</strong></h2><p><strong>（有监督模型/无监督模型/半监督模型）</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br></pre></td></tr></tbody></table></figure>
 
-<h4 id="1-最大边际分类器）"><a href="#1-最大边际分类器）" class="headerlink" title="1. (最大边际分类器）"></a>1. (最大边际分类器）</h4><p>原理：SVM是通过高维度的方式来解决低维度上的问题，是在线性不可分的情况下解决分类和回归问题的一种强有力的算法。使用不同的核函数可以在各种不同的情况下以各种高维度思路来解决低维度的问题。</p>
-<p>SVM的损失函数最初形态：<br>$$<br>\underset{\omega,b}{min}\frac{||\omega||^2}{2}<br>\<br>subject , to , y_i(\omega \cdot x + b) \geq 1 , i=1,2,……,N<br>$$</p>
+<h4 id="1-最大边际分类器）"><a href="#1-最大边际分类器）" class="headerlink" title="1. (最大边际分类器）"></a>1. (最大边际分类器）</h4><p>原理：SVM 是通过高维度的方式来解决低维度上的问题，是在线性不可分的情况下解决分类和回归问题的一种强有力的算法。使用不同的核函数可以在各种不同的情况下以各种高维度思路来解决低维度的问题。</p>
+<p>SVM 的损失函数最初形态：</p>
+<p>$$<br>\underset{\omega,b}{min}\frac{||\omega||^2}{2}<br>\<br>subject , to , y_i(\omega \cdot x + b) \geq 1 , i=1,2,……,N<br>$$</p>
 <h4 id="2-核函数："><a href="#2-核函数：" class="headerlink" title="2. 核函数："></a>2. <strong>核函数：</strong></h4><p>核函数，又叫做“核技巧”(Kernel Trick)，是一种能够使用数据原始空间中的向量计算来表示升维后的空间中的点积结果的数学方式。</p>
 <p>目的是为了解决以下问题：</p>
 <ol>
-<li><p>有了核函数之后，我们无需去担心究竟应该是什么样，因为非线性SVM中的核函数都是正定核函 数，他们都满足美世定律，确保了高维空间中任意两个向量的点积一定可以被低维空间中的这两个向量的某种计算来表示（多数时候是点积的某种变换）。</p>
+<li><p>有了核函数之后，我们无需去担心究竟应该是什么样，因为非线性 SVM 中的核函数都是正定核函 数，他们都满足美世定律，确保了高维空间中任意两个向量的点积一定可以被低维空间中的这两个向量的某种计算来表示（多数时候是点积的某种变换）。</p>
 </li>
 <li><p>使用核函数计算低维度中的向量关系比计算原本的映射函数$\Phi(x_i)\Phi(x_{test})$要简单太多</p>
 </li>
 </ol>
 <p>计算是在原始空间中进行，所以避免了维度诅咒的问题</p>
 <p><code>SKlearn </code>中的核函数，用<code>Kernel</code>选择：</p>
-<table>
-<thead>
-<tr>
-<th>输入</th>
-<th>含义</th>
-<th>解决问题</th>
-<th>核函数的表达式</th>
-<th>参数    gamma</th>
-<th>参数   degree</th>
-<th>参数    coef0</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>liner</code></td>
-<td>线性核</td>
-<td>线性</td>
-<td>$ K(x,y)= x^T y = x\cdot y $</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td><code>poly</code></td>
-<td>多项式核</td>
-<td>偏线性</td>
-<td>$ K(x,y)=(\gamma(x\cdot y) + r)^d $</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>sigmoid</code></td>
-<td>双曲正切核</td>
-<td>非线性</td>
-<td>$K(x,y) = tanh(\gamma(x\cdot y) + r)$</td>
-<td>Yes</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><code>rbf</code></td>
-<td>高斯径向基</td>
-<td>偏非线性</td>
-<td>$K(x,y)=e^{-\gamma</td>
-<td></td>
-<td>x-y</td>
-<td></td>
-</tr>
-</tbody></table>
+<p>| 输入      | 含义       | 解决问题 | 核函数的表达式                        | 参数 gamma | 参数 degree | 参数 coef0 |<br>| ——— | ———- | ——– | ————————————- | ———- | ———– | ———- | ————— | — | — | — |<br>| <code>liner</code>   | 线性核     | 线性     | $ K(x,y)= x^T y = x\cdot y $          | No         | No          | No         |<br>| <code>poly</code>    | 多项式核   | 偏线性   | $ K(x,y)=(\gamma(x\cdot y) + r)^d $   | Yes        | Yes         | Yes        |<br>| <code>sigmoid</code> | 双曲正切核 | 非线性   | $K(x,y) = tanh(\gamma(x\cdot y) + r)$ | Yes        | No          | Yes        |<br>| <code>rbf</code>     | 高斯径向基 | 偏非线性 | $K(x,y)=e^{-\gamma                    |            | x-y         |            | ^2}, \gamma&gt;0 $ | Yes | No  | No  |</p>
 <h2 id="8-降维方式"><a href="#8-降维方式" class="headerlink" title="8. 降维方式"></a>8. <strong>降维方式</strong></h2><h4 id="1-降维说明："><a href="#1-降维说明：" class="headerlink" title="1. 降维说明："></a>1. 降维说明：</h4><blockquote>
 <p>通过保留一些重要特征，减少数据的维度的方法。</p>
 <p>降维后的最终目标是各个属性维度之间线性无关。</p>
@@ -554,53 +501,53 @@
 <ol>
 <li>有利于数据可视化，以便观察和挖掘数据的特征。</li>
 </ol>
-<p>无监督降维：PCA主成分分析法 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br></pre></td></tr></table></figure>
+<p>无监督降维：PCA 主成分分析法</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br></pre></td></tr></tbody></table></figure>
 
-<p>PCA用于对一组连续正交分量中的多变量数据集进行方差最大方向的分解。是一种常用的线性降维数据分析方法，其实质是在能尽可能好的代表原特征的情况下，将原特征进行线性变换、映射至低维度空间中。也就是将N维特征映射到K维空间上，K&lt;N，这K维特征是线性无关的。</p>
-<p>注意：这是重新构造出来的K维特征，而不是简单地从N维特征中去除其余N-K维特征，因为有可能是某些新特征可能是几个原特征经过变换而来的；这也是特征选择和特征提取的根本区别。</p>
-<p>PCA核心问题：协方差矩阵的分解</p>
-<p>PCA优点：</p>
+<p>PCA 用于对一组连续正交分量中的多变量数据集进行方差最大方向的分解。是一种常用的线性降维数据分析方法，其实质是在能尽可能好的代表原特征的情况下，将原特征进行线性变换、映射至低维度空间中。也就是将 N 维特征映射到 K 维空间上，K&lt;N，这 K 维特征是线性无关的。</p>
+<p>注意：这是重新构造出来的 K 维特征，而不是简单地从 N 维特征中去除其余 N-K 维特征，因为有可能是某些新特征可能是几个原特征经过变换而来的；这也是特征选择和特征提取的根本区别。</p>
+<p>PCA 核心问题：协方差矩阵的分解</p>
+<p>PCA 优点：</p>
 <ol>
 <li>保留绝大部分信息；</li>
 <li>消除评价指标之间的相关影响；</li>
 <li>计算方法简单，易于在计算机上实现。</li>
 </ol>
-<p>PCA缺点：</p>
+<p>PCA 缺点：</p>
 <ol>
 <li>主成分分析往往具有一定模糊性，不如原始变量的含义那么清楚、确切。</li>
 </ol>
-<p>有监督降维：LDA线性判别分析法   <code>from sklearn.discriminant_analysis import LinearDiscriminantAnalysis</code></p>
-<p>LDA思想：投影后类内方差最小，类间方差最大。</p>
-<p>LDA算法的优点：</p>
+<p>有监督降维：LDA 线性判别分析法 <code>from sklearn.discriminant_analysis import LinearDiscriminantAnalysis</code></p>
+<p>LDA 思想：投影后类内方差最小，类间方差最大。</p>
+<p>LDA 算法的优点：</p>
 <ol>
-<li>在降维过程中可以使用类别的先验知识经验，而像PCA这样的无监督学习则无法使用类别先验知识。</li>
-<li>LDA在样本分类信息依赖均值而不是方差的时候，比PCA之类的算法较优。</li>
+<li>在降维过程中可以使用类别的先验知识经验，而像 PCA 这样的无监督学习则无法使用类别先验知识。</li>
+<li>LDA 在样本分类信息依赖均值而不是方差的时候，比 PCA 之类的算法较优。</li>
 </ol>
-<p>LDA算法的缺点：</p>
+<p>LDA 算法的缺点：</p>
 <ol>
-<li>LDA不适合对非高斯分布样本进行降维，PCA也有这个问题。</li>
-<li>LDA降维最多降到类别数K-1的维数，如果我们降维的维度大于K-1，则不能使用LDA。当然，目前有一些LDA的进化版算法可以绕过这个问题。</li>
-<li>LDA在样本分类信息依赖方差而不是均值的时候，降维效果不好。</li>
-<li>LDA可能过度拟合数据。</li>
+<li>LDA 不适合对非高斯分布样本进行降维，PCA 也有这个问题。</li>
+<li>LDA 降维最多降到类别数 K-1 的维数，如果我们降维的维度大于 K-1，则不能使用 LDA。当然，目前有一些 LDA 的进化版算法可以绕过这个问题。</li>
+<li>LDA 在样本分类信息依赖方差而不是均值的时候，降维效果不好。</li>
+<li>LDA 可能过度拟合数据。</li>
 </ol>
-<p>LDA和PCA的区别：</p>
+<p>LDA 和 PCA 的区别：</p>
 <p>相同点：</p>
 <ol>
-<li>PCA和LDA均可以对数据进行降维。</li>
+<li>PCA 和 LDA 均可以对数据进行降维。</li>
 <li>两者在降维时均使用了矩阵特征分解的思想。</li>
 <li>两者都假设数据符合高斯分布。</li>
 </ol>
 <p>不同点：</p>
 <ol>
-<li>LDA是有监督的降维方法，而PCA是无监督的降维方法。</li>
-<li>LDA降维最多降到类别数K-1的维数，而PCA则没有这个限制。</li>
-<li>LDA除了可以用于降维，还可以用于分类。</li>
-<li>LDA选择分类性能最好的投影方向，而PCA选择样本点具有最大方差的投影方向。</li>
+<li>LDA 是有监督的降维方法，而 PCA 是无监督的降维方法。</li>
+<li>LDA 降维最多降到类别数 K-1 的维数，而 PCA 则没有这个限制。</li>
+<li>LDA 除了可以用于降维，还可以用于分类。</li>
+<li>LDA 选择分类性能最好的投影方向，而 PCA 选择样本点具有最大方差的投影方向。</li>
 </ol>
 <p>基础知识补充</p>
 <h2 id="9-ElasticSearch"><a href="#9-ElasticSearch" class="headerlink" title="9. ElasticSearch"></a>9. <strong><code>ElasticSearch</code></strong></h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><blockquote>
-<p> <code>ElasticSearch</code>是一个基于<code>Lucene</code>的搜索服务器，它提供了一个分布式多用户的全文搜索引擎。</p>
+<p><code>ElasticSearch</code>是一个基于<code>Lucene</code>的搜索服务器，它提供了一个分布式多用户的全文搜索引擎。</p>
 </blockquote>
 <h4 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h4><blockquote>
 <p>首先用户将数据提交到<code>ElasticSearch </code>数据库中，再通过分词控制器去将对应的语句分词，将其权重和分词结果一并存入数据，当用户搜索数据时候，再根据权重将结果排名，打分，再将返回结果呈现给用户。</p>
@@ -622,20 +569,18 @@
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">Newer Post</span>
-                <h2 class="post-list__post-title post-title"><a href="/2022/06/02/linux基础/" title="Linux语法">Linux语法</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2022/06/02/GIT/" title="Git">Git</a></h2>
                 <p class="excerpt">
                 
-                linux基础命令格式：命令 [-命令参数] [-命令对象]
-常用快捷键​    ctrl + c: 终止进程（结束命令的执行）
-​    ctrl + w: 删除光标所在的位置的单词
-​    ctrl + a: 光标移动到文本开头
-​        ctrl + e: 光标移动到文本末尾
-​  
+                Git的奇技淫巧🙈
+Git常用命令集合，Fork于tips项目
+
+Git是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只
                 &hellip;
                 </p>
                 <div class="post-list__meta"><time datetime="2022-06-01T16:00:00.000Z" class="post-list__meta--date date">2022-06-02</time> &#8226; <span class="post-list__meta--tags tags">于 
   <a class="-none-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a>
-</span><a class="btn-border-small" href="/2022/06/02/linux基础/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2022/06/02/GIT/">继续阅读</a></div>
                            
             </div>
         
@@ -712,5 +657,5 @@
     <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
     
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>
