@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vim语法</title>
+    <url>/2022/06/02/Vim/</url>
+    <content><![CDATA[<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
+<li><p>末行模式</p>
+<ul>
+<li><code>set nu</code> - 显示行号</li>
+<li><code>set ts=4</code> - 设置制表键的空格数</li>
+<li><code>set expandtab </code>- 将制表键扩展为空格</li>
+<li> <code> set autoindent</code> - 自动缩进</li>
+<li><code>set ruler</code>：显示光标位置</li>
+<li><code>syntax on / off</code>：打开 / 关闭语法高亮</li>
+</ul>
+</li>
+<li><p>命令模式</p>
+<ol>
+<li><p><code>ZZ</code> - 保存退出</p>
+</li>
+<li><p><code>i / I / a / A/ o / O</code> - 进入编辑模式</p>
+</li>
+<li><p>移动光标</p>
+<ol>
+<li><code>h j k l </code> ： 左  /  下  /   上  /  右</li>
+<li><code>gg / G / 100G </code>：开始 / 结尾</li>
+<li><code>0 /$：</code>语句前 / 后</li>
+<li><code>w / e</code>：单词的开始 / 结尾</li>
+<li><code>ctrl + f / b / e / y</code>：向后一页 / 向前一页  / 向后一行 / 向前一行  </li>
+</ol>
+</li>
+<li><p>内容编辑</p>
+<ol>
+<li>删除 ： <ol>
+<li><code>dd </code>：删除整行</li>
+<li><code>d$</code>：从光标位置到行尾</li>
+<li><code>d0</code>：从光标位置到行首</li>
+<li><code>dw</code>：删除光标所在的单词</li>
+<li><code>%d</code>：删除所有内容</li>
+</ol>
+</li>
+<li>撤销：<code>u</code></li>
+<li>恢复：<code>ctrl + r</code></li>
+<li>执行上一次命令：<code>.</code></li>
+<li>复制粘贴：<ol>
+<li><code>yy  /  p</code></li>
+<li><code>v -- Visual -- 移动光标选中内容 -- y -- p</code>： 进入可视模式，选中复制内容，粘贴</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>文件权限</p>
+<ol>
+<li>r ：读权限</li>
+<li>w ：写权限</li>
+<li>x ：执行权限</li>
+<li>修改文件权限： <ol>
+<li><code>chmod u + / -x 文件 </code>：给文件所有者添加/删除执行权限</li>
+<li><code>chmod g + / - x 文件</code>：给同组用户添加/删除执行权限</li>
+<li><code>chmod o + / - r文件</code>：给其他用户添加/删除执行权限</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p><code>rw-               r--            r--</code></p>
+<p>文件所有者               同组用户                 其他用户</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<p>​                </p>
+<h2 id="vim配置文件"><a href="#vim配置文件" class="headerlink" title="vim配置文件"></a>vim配置文件</h2><p>切换至用户主目录下：4‘</p>
+<ul>
+<li><code>vim .vimrc</code> ： 编辑配置文件</li>
+<li>添加配置设置：<ul>
+<li><code>set nu</code> - 显示行号</li>
+<li><code>set ts=4</code> - 设置制表键的空格数</li>
+<li><code>set expandtab </code>- 将制表键扩展为空格</li>
+<li> <code> set autoindent</code> - 自动缩进</li>
+<li><code>set ruler</code>：显示光标位置</li>
+<li><code>syntax on / off</code>：打开 / 关闭语法高亮</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux语法</title>
     <url>/2022/06/02/linux%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h2><p>命令格式：<code>命令 [-命令参数] [-命令对象]</code></p>
@@ -435,94 +523,6 @@
 </li>
 </ul>
 <h4 id="定时任务和shell脚本"><a href="#定时任务和shell脚本" class="headerlink" title="定时任务和shell脚本"></a>定时任务和shell脚本</h4><p>x: true</p>
-]]></content>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vim语法</title>
-    <url>/2022/06/02/Vim/</url>
-    <content><![CDATA[<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><ul>
-<li><p>末行模式</p>
-<ul>
-<li><code>set nu</code> - 显示行号</li>
-<li><code>set ts=4</code> - 设置制表键的空格数</li>
-<li><code>set expandtab </code>- 将制表键扩展为空格</li>
-<li> <code> set autoindent</code> - 自动缩进</li>
-<li><code>set ruler</code>：显示光标位置</li>
-<li><code>syntax on / off</code>：打开 / 关闭语法高亮</li>
-</ul>
-</li>
-<li><p>命令模式</p>
-<ol>
-<li><p><code>ZZ</code> - 保存退出</p>
-</li>
-<li><p><code>i / I / a / A/ o / O</code> - 进入编辑模式</p>
-</li>
-<li><p>移动光标</p>
-<ol>
-<li><code>h j k l </code> ： 左  /  下  /   上  /  右</li>
-<li><code>gg / G / 100G </code>：开始 / 结尾</li>
-<li><code>0 /$：</code>语句前 / 后</li>
-<li><code>w / e</code>：单词的开始 / 结尾</li>
-<li><code>ctrl + f / b / e / y</code>：向后一页 / 向前一页  / 向后一行 / 向前一行  </li>
-</ol>
-</li>
-<li><p>内容编辑</p>
-<ol>
-<li>删除 ： <ol>
-<li><code>dd </code>：删除整行</li>
-<li><code>d$</code>：从光标位置到行尾</li>
-<li><code>d0</code>：从光标位置到行首</li>
-<li><code>dw</code>：删除光标所在的单词</li>
-<li><code>%d</code>：删除所有内容</li>
-</ol>
-</li>
-<li>撤销：<code>u</code></li>
-<li>恢复：<code>ctrl + r</code></li>
-<li>执行上一次命令：<code>.</code></li>
-<li>复制粘贴：<ol>
-<li><code>yy  /  p</code></li>
-<li><code>v -- Visual -- 移动光标选中内容 -- y -- p</code>： 进入可视模式，选中复制内容，粘贴</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p>文件权限</p>
-<ol>
-<li>r ：读权限</li>
-<li>w ：写权限</li>
-<li>x ：执行权限</li>
-<li>修改文件权限： <ol>
-<li><code>chmod u + / -x 文件 </code>：给文件所有者添加/删除执行权限</li>
-<li><code>chmod g + / - x 文件</code>：给同组用户添加/删除执行权限</li>
-<li><code>chmod o + / - r文件</code>：给其他用户添加/删除执行权限</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p><code>rw-               r--            r--</code></p>
-<p>文件所有者               同组用户                 其他用户</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ul>
-<p>​                </p>
-<h2 id="vim配置文件"><a href="#vim配置文件" class="headerlink" title="vim配置文件"></a>vim配置文件</h2><p>切换至用户主目录下：4‘</p>
-<ul>
-<li><code>vim .vimrc</code> ： 编辑配置文件</li>
-<li>添加配置设置：<ul>
-<li><code>set nu</code> - 显示行号</li>
-<li><code>set ts=4</code> - 设置制表键的空格数</li>
-<li><code>set expandtab </code>- 将制表键扩展为空格</li>
-<li> <code> set autoindent</code> - 自动缩进</li>
-<li><code>set ruler</code>：显示光标位置</li>
-<li><code>syntax on / off</code>：打开 / 关闭语法高亮</li>
-</ul>
-</li>
-</ul>
 ]]></content>
       <tags>
         <tag>笔记</tag>
