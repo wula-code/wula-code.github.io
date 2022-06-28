@@ -536,7 +536,7 @@
   </entry>
   <entry>
     <title>逻辑斯蒂回归参数</title>
-    <url>/2022/06/03/%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%8F%82%E6%95%B0/</url>
+    <url>/2021/02/06/%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%8F%82%E6%95%B0/</url>
     <content><![CDATA[<ul>
 <li><p><strong>penalty：</strong>惩罚项，<strong>str类型</strong>，可选参数为<code>l1和l2</code>，默认为<strong>l2</strong>。用于指定惩罚项中使用的规范。<code>newton-cg</code>、<code>sag</code>和<code>lbfgs</code>求解算法只支持L2规范。<code>L1G</code>规范假设的是模型的参数满足拉普拉斯分布，L2假设的模型参数满足高斯分布，所谓的范式就是加上对参数的约束，使得模型更不会过拟合(overfit)，但是如果要说是不是加了约束就会好，这个没有人能回答，只能说，加约束的情况下，理论上应该可以获得泛化能力更强的结果。</p>
 </li>
@@ -957,7 +957,7 @@
   </entry>
   <entry>
     <title>算法原理简介</title>
-    <url>/2022/06/02/%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/</url>
+    <url>/2021/02/02/%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="算法原理简介"><a href="#算法原理简介" class="headerlink" title="算法原理简介"></a>算法原理简介</h1><h2 id="1-KNN"><a href="#1-KNN" class="headerlink" title="1. KNN"></a>1. <strong>KNN</strong></h2><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> KNeighborsClassifier<br><br><span class="hljs-keyword">from</span> sklearn.neighbors <span class="hljs-keyword">import</span> KNeighborsRegressor<br></code></pre></td></tr></tbody></table></figure>
 
 <p>说明：KNN 算法总体来说比较简单，建议校招的同学写上去。社招同学在被问到还会什么算法的时候才自爆会这些简单算法。总体来说这个算法基本原理需要人人都熟悉。</p>
@@ -1363,6 +1363,877 @@
       </categories>
       <tags>
         <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python面向对象</title>
+    <url>/2020/03/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1 id="Python一切皆对象"><a href="#Python一切皆对象" class="headerlink" title="Python一切皆对象"></a>Python一切皆对象</h1><h2 id="面向对象和面向过程"><a href="#面向对象和面向过程" class="headerlink" title="面向对象和面向过程"></a>面向对象和面向过程</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>面向过程</th>
+<th>面向对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>区别</td>
+<td>事物比较简单，可以使用线性的思维去解决</td>
+<td>事物比较复杂，使用简单是线性思维无法解决</td>
+</tr>
+<tr>
+<td>共同点</td>
+<td>面向过程和面向对象都是解决实际问题的思维方式</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>二者相辅相成，并不是对立的</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>解决复杂的问题，通过面向对象方法便于我们从宏观的角度上把握事物之间复杂的关系，方便我们分析整个系统；具体到微观操作，仍然使用面向过程方式来处理</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><ul>
+<li><p>类是多个类似的事物组成的群体的统称，能够帮助我们快速的理解和判断事物的性质</p>
+</li>
+<li><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li>不同的数据类型属于不同的类</li>
+<li>使用内置函数查看数据类型 <strong>type()</strong></li>
+</ul>
+</li>
+<li><h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<li>10，99，100都是int类之下包含的相似的不同个例，这个隔离专业术语称为实例或对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="类的组成"><a href="#类的组成" class="headerlink" title="类的组成"></a>类的组成</h2><ul>
+<li>创建语句</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Xxxxx</span>: <span class="hljs-comment"># Xxxxx是类的名称</span><br>	<span class="hljs-keyword">pass</span><br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:  <span class="hljs-comment"># 类名，由一个或者多个单词组成，要求首字母大写，其余小写（代码规范）</span><br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-comment"># Python中一切皆对象</span><br><br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">id</span>(Student))  <span class="hljs-comment"># 有内存空间</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(Student))  <span class="hljs-comment"># 有数据类型 &lt;class 'type'&gt;</span><br><span class="hljs-built_in">print</span>(Student)  <span class="hljs-comment"># &lt;class '__main__.Student'&gt; ----&gt;value值</span><br></code></pre></td></tr></tbody></table></figure>
+
+
+
+<ul>
+<li>类属性：类中方法外的变量称为类属性，被该类的所有对象共享,使用类名直接调用</li>
+<li>实例方法</li>
+<li>静态方法：使用@staticmethod修饰的方法，使用类名直接访问的方法</li>
+<li>类方法：使用@classmethod修饰的方法，使用类名直接访问的方法</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:  <span class="hljs-comment"># 类名，由一个或者多个单词组成，要求首字母大写，其余小写（代码规范）</span><br>    native_pace = <span class="hljs-string">'陕西'</span>  <span class="hljs-comment"># 直接写在类里的变量，称为类属性</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,name,age</span>):<br>        self.name = name   <span class="hljs-comment"># self.name为实例属性，进行一个赋值操作，将局部变量中的name的值赋给实例属性</span><br>        self.age = age<br><br><br>    <span class="hljs-comment"># 实例方法，在类之外定义的称为函数，在类之内定义的是实例方法</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'在干饭.......'</span>)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'我叫<span class="hljs-subst">{self.name}</span>,今年<span class="hljs-subst">{self.age}</span>'</span>)<br><br><br>    <span class="hljs-comment"># 静态方法</span><br><span class="hljs-meta">    @staticmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">method</span>():<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'我使用了staticmethod进行修饰，所以我是静态方法'</span>)<br><br>    <span class="hljs-comment"># 类方法</span><br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">cm</span>(<span class="hljs-params">cls</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'我使用了classmethod进行修饰，所以我是类方法'</span>)<br><br><span class="hljs-comment"># 创建Student类的实例对象</span><br><span class="hljs-comment"># 实例对象 = 类名()</span><br><span class="hljs-comment"># 有了实例，就可以调用类中的内容</span><br>s = Student(<span class="hljs-string">'王'</span>,<span class="hljs-number">16</span>)<br>s.eat()<br><span class="hljs-built_in">print</span>(s.native_pace)<br>Student.cm()  <span class="hljs-comment"># 类方法的调用</span><br>Student.method()   <span class="hljs-comment"># 静态方法的调用</span><br></code></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="动态绑定属性和方法"><a href="#动态绑定属性和方法" class="headerlink" title="动态绑定属性和方法"></a>动态绑定属性和方法</h2><ul>
+<li>python是动态语言，在创建对象后，可以动态的绑定属性个方法</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(self.name + <span class="hljs-string">'在干饭.......'</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'动态方法,十一个函数'</span>)<br>stu1 = Student(<span class="hljs-string">'张三'</span>, <span class="hljs-number">20</span>)<br>stu2 = Student(<span class="hljs-string">'李四'</span>, <span class="hljs-number">30</span>)<br><br>stu1.gender = <span class="hljs-string">'男'</span>  <span class="hljs-comment"># 动态绑定动态属性</span><br><span class="hljs-built_in">print</span>(stu1.name, stu1.age, stu1.gender)<br>stu1.show = show<br>stu1.show()  <span class="hljs-comment"># 绑定动态方法</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h1 id="面向对象的三大特征"><a href="#面向对象的三大特征" class="headerlink" title="面向对象的三大特征"></a>面向对象的三大特征</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><ul>
+<li><p>封装可以提高代码的安全性</p>
+<ul>
+<li>将数据(属性)和行为(方法)包装到类对象中，在方法内部对属性进行操作，在类对象的外部调用方法，这样，不用关心方法内部的具体实现方法，从而隔离了复杂度</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, brand</span>):<br>        self.brand = brand<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">statr</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'突突突.....'</span>)<br>        <br>car = Car(<span class="hljs-string">'宝马X8'</span>)<br>car.statr()<br><span class="hljs-built_in">print</span>(car.brand)  <span class="hljs-comment"># 宝马X8</span><br></code></pre></td></tr></tbody></table></figure>
+
+
+
+<ul>
+<li>在python中没有专门的修饰符用于属性的私有，如果该属性不希望在类的对象外被访问，前面可以加”__”。</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.__age = age  <span class="hljs-comment"># 私有属性</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">info</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(self.name, end=<span class="hljs-string">'\t'</span>)<br>        <span class="hljs-built_in">print</span>(self.__age)<br><br><br>s = Student(<span class="hljs-string">'a'</span>,<span class="hljs-number">32</span>)<br>s.info()<br><br><span class="hljs-built_in">print</span>(s.name)<br><span class="hljs-built_in">print</span>(s._Student__age)  <span class="hljs-comment"># 在内的外部使用_类名__私有属性对私有属性进行调用</span><br></code></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
+<li><p>提高代码的复用性</p>
+</li>
+<li><p>语法格式：</p>
+</li>
+<li><p>```python</p>
+<p>class 子类类名(父类1，父类2，……..)<br>pass</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><br>- 如果以一个类没有继承任何类，则默认继承<span class="hljs-built_in">object</span><br><br>- Python支持多继承：一个子类可以有多个父类<br><br>- 定义子类时，必须在其构建函数中调用父类的构建函数 <br><br>```python <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">info</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'姓名:<span class="hljs-subst">{self.name}</span>, 年龄<span class="hljs-subst">{self.age}</span>'</span>)<br><br><span class="hljs-comment"># 定义子类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age, score</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name, age)  <span class="hljs-comment"># 继承父类中的属性</span><br>        self.score = score<br><br><span class="hljs-comment"># 定义子类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Teacher</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age, teacher_info</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name, age)  <span class="hljs-comment"># 继承父类中的属性</span><br>        self.teacher_info = teacher_info<br><br><br>s = Student(<span class="hljs-string">'张三'</span>, <span class="hljs-number">20</span>, <span class="hljs-string">'1001'</span>)<br>t = Teacher(<span class="hljs-string">'李四'</span>, <span class="hljs-number">80</span>, <span class="hljs-number">1005659</span>)<br>t.info()  <span class="hljs-comment"># 从父类Person中继承的方法</span><br>s.info()  <span class="hljs-comment"># 从父类Person中继承的方法</span><br></code></pre></td></tr></tbody></table></figure></li>
+</ul>
+<p>多继承</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>(<span class="hljs-title class_ inherited__">object</span>)：<br>	<span class="hljs-keyword">pass</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span>(<span class="hljs-title class_ inherited__">object</span>):<br>	<span class="hljs-keyword">pass</span><br><span class="hljs-comment"># 多继承，同时继承A和B</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span>(A,B):<br>	<span class="hljs-keyword">pass</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="方法的重写"><a href="#方法的重写" class="headerlink" title="方法的重写"></a>方法的重写</h2><ul>
+<li>如果子类对继承的父类的某个方法不满意时，可以在子类中对父类中不满意的方法体进行重写</li>
+<li>子类重写后的方法可以通过super().xxx()调用父类中被重写的方法</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">info</span>(<span class="hljs-params">self</span>):  <span class="hljs-comment"># Is overrides in: Student, Teacher 这个方法被Student和Teacher重写了</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'name : <span class="hljs-subst">{self.name}</span>,age : <span class="hljs-subst">{self.age}</span>'</span>)<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age, stu_no</span>):  <span class="hljs-comment"># 冲写了格式化方法</span><br>        <span class="hljs-built_in">super</span>(Student, self).__init__(name, age)<br>        self.stu_no = stu_no<br><br>    <span class="hljs-comment"># 方法的重写 Overrides method in Person 重写了父类的info()方法体</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">info</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'name:<span class="hljs-subst">{self.name}</span>, age:<span class="hljs-subst">{self.age}</span>, stu_no:<span class="hljs-subst">{self.stu_no}</span>'</span>)  <span class="hljs-comment"># 重写了父类中的info()方法，新增了输出stu_no的方法</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Teacher</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age, teacher_info</span>):<br>        <span class="hljs-built_in">super</span>(Teacher, self).__init__(name, age)<br>        self.teacher_info = teacher_info<br><br>    <span class="hljs-comment"># 方法的重写 Overrides method in Person 重写了父类的info()方法体</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">info</span>(<span class="hljs-params">self</span>):  <span class="hljs-comment"># Overrides method in Person</span><br>        <span class="hljs-built_in">super</span>().info()  <span class="hljs-comment"># 继承了Person中的info()方法</span><br>        <span class="hljs-built_in">print</span>(<br>            <span class="hljs-string">f'name : <span class="hljs-subst">{self.name}</span>, age : <span class="hljs-subst">{self.age}</span>, info : <span class="hljs-subst">{self.teacher_info}</span>'</span>)  <span class="hljs-comment"># 重写了父类中的info()方法，新增了输出teacher_info的方法</span><br>        <span class="hljs-comment"># super(Teacher, self).info()</span><br><br>stu = Student(<span class="hljs-string">'张三'</span>, <span class="hljs-number">20</span>, <span class="hljs-string">'1001'</span>)<br>tea = Teacher(<span class="hljs-string">'李四'</span>, <span class="hljs-number">25</span>, <span class="hljs-number">1064</span>)<br><br>stu.info()<br>tea.info()<br></code></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="object类"><a href="#object类" class="headerlink" title="object类"></a>object类</h2><ul>
+<li>是所有类的父类，因此所有类都继承了object的方法和属性</li>
+<li>内置函数dir()可以查看指定对象的所有属性</li>
+<li>object有一个<code>__str__()</code>方法，用于返回一个对于”对象的描述”，对应于内置函数str()，经常用于print()方法，帮我们查看对象的信息，所以进场会对str()方法进行重写,一旦重写了<code>__str__()</code>方法之后，就不再输出对象的内存地址，而是调用重写之后的<code>__str__()</code>方法，输出重写止后内容</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">info</span>(<span class="hljs-params">self</span>):  <span class="hljs-comment"># Is overrides in: Student, Teacher 这个方法被Student和Teacher重写了</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'name : <span class="hljs-subst">{self.name}</span>,age : <span class="hljs-subst">{self.age}</span>'</span>)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):  <span class="hljs-comment"># Overrides method in object, 对于object中的__str__()方法，进行重写</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f'name : <span class="hljs-subst">{self.name}</span>,age : <span class="hljs-subst">{self.age}</span>'</span><br><br><br>o = <span class="hljs-built_in">object</span>()<br>p = Person(<span class="hljs-string">'张三'</span>, <span class="hljs-number">20</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'重写前包含的属性和方法：'</span>, <span class="hljs-built_in">dir</span>(o))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">'重写后包含的属性和方法：'</span>, <span class="hljs-built_in">dir</span>(p))<br><br>dir_lst = []<br><span class="hljs-keyword">for</span> dir_p <span class="hljs-keyword">in</span> <span class="hljs-built_in">dir</span>(p):<br>    <span class="hljs-keyword">if</span> dir_p <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">dir</span>(o):<br>        dir_lst.append(dir_p)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f'重写之后的新增的属性和方法：<span class="hljs-subst">{dir_lst}</span>'</span>)<br><span class="hljs-built_in">print</span>(p)  <span class="hljs-comment"># 默认调用__str__()方法</span><br><br><span class="hljs-string">'''</span><br><span class="hljs-string">重写前包含的属性和方法： ['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']</span><br><span class="hljs-string">重写后包含的属性和方法： ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'age', 'info', 'name']</span><br><span class="hljs-string">重写之后的新增的属性和方法：['__dict__', '__module__', '__weakref__', 'age', 'info', 'name']</span><br><span class="hljs-string">name : 张三,age : 20</span><br><span class="hljs-string">'''</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><ul>
+<li>多态就是”具有多种形态”，它指的是：即使不知道一个变量所引用的对象到底是什么类型，仍然可以通过这个变量调用方法，在运行过程中根据变量所引用的对象的类型，动态的决定调用哪个对象中的方法</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'吃'</span>)<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span>(<span class="hljs-title class_ inherited__">Animal</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'狗吃肉'</span>)<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span>(<span class="hljs-title class_ inherited__">Animal</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'猫吃鱼'</span>)<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">'人吃饭'</span>)<br><br><br><span class="hljs-comment"># 定义函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">obj</span>):<br>    obj.eat()<br><br><br><span class="hljs-comment"># 调用</span><br>func(Dog())<br>func(Cat())<br>func(Animal()) <span class="hljs-comment"># Dog和Cat重写了Animal中的eat()方法</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">'-------------------------------------------------------------'</span>)<br>func(Person()) <span class="hljs-comment"># Person中也有eat方法 只要有eat方法，就可以被调用，不用考虑继承关系</span><br><span class="hljs-string">'''</span><br><span class="hljs-string">狗吃肉</span><br><span class="hljs-string">猫吃鱼</span><br><span class="hljs-string">吃</span><br><span class="hljs-string">人吃饭</span><br><span class="hljs-string">'''</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="静态语言和动态语言关于多态的区别"><a href="#静态语言和动态语言关于多态的区别" class="headerlink" title="静态语言和动态语言关于多态的区别"></a>静态语言和动态语言关于多态的区别</h3><ul>
+<li>静态语言实现多态的方法<ul>
+<li>继承</li>
+<li>方法重写</li>
+<li>父类引用指向子类对象</li>
+</ul>
+</li>
+<li>动态语言只关心对象的行为（duck typing）鸭子类型</li>
+</ul>
+<h2 id="特殊的属性和方法"><a href="#特殊的属性和方法" class="headerlink" title="特殊的属性和方法"></a>特殊的属性和方法</h2><h3 id="特殊属性"><a href="#特殊属性" class="headerlink" title="特殊属性"></a>特殊属性</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>:<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span>:<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C</span>(A, B):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">D</span>(<span class="hljs-title class_ inherited__">A</span>):<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-comment"># 创建C类的实例对象</span><br>c = C(<span class="hljs-string">'jack'</span>, <span class="hljs-number">20</span>)<br><span class="hljs-built_in">print</span>(c.__dict__)  <span class="hljs-comment"># {'name': 'jack', 'age': 20}  查看实例对象属性的字典</span><br><span class="hljs-built_in">print</span>(C.__dict__)<br><span class="hljs-string">'''{'__module__': '__main__', '__init__': &lt;function C.__init__ at 0x000001D566E02A60&gt;, '__doc__': None}  查看类对象的属性的字典'''</span><br><span class="hljs-built_in">print</span>(c.__class__)  <span class="hljs-comment"># &lt;class '__main__.C'&gt;  实例对象锁属于的类</span><br><span class="hljs-built_in">print</span>(C.__bases__)  <span class="hljs-comment"># (&lt;class '__main__.A'&gt;, &lt;class '__main__.B'&gt;) 类对象父类类型的元组</span><br><span class="hljs-built_in">print</span>(C.__base__)  <span class="hljs-comment"># &lt;class '__main__.A'&gt;  类对象的基类</span><br><span class="hljs-built_in">print</span>(C.__mro__)<br><span class="hljs-string">'''(&lt;class '__main__.C'&gt;, &lt;class '__main__.A'&gt;, &lt;class '__main__.B'&gt;, &lt;class 'object'&gt;) 类对象的继承关系, 类的层次结构'''</span><br><span class="hljs-built_in">print</span>(A.__subclasses__())  <span class="hljs-comment"># [&lt;class '__main__.C'&gt;, &lt;class '__main__.D'&gt;] 查看类对象的子类列表的方法</span><br></code></pre></td></tr></tbody></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>__dict__</code></td>
+<td>对象属性的字典</td>
+</tr>
+<tr>
+<td><code>__class__</code></td>
+<td>实例对象属于的类</td>
+</tr>
+<tr>
+<td><code>__bases__</code></td>
+<td>父类的元组</td>
+</tr>
+<tr>
+<td><code>__base__</code></td>
+<td>类对象的基类</td>
+</tr>
+<tr>
+<td><code>__mro__</code></td>
+<td>类的层次结构</td>
+</tr>
+<tr>
+<td><code>__subclasses__()</code></td>
+<td>类对象的子类列表</td>
+</tr>
+</tbody></table>
+<h3 id="特殊方法"><a href="#特殊方法" class="headerlink" title="特殊方法"></a>特殊方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>__len__()</code></td>
+<td>通过重写<code>__len__()</code>方法让内置函数len()的参数可以是自定义类型</td>
+</tr>
+<tr>
+<td><code>__add__()</code></td>
+<td>通过重写<code>__add__()</code>方法让”+”的参数可以是自定义类型</td>
+</tr>
+<tr>
+<td><code>__new__()</code></td>
+<td>用于创建对象</td>
+</tr>
+<tr>
+<td><code>__init__()</code></td>
+<td>对创建的对象进行初始化</td>
+</tr>
+</tbody></table>
+<h3 id="new-和-init"><a href="#new-和-init" class="headerlink" title="__new__()和__init__()"></a><code>__new__()和__init__()</code></h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__new__</span>(<span class="hljs-params">cls, *args, **kwargs</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'cls的id<span class="hljs-subst">{<span class="hljs-built_in">id</span>(cls)}</span>'</span>)<br>        obj = <span class="hljs-built_in">super</span>().__new__(cls)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'obj的id<span class="hljs-subst">{<span class="hljs-built_in">id</span>(obj)}</span>'</span>)<br>        <span class="hljs-keyword">return</span> obj<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'self的id<span class="hljs-subst">{<span class="hljs-built_in">id</span>(self)}</span>'</span>)<br>        self.name = name<br>        self.age = age<br><br>p1 = Person(<span class="hljs-string">'张三'</span>, <span class="hljs-number">20</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f'object的id<span class="hljs-subst">{<span class="hljs-built_in">id</span>(<span class="hljs-built_in">object</span>)}</span>'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f'Person的id<span class="hljs-subst">{<span class="hljs-built_in">id</span>(Person)}</span>'</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f'p1的id<span class="hljs-subst">{<span class="hljs-built_in">id</span>(p1)}</span>'</span>)<br><br><span class="hljs-string">'''</span><br><span class="hljs-string">cls的id2618311801888</span><br><span class="hljs-string">obj的id2618319564368</span><br><span class="hljs-string">self的id2618319564368</span><br><span class="hljs-string">object的id140731859585872</span><br><span class="hljs-string">Person的id2618311801888</span><br><span class="hljs-string">p1的id2618319564368</span><br><span class="hljs-string">'''</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>![屏幕截图 2021-11-23 174719](C:\Users\wang6\Pictures\Screenshots\屏幕截图 2021-11-23 174719.png)</p>
+<ol>
+<li>将Person()传入的值赋给cls</li>
+<li>cls使用<code>__new__()</code>方法创建obj对象</li>
+<li>retuen出obj传进给self</li>
+<li><code>__init__()</code>初始化完成，返回给p1</li>
+<li>Person和cls内存地址相同，<code>__new__()</code>方法之后，创建了新的对象obj，开辟的新的内存空间，obj、self、p1的内存地址相同，object为基类对象，内存地址与所有的对象都不相同</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>面向对象</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scrapy爬虫</title>
+    <url>/2020/06/13/Scrapy%E7%88%AC%E8%99%AB/</url>
+    <content><![CDATA[<h1 id="Scrapy爬虫"><a href="#Scrapy爬虫" class="headerlink" title="Scrapy爬虫"></a>Scrapy爬虫</h1><h3 id="一、Scrapy简介"><a href="#一、Scrapy简介" class="headerlink" title="一、Scrapy简介"></a>一、Scrapy简介</h3><p><code>Scrapy</code>是由<code>Python</code>语言开发的一款快速、高层次的屏幕抓取和<code>web</code>抓取框架，由于抓取<code>web</code>站点并从页面中提取结构化的数据，只需要实现少量的代码，就能够进行快速的爬取</p>
+<h3 id="二、运行原理"><a href="#二、运行原理" class="headerlink" title="二、运行原理"></a>二、运行原理</h3><p><code>Scrapy</code>主要包含一下组件：</p>
+<ol>
+<li>引擎（Scrapy Engine）</li>
+<li>Item 项目</li>
+<li>调度器（Scheduler）</li>
+<li>下载器（Downloader）</li>
+<li>爬虫（Spiders）</li>
+<li>项目管道文件（Pipeline）</li>
+<li>下载中间件（Downloader Middlewares）</li>
+<li>爬虫中间件（Spider Middlewares）</li>
+<li>调度中间件（Scheduler Middlewares）</li>
+</ol>
+<h3 id="三、安装和使用"><a href="#三、安装和使用" class="headerlink" title="三、安装和使用"></a>三、安装和使用</h3><h4 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1  安装"></a>3.1  安装</h4><p>命令行模式直接使用pip命令安装</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">pip install scrapy<br></code></pre></td></tr></tbody></table></figure>
+
+<p>第二种：首先下载，然后再安装：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">pip download scrapy -d ./<br><span class="hljs-comment"># 通过指定国内镜像源下载 </span><br>pip download  -i https://pypi.tuna.tsinghua.edu.cn/simple scrapy -d ./<br></code></pre></td></tr></tbody></table></figure>
+
+<p>进入下载目录后执行下面命令安装：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">pip install Scrapy-<span class="hljs-number">1.5</span><span class="hljs-number">.0</span>-py2.py3-none-<span class="hljs-built_in">any</span>.whl<br></code></pre></td></tr></tbody></table></figure>
+
+<h4 id="3-2-使用"><a href="#3-2-使用" class="headerlink" title="3.2 使用"></a>3.2 使用</h4><p>使用大概分为下面四步1 创建一个scrapy项目</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">scrapy startproject mySpider<br></code></pre></td></tr></tbody></table></figure>
+
+<p>2 生成一个爬虫</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">scrapy genspider demo <span class="hljs-string">"demo.cn"</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>3 提取数据</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">完善spider 使用xpath等<br></code></pre></td></tr></tbody></table></figure>
+
+<p>4 保存数据</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">pipeline中保存数据<br></code></pre></td></tr></tbody></table></figure>
+
+<h4 id="3-3-程序运行"><a href="#3-3-程序运行" class="headerlink" title="3.3 程序运行"></a><strong>3.3 程序运行</strong></h4><p>在命令中运行爬虫</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">scrapy crawl qb     <span class="hljs-comment"># qb爬虫的名字</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>在<code>pycharm</code>中运行爬虫</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> scrapy <span class="hljs-keyword">import</span> cmdline<br>cmdline.execute(<span class="hljs-string">"scrapy crawl qb"</span>.split())<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="四、基本步骤"><a href="#四、基本步骤" class="headerlink" title="四、基本步骤"></a>四、基本步骤</h3><p><code>Scrapy</code> 爬虫框架的具体使用步骤如下：</p>
+<blockquote>
+<ol>
+<li>选择目标网站</li>
+<li>定义要抓取的数据（通过Scrapy Items来完成的）</li>
+<li>编写提取数据的spider</li>
+<li>执行spider，获取数据</li>
+<li>数据存储</li>
+</ol>
+</blockquote>
+<h3 id="五、目录文件说明"><a href="#五、目录文件说明" class="headerlink" title="五、目录文件说明"></a>五、目录文件说明</h3><p>当我们创建了一个scrapy项目后,继续创建了一个spider,目录结构是这样的：</p>
+<p>下面来简单介绍一下各个主要文件的作用：</p>
+<blockquote>
+<p><code>scrapy.cfg</code> ：项目的配置文件</p>
+<p><code>mySpider/</code> ：项目的Python模块，将会从这里引用代码</p>
+<p><code>mySpider/items.py</code> ：项目的目标文件</p>
+<p><code>mySpider/pipelines.py</code> ：项目的管道文件</p>
+<p><code>mySpider/settings.py </code>：项目的设置文件</p>
+<p><code>mySpider/spiders/ </code>：存储爬虫代码目录</p>
+</blockquote>
+<h4 id="5-1-scrapy-cfg文件"><a href="#5-1-scrapy-cfg文件" class="headerlink" title="5.1 scrapy.cfg文件"></a>5.1 scrapy.cfg文件</h4><p>项目配置文件。这个是文件的内容：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Automatically created by: scrapy startproject</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># For more information about the [deploy] section see:</span><br><span class="hljs-comment"># https://scrapyd.readthedocs.io/en/latest/deploy.html</span><br><br>[settings]<br>default = mySpider.settings<br><br>[deploy]<br><span class="hljs-comment">#url = http://localhost:6800/</span><br>project = mySpider<br></code></pre></td></tr></tbody></table></figure>
+
+<h4 id="5-2-mySpider-x2F"><a href="#5-2-mySpider-x2F" class="headerlink" title="5.2 mySpider  /"></a>5.2 mySpider  /</h4><p>项目的Python模块，将会从这里引用代码</p>
+<h4 id="5-3-mySpider-x2F-items-py"><a href="#5-3-mySpider-x2F-items-py" class="headerlink" title="5.3 mySpider/items.py"></a>5.3 mySpider/items.py</h4><p>项目的目标文件</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Define here the models for your scraped items</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># See documentation in:</span><br><span class="hljs-comment"># https://docs.scrapy.org/en/latest/topics/items.html</span><br><br><span class="hljs-keyword">import</span> scrapy<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyspiderItem</span>(scrapy.Item):<br>    <span class="hljs-comment"># define the fields for your item here like:</span><br>    <span class="hljs-comment"># name = scrapy.Field()</span><br>    <span class="hljs-keyword">pass</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>定义scrapy items的模块,示例: <strong>name = scrapy.Field()</strong></p>
+<h4 id="5-4-mySpider-x2F-pipelines-py"><a href="#5-4-mySpider-x2F-pipelines-py" class="headerlink" title="5.4 mySpider/pipelines.py"></a>5.4 mySpider/pipelines.py</h4><p>项目的管道文件</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Define your item pipelines here</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># Don't forget to add your pipeline to the ITEM_PIPELINES setting</span><br><span class="hljs-comment"># See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span><br><br><br><span class="hljs-comment"># useful for handling different item types with a single interface</span><br><span class="hljs-keyword">from</span> itemadapter <span class="hljs-keyword">import</span> ItemAdapter<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyspiderPipeline</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">process_item</span>(<span class="hljs-params">self, item, spider</span>):<br>        <span class="hljs-keyword">return</span> item<br></code></pre></td></tr></tbody></table></figure>
+
+<p>这个文件也就是我们说的管道,当<code>Item</code>在<code>Spider</code>中被收集之后，它将会被传递到<code>Item Pipeline</code>(管道)，这些<code>Item Pipeline</code>组件按定义的顺序处理<code>Item</code>。每个<code>Item Pipeline</code>都是实现了简单方法的<code>Python</code>类，比如决定此<code>Item</code>是丢弃而存储。以下是<code>item pipeline</code>的一些典型应用：</p>
+<ul>
+<li>验证爬取的数据(检查<code>item</code>包含某些字段，比如说<code>name</code>字段)</li>
+<li>查重(并丢弃)</li>
+<li>将爬取结果保存到文件或者数据库中</li>
+</ul>
+<h4 id="5-5-mySpider-x2F-settings-py"><a href="#5-5-mySpider-x2F-settings-py" class="headerlink" title="5.5 mySpider/settings.py"></a>5.5 mySpider/settings.py</h4><p>项目的设置文件</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Scrapy settings for mySpider project</span><br>...<br><br>BOT_NAME = <span class="hljs-string">'mySpider'</span> <span class="hljs-comment"># scrapy项目名</span><br><br>SPIDER_MODULES = [<span class="hljs-string">'mySpider.spiders'</span>]<br>NEWSPIDER_MODULE = <span class="hljs-string">'mySpider.spiders'</span><br>.......<br><br><span class="hljs-comment"># Obey robots.txt rules</span><br>ROBOTSTXT_OBEY = <span class="hljs-literal">False</span> <span class="hljs-comment"># 是否遵守协议,一般给位false,但是创建完项目是是True,我们把它改为False</span><br><br><span class="hljs-comment"># Configure maximum concurrent requests performed by Scrapy (default: 16)</span><br><span class="hljs-comment">#CONCURRENT_REQUESTS = 32 # 最大并发量 默认16</span><br>......<br><span class="hljs-comment">#DOWNLOAD_DELAY = 3 # 下载延迟 3秒</span><br><br><span class="hljs-comment"># Override the default request headers: # 请求报头,我们打开</span><br>DEFAULT_REQUEST_HEADERS = {<br>  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'</span>,<br>  <span class="hljs-string">'Accept-Language'</span>: <span class="hljs-string">'en'</span>,<br>}<br><span class="hljs-comment"># 爬虫中间件</span><br><span class="hljs-comment">#SPIDER_MIDDLEWARES = {</span><br><span class="hljs-comment">#    'mySpider.middlewares.MyspiderSpiderMiddleware': 543,</span><br><span class="hljs-comment">#}</span><br><br><span class="hljs-comment"># 下载中间件</span><br><span class="hljs-comment">#DOWNLOADER_MIDDLEWARES = {</span><br><span class="hljs-comment">#    'mySpider.middlewares.MyspiderDownloaderMiddleware': 543,</span><br><span class="hljs-comment">#}</span><br>......<br><span class="hljs-comment"># Configure item pipelines</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span><br><span class="hljs-comment">#ITEM_PIPELINES = {</span><br><span class="hljs-comment">#    'mySpider.pipelines.MyspiderPipeline': 300, # 管道</span><br><span class="hljs-comment">#}</span><br>.......<br></code></pre></td></tr></tbody></table></figure>
+
+<p>省略号省略代码,一般重要点,给了注释</p>
+<h4 id="5-6-mySpider-x2F-spiders-x2F-：存储爬虫代码目录"><a href="#5-6-mySpider-x2F-spiders-x2F-：存储爬虫代码目录" class="headerlink" title="5.6.mySpider/spiders/ ：存储爬虫代码目录"></a>5.<strong>6.mySpider/spiders/ ：存储爬虫代码目录</strong></h4><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> scrapy<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">DbSpider</span>(scrapy.Spider):<br>    name = <span class="hljs-string">'db'</span><br>    allowed_domains = [<span class="hljs-string">'douban.com'</span>] <span class="hljs-comment"># 可以修改</span><br>    start_urls = [<span class="hljs-string">'http://douban.com/'</span>] <span class="hljs-comment"># 开始的url也可以修改</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">self, response</span>):<br>        <span class="hljs-comment"># pass</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="六-Scrapy-shell"><a href="#六-Scrapy-shell" class="headerlink" title="六. Scrapy shell"></a><strong>六. Scrapy shell</strong></h3><p><code>Scrapy</code>终端是一个交互终端，我们可以在未启动<code>spider</code>的情况下尝试及调试代码，也可以用来测试<code>XPath</code>或<code>CSS</code>表达式，查看他们的工作方式，方便我们爬取的网页中提取的数据,但是一般使用的不多。感兴趣的查看官方文档:</p>
+<p>官方文档</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">http://scrapy-chs.readthedocs.io/zh_CN/latest/topics/shell.html<br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>Scrapy Shell</code>根据下载的页面会自动创建一些方便使用的对象，例如 <code>Response </code>对象，以及 <code>Selector 对象 (对HTML及XML内容)</code>。</p>
+<ul>
+<li>当<code>shell</code>载入后，将得到一个包含<code>response</code>数据的本地 <code>response </code>变量，输入 <code>response.body</code>将输出<code>response</code>的包体，输出 <code>response.headers</code> 可以看到<code>response</code>的包头。</li>
+<li>输入 <code>response.selector</code> 时， 将获取到一个<code>response </code>初始化的类 <code>Selector </code>的对象，此时可以通过使用 <code>response.selector.xpath()</code>或<code>response.selector.css()</code> 来对 <code>response </code>进行查询。</li>
+<li>Scrapy也提供了一些快捷方式, 例如 <code>response.xpath()</code>或<code>response.css()</code>同样可以生效（如之前的案例）。</li>
+</ul>
+<h4 id="Selectors选择器"><a href="#Selectors选择器" class="headerlink" title="Selectors选择器"></a><strong>Selectors选择器</strong></h4><blockquote>
+<p>Scrapy Selectors 内置 <strong>XPath</strong> 和 <strong>CSS Selector</strong> 表达式机制</p>
+</blockquote>
+<p><code>Selector</code>有四个基本的方法，最常用的还是<code>xpath</code>:</p>
+<ul>
+<li><code>xpath():</code> 传入<code>xpath</code>表达式，返回该表达式所对应的所有节点的<code>selector list</code>列表</li>
+<li><code>extract()</code>: 序列化该节点为字符串并返回<code>list</code></li>
+<li><code>css():</code> 传入<code>CSS</code>表达式，返回该表达式所对应的所有节点的<code>selector list</code>列表，语法同 <code>BeautifulSoup4</code></li>
+<li><code>re()</code>: 根据传入的正则表达式对数据进行提取，返回字符串<code>list</code>列表</li>
+</ul>
+<h3 id="七、案例实战"><a href="#七、案例实战" class="headerlink" title="七、案例实战"></a><strong>七、案例实战</strong></h3><p>本节，我将使用<code>Scrapy</code>爬取站酷数据作为示例</p>
+<h4 id="7-1-案例说明"><a href="#7-1-案例说明" class="headerlink" title="7.1 案例说明"></a>7.1 案例说明</h4><p>既然已经初步了解了<code>scrapy</code>的工作流程以及原理,我们来做一个入门的小案例,爬取站酷首页推荐的<code>item</code>信息。如下图所示，一个小方框就是一个<code>item</code>信息。我们要提取每一个<code>item</code>的六个组成部分：</p>
+<ol>
+<li><code>imgLink</code>(封面图片链接)；</li>
+<li><code>title</code>(标题）;</li>
+<li><code>types</code>（类型）;</li>
+<li><code>vistor</code>（人气）;</li>
+<li><code>comment</code>（评论数）;</li>
+<li><code>likes</code>（推荐人数）</li>
+</ol>
+<p>然后只是一个页面的<code>item</code>，我们还要通过翻页实现批量数据采集。</p>
+<h4 id="7-2-文件配置"><a href="#7-2-文件配置" class="headerlink" title="7.2 文件配置"></a>7.2 文件配置</h4><h5 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a><strong>目录结构</strong></h5><p>在上一篇中我们说明了新建**<code>scrapy</code>项目（<code>zcool</code>）*<em>和*</em><code>spider</code>项目（<code>zc</code>）**，这里不再赘述，然后得到我们的目录结构如下图所示：</p>
+<h5 id="start-py文件"><a href="#start-py文件" class="headerlink" title="start.py文件"></a><strong>start.py文件</strong></h5><p>然后为了方便运行，在<code>zcool</code>目录下新建<code>start</code>文件。并进行初始化设置。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> scrapy <span class="hljs-keyword">import</span> cmdline<br>cmdline.execute(<span class="hljs-string">'scrapy crawl zc'</span>.split())<br></code></pre></td></tr></tbody></table></figure>
+
+<h5 id="settings-py文件"><a href="#settings-py文件" class="headerlink" title="settings.py文件"></a><strong>settings.py文件</strong></h5><p>在这个文件里我们需要做几样设置</p>
+<p>避免在程序运行的时候打印<code>log</code>日志信息</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"> LOG_LEVEL = <span class="hljs-string">'WARNING'</span> <br>ROBOTSTXT_OBEY = <span class="hljs-literal">False</span> <br></code></pre></td></tr></tbody></table></figure>
+
+<p>添加请求头：</p>
+<p>打开管道：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Configure item pipelines</span><br><span class="hljs-comment"># See https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span><br><br>ITEM_PIPELINEES = {<br>    <span class="hljs-string">'zcool.pipelines.ZcooLPopeline'</span>:<span class="hljs-number">300</span>,<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h5 id="item-py文件"><a href="#item-py文件" class="headerlink" title="item.py文件"></a><strong>item.py文件</strong></h5><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> scrapy<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ZcoolItem</span>(scrapy.Item):<br>    <span class="hljs-comment"># define the fields for your item here like:</span><br>    imgLink = scrapy.Field() <span class="hljs-comment"># 封面图片链接</span><br>    title = scrapy.Field() <span class="hljs-comment"># 标题</span><br>    types = scrapy.Field() <span class="hljs-comment"># 类型</span><br>    vistor = scrapy.Field() <span class="hljs-comment"># 人气</span><br>    comment = scrapy.Field() <span class="hljs-comment"># 评论数</span><br>    likes = scrapy.Field() <span class="hljs-comment"># 推荐人数</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h4 id="7-3-页面数据提取"><a href="#7-3-页面数据提取" class="headerlink" title="7.3 页面数据提取"></a><strong>7.3 页面数据提取</strong></h4><p>首先我们在站酷页面使用<code>xpath-helper</code>测试一下：</p>
+<p>然后<code>zc.py</code>文件里面初步测试一下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">self, response</span>):<br>    divList = response.xpath(<span class="hljs-string">'//div[@class="work-list-box"]/div'</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(divList))<br></code></pre></td></tr></tbody></table></figure>
+
+<p>没有问题，然后我们对各种信息分别解析提取，</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">self, response</span>):<br>    divList = response.xpath(<span class="hljs-string">'//div[@class="work-list-box"]/div'</span>)<br>    <span class="hljs-keyword">for</span> div <span class="hljs-keyword">in</span> divList:<br>        imgLink = div.xpath(<span class="hljs-string">"./div[1]/a/img/@src"</span>).extract()[<span class="hljs-number">0</span>] <span class="hljs-comment"># 1.封面图片链接</span><br>  ...  <span class="hljs-number">2.</span>title(标题）;<span class="hljs-number">3</span> types（类型）;4vistor（人气）;5comment（评论数）  ....<br>        likes = div.xpath(<span class="hljs-string">"./div[2]/p[3]/span[3]/@title"</span>).extract_first() <span class="hljs-comment"># 6likes（推荐人数）</span><br><br>        item = ZcoolItem(imgLink=imgLink,title=title,types=types,vistor=vistor,comment=comment,likes=likes)<br><br>        <span class="hljs-keyword">yield</span> item<br></code></pre></td></tr></tbody></table></figure>
+
+<p><strong>解释：</strong> <strong><code>xpath</code>提取数据方法：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">S.N.</th>
+<th align="center">方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>extract()</code></td>
+<td align="center">返回的是符合要求的所有的数据，存在一个列表里。</td>
+</tr>
+<tr>
+<td align="center"><code>extract_first()</code></td>
+<td align="center">返回的<code>hrefs </code>列表里的第一个数据。</td>
+</tr>
+<tr>
+<td align="center"><code>get()</code></td>
+<td align="center">和<code>extract_first()</code>方法返回的是一样的，都是列表里的第一个数据。</td>
+</tr>
+<tr>
+<td align="center"><code>getall()</code></td>
+<td align="center">和<code>extract()</code>方法一样，返回的都是符合要求的所有的数据，存在一个列表里。</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<blockquote>
+<p><code>get() </code>、<code>getall() </code>方法是新的方法，<code>extract()</code> 、<code>extract_first()</code>方法是旧的方法。<code>extract()</code> 、<code>extract_first()</code>方法取不到就返回<code>None</code>。<code>get()</code> 、<code>getall() </code>方法取不到就<code>raise</code>一个错误。</p>
+</blockquote>
+<p><strong>item实例创建（yield上面一行代码）</strong></p>
+<p>这里我们之前在目录文件配置的<code>item</code>文件中已经进行了设置，对于数据存储，我们在爬虫文件中开头要导入这个类：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> zcool.items <span class="hljs-keyword">import</span> ZcoolItem<br></code></pre></td></tr></tbody></table></figure>
+
+<p>然后使用<code>yield</code>返回数据。</p>
+<p><strong>为什么使用yield而不是return</strong></p>
+<p>不能使用<code>return</code>这个无容置疑，因为要翻页，使用return<code>直接</code>退出函数；而对于<code>yield</code>:在调用<code>for</code>的时候，函数内部不会立即执行，只是返回了一个生成器对象。在迭代的时候函数会开始执行，当在<code>yield</code>的时候，会返回当前值(i)。之后的这个函数会在循环中进行，直到没有下一个值。</p>
+<h4 id="7-4-翻页实现批量数据采集"><a href="#7-4-翻页实现批量数据采集" class="headerlink" title="7.4 翻页实现批量数据采集"></a><strong>7.4 翻页实现批量数据采集</strong></h4><p>通过上面的代码已经可以初步实现数据采集，只不过只有第一页的，如下图所示：</p>
+<p>但是我们的目标是100个页面的批量数据采集，所以代码还需要修改。针对翻页这里介绍两种方式：</p>
+<p><strong>方式一</strong>：我们首先在页面中定位到下一页的按钮，如下图所示：</p>
+<p>然后编写如下代码，在<code>for</code>循环完毕后。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">next_href = response.xpath(<span class="hljs-string">"//a[@class='laypage_next']/@href"</span>).extract_first()<br><span class="hljs-keyword">if</span> next_href:<br>    next_url = response.urljoin(next_href)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'*'</span> * <span class="hljs-number">60</span>)<br>    <span class="hljs-built_in">print</span>(next_url)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">'*'</span> * <span class="hljs-number">60</span>)<br>    request = scrapy.Request(next_url)<br>    <span class="hljs-keyword">yield</span> request<br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>scrapy.Request(): </code>把下一页的<code>url</code>传递给<code>Request</code>函数,进行翻页循环数据采集。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">https://www.cnblogs.com/heymonkey/p/<span class="hljs-number">11818495.</span>html <span class="hljs-comment"># scrapy.Request()参考链接</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>注意方式一只有下一页按钮它的<strong>href</strong>对应属性值和下一页的url一致才行。</p>
+<p><strong>方式二</strong>：定义一个全局变量count = 0,每爬取一页数据，令其加一，构建新的url,再使用scrapy.Request() 发起请求。</p>
+<p>如下图所示：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">count = <span class="hljs-number">1</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ZcSpider</span>(scrapy.Spider):<br>    name = <span class="hljs-string">'zc'</span><br>    allowed_domains = [<span class="hljs-string">'zcool.com.cn'</span>]<br>    start_urls = [<span class="hljs-string">'https://www.zcool.com.cn/home?p=1#tab_anchor'</span>] <span class="hljs-comment"># 第一页的url</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">parse</span>(<span class="hljs-params">self, response</span>):<br>        <span class="hljs-keyword">global</span> count<br>        count += <span class="hljs-number">1</span><br>        <br>        <span class="hljs-keyword">for</span> div <span class="hljs-keyword">in</span> divList:<br>    <span class="hljs-comment"># ...xxx...</span><br>            <span class="hljs-keyword">yield</span> item<br><br>        next_url = <span class="hljs-string">'https://www.kuaikanmanhua.com/tag/0?state=1&amp;sort=1&amp;page={}'</span>.<span class="hljs-built_in">format</span>(count)<br>        <span class="hljs-keyword">yield</span> scrapy.Request(next_url)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>这两种方式在实际案例中择机采用。</p>
+<h4 id="7-5-数据存储"><a href="#7-5-数据存储" class="headerlink" title="7.5 数据存储"></a><strong>7.5 数据存储</strong></h4><p>数据存储是在<code>pipline.py</code>中进行的,代码如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itemadapter <span class="hljs-keyword">import</span> ItemAdapter<br><span class="hljs-keyword">import</span> csv<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ZcoolPipeline</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>): <br>        self.f = <span class="hljs-built_in">open</span>(<span class="hljs-string">'Zcool.csv'</span>,<span class="hljs-string">'w'</span>,encoding=<span class="hljs-string">'utf-8'</span>,newline=<span class="hljs-string">''</span>)       <span class="hljs-comment"># line1</span><br>        self.file_name = [<span class="hljs-string">'imgLink'</span>, <span class="hljs-string">'title'</span>,<span class="hljs-string">'types'</span>,<span class="hljs-string">'vistor'</span>,<span class="hljs-string">'comment'</span>,<span class="hljs-string">'likes'</span>]  <span class="hljs-comment"># line2</span><br>        self.writer = csv.DictWriter(self.f, fieldnames=self.file_name)     <span class="hljs-comment"># line3</span><br>        self.writer.writeheader()              <span class="hljs-comment"># line4</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">process_item</span>(<span class="hljs-params">self, item, spider</span>):<br>        self.writer.writerow(<span class="hljs-built_in">dict</span>(item))              <span class="hljs-comment"># line5</span><br>        <span class="hljs-built_in">print</span>(item)<br>        <span class="hljs-keyword">return</span> item                  <span class="hljs-comment"># line6 </span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">close_spider</span>(<span class="hljs-params">self,spider</span>):<br>        self.f.close()<br></code></pre></td></tr></tbody></table></figure>
+
+<p>解释:</p>
+<ul>
+<li><code>line1</code>: 打开文件，指定方式为写，利用第3个参数把<code>csv</code>写数据时产生的空行消除</li>
+<li><code>line2</code>: 设置文件第一行的字段名，注意要跟<code>spider</code>传过来的字典<code>key</code>名称相同</li>
+<li><code>line3</code>: 指定文件的写入方式为<code>csv</code>字典写入，参数1为指定具体文件，参数2为指定字段名</li>
+<li><code>line4</code>: 写入第一行字段名，因为只要写入一次，所以文件放在<code>__init__</code>里面</li>
+<li><code>line5</code>: 写入<code>spider</code>传过来的具体数值,注意在<code>spider</code>文件中<code>yield</code>的<code>item</code>,是一个由类创建的实例对象，我们写入数据时，写入的是 字典，所以这里还要转化一下。</li>
+<li><code>line6</code>: 写入完返回</li>
+</ul>
+<h4 id="7-6-程序运行"><a href="#7-6-程序运行" class="headerlink" title="7.6 程序运行"></a><strong>7.6 程序运行</strong></h4><p>因为之前创建了<code>start.py</code>文件,并且对它就行了初始化设置，现在运行爬虫程序不需要在控制台中输入命令：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">scrapy crawl zc(爬虫项目名)<br></code></pre></td></tr></tbody></table></figure>
+
+<p>直接运行<code>start.py</code>文件</p>
+]]></content>
+      <categories>
+        <category>爬虫</category>
+        <category>Scapry</category>
+      </categories>
+      <tags>
+        <tag>Spider</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Django基本使用</title>
+    <url>/2020/10/20/Django%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[<h1 id="Django框架"><a href="#Django框架" class="headerlink" title="Django框架"></a><code>Django</code>框架</h1><h2 id="1、什么是Django"><a href="#1、什么是Django" class="headerlink" title="1、什么是Django"></a>1、什么是<code>Django</code></h2><p><code>Django</code>是<code>Python</code>编写的开放源代码的<code>Web</code>应用框架（源代码是开源的，遵从<code>BSD</code>协议）。采用了<code>MVC</code>的框架模式。也被称为<code>MVT(MTV)</code>模式。</p>
+<h2 id="2、框架介绍"><a href="#2、框架介绍" class="headerlink" title="2、框架介绍"></a>2、框架介绍</h2><ol>
+<li><p>什么是框架</p>
+<p>框架就是程序的骨架、主体结构、也就是个半成品</p>
+</li>
+<li><p>框架的优缺点</p>
+<p>可重用性、技术成熟/稳定、易扩展、易维护</p>
+</li>
+<li><p>Python中常见的框架</p>
+<ul>
+<li><code>Django</code> ：完美主义者的<code>Web</code>框架</li>
+<li><code>web.py</code>和<code>Tornado</code> ：精简</li>
+<li><code>Flask</code>和<code>Bottle</code>：微框架</li>
+</ul>
+</li>
+<li><p>Web框架中的一些概念：<code>MVC</code>和<code>MVT</code></p>
+</li>
+<li><p><code>MVC</code>  模型–视图–控制</p>
+<ol>
+<li><code>M：</code>Model`  主要封装对数据库层的访问，对数据库中的数据进行增、删、改、查操作。负责和数据库交互，进行数据处理。</li>
+<li><code>V</code>：<code>View</code>   用于封装结果，生成页面展示的<code>html</code>内容。接收请求，进行业务处理，返回应答。</li>
+<li><code>C</code>：<code>Controller</code>  用于接收请求，处理业务逻辑，与<code>Model</code>和<code>View</code>交互，返回结果。</li>
+</ol>
+</li>
+<li><p><code>MVT</code>  模型–视图–模板</p>
+<ol>
+<li><code>M</code>：<code>Model</code>  主要封装对数据库层的访问，对数据库中的数据进行增、删、改、查操作。负责和数据库交互，进行数据处理。</li>
+<li><code>V</code>：<code>View</code>   用于封装结果，生成页面展示的<code>html</code>内容。接收请求，进行业务处理，返回应答。</li>
+<li><code>T</code>：Template，与<code>MVC</code>中的V功能相同，负责封装构造要返回的<code>html</code>。</li>
+</ol>
+</li>
+</ol>
+<h2 id="3、Django框架的特点"><a href="#3、Django框架的特点" class="headerlink" title="3、Django框架的特点"></a>3、<code>Django</code>框架的特点</h2><ul>
+<li>快速开发：帮助开发快速从概念到完成应用程序</li>
+<li>安全可靠：认真对待安全性，帮助开发避免常见的安全错误</li>
+<li>可伸缩性：快速灵活拓展</li>
+</ul>
+<h2 id="4、项目的创建和运行"><a href="#4、项目的创建和运行" class="headerlink" title="4、项目的创建和运行"></a>4、项目的创建和运行</h2><h3 id="项目的创建"><a href="#项目的创建" class="headerlink" title="项目的创建"></a>项目的创建</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">django-admin startproject *****    <span class="hljs-comment"># ***是创建的项目名称</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="项目的运行"><a href="#项目的运行" class="headerlink" title="项目的运行"></a>项目的运行</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">python manage.py runserver     <span class="hljs-comment"># 启动项目  默认启动，启动8000端口，</span><br><br><span class="hljs-comment"># 切换端口为8080</span><br>python manage.py runserver <span class="hljs-number">8080</span><br><br><span class="hljs-comment"># 更换服务器地址，请将其和端口一起传递</span><br>python manage.py runserver <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">8080</span><br><br><span class="hljs-comment"># 支持所有IP访问</span><br>ALLOWED_HOSTS = [<span class="hljs-string">"*"</span>] <br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="5、应用的创建"><a href="#5、应用的创建" class="headerlink" title="5、应用的创建"></a>5、应用的创建</h2><h3 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">python manage.py startapp myapp   <span class="hljs-comment"># 创建一个名为myapp的应用 </span><br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="6、项目的模型"><a href="#6、项目的模型" class="headerlink" title="6、项目的模型"></a>6、项目的模型</h2><h3 id="连接数据库操作"><a href="#连接数据库操作" class="headerlink" title="连接数据库操作"></a>连接数据库操作</h3><p>默认情况下，配置使用<code>SQLlite</code>。若不使用<code>SQLlite</code>作为数据库，则需要额外的配置，例如<code>USER</code>,<code>PASSWORD</code>，<code>HOST</code>必须加入</p>
+<p>其中使用<code>ENGINE</code>设置为数据库后端连接。内置的数据库后端有：</p>
+<ul>
+<li>```python<br>django.db.backends.mysql<br>django.db.backends.sqllite3<br>django.db.backends.oracle<br>django.db.backends.postgresql<figure class="highlight 1c"><table><tbody><tr><td class="code"><pre><code class="hljs 1c"><br>在项目的`setting.py`中对`DATABASES`项进行数据库设置<br><br>```python<br><span class="hljs-meta"># 使用mysql时，必须要存在数据库</span><br><span class="hljs-meta"># 默认mysql配置</span><br>DATABASES = {<br>    'default':{<br>        'ENGINE':'django.db.backend.mysql',  <span class="hljs-meta">#</span><br>        'NAME':'demon',  <span class="hljs-meta"># 数据库名称</span><br>        'USER':'root',  <span class="hljs-meta"># 连接数据库时使用的用户名</span><br>        'PASSWORD':'',  <span class="hljs-meta"># 连接数据库时使用的密码</span><br>        'HOST':'localhost',  <span class="hljs-meta"># 连接到数据库使用的主机</span><br>        'PORT':'<span class="hljs-number">3306</span>',  <span class="hljs-meta"># 连接到数据库时使用的端口</span><br>    }<br>}<br></code></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><br><span class="hljs-comment"># Create your models here.</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Stu</span>(models.Model):<br>    <span class="hljs-comment"># 自定义Stu表对应的Model类,对应数据库中的字段</span><br>    <span class="hljs-built_in">id</span> = models.AutoField(primary_key=<span class="hljs-literal">True</span>)<br>    name = models.CharField(max_length=<span class="hljs-number">64</span>)<br>    age = models.SmallIntegerField()<br>    sex = models.CharField(max_length=<span class="hljs-number">3</span>)<br>    classid = models.CharField(max_length=<span class="hljs-number">8</span>)<br><br>    <span class="hljs-comment"># 自定义输出格式</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">'%d:%s:%d:%s:%s'</span> % (self.<span class="hljs-built_in">id</span>, self.name, self.age, self.sex, self.classid)<br>    <br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Meta</span>:<br>        <span class="hljs-comment"># 定义表名，默认表名myapp_stu</span><br>        db_table = <span class="hljs-string">'stu'</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="激活模型"><a href="#激活模型" class="headerlink" title="激活模型"></a>激活模型</h3><p>要将应用程序包含在我们的程序中，我们需要在设置中添加配置类的引用<code>INSTALLED_APPS </code></p>
+<p><code>MysqlConfig</code>是在<code>myapp/apps.py</code>中，所以需要添加<code>myapp.apps.MyappConfig</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在INSTALLED_APPS中添加</span><br>myapp.apps.MyappConfig  <span class="hljs-comment"># 或者直接写myapp</span><br>INSTALLED_APPS = [<br>    <span class="hljs-string">'django.contrib.admin'</span>,<br>    <span class="hljs-string">'django.contrib.auth'</span>,<br>    <span class="hljs-string">'django.contrib.contenttypes'</span>,<br>    <span class="hljs-string">'django.contrib.sessions'</span>,<br>    <span class="hljs-string">'django.contrib.messages'</span>,<br>    <span class="hljs-string">'django.contrib.staticfiles'</span>,<br>    <span class="hljs-string">'myapp.apps.MyappConfig'</span>  <span class="hljs-comment"># 或者直接写myapp</span><br>]<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="使用（两种）"><a href="#使用（两种）" class="headerlink" title="使用（两种）"></a>使用（两种）</h3><ul>
+<li>进入交互式的<code>Python Shell</code>，使用<code>Django</code>提供的<code>API</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Django</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql基础语法</title>
+    <url>/2020/03/22/Mysql/</url>
+    <content><![CDATA[<h2 id="关系-型-数据库："><a href="#关系-型-数据库：" class="headerlink" title="关系(型)数据库："></a>关系(型)数据库：</h2><p><code>MySQL</code>、<code>Oracle</code>、<code>SQLServer</code>、<code>MariaDB</code>、<code>DB2</code>、<code>PostgreSQL</code>、<code>SQLite</code>（嵌入式数据库）等</p>
+<p>非关系型数据库：<code>NoSQL</code>数据库/<code>NewSQL</code>数据库</p>
+<ol>
+<li><p>关系代数：关系运算  ——&gt; 集合运算 / 关系运算 / (一阶)谓词逻辑</p>
+<ol>
+<li><p>交集、 并集、 差集、 笛卡尔积、 子集、 超级 、 存在</p>
+</li>
+<li><p>关系运算：投影、别名、选择、连接、排除、与、或、非</p>
+</li>
+<li><p>all  /  any  / exists</p>
+</li>
+</ol>
+</li>
+<li><p>具体表象：使用二维表保存数据</p>
+<ol>
+<li>行： 记录 —— 元组(tuple)</li>
+<li>列： 字段 —— 属性（attribute）</li>
+</ol>
+</li>
+<li><p>编程语言：SQL (Structured  Query  Language) ——结构化查询语言</p>
+<ol>
+<li>DDL： 数据定义语言 —— <code>creat  </code>（创建）  /  <code>drop </code>（删除）  /  <code>alter  </code>（修改）</li>
+<li>DML：数据操作语言 ——  <code>insert  </code>（插入） /  <code>delete  </code>（删除）  /  <code>updata  </code>（更新）</li>
+<li>DQL：数据查询语言 ——  <code>select  </code>（选择）</li>
+<li>DCL：数据控制语言  —— <code>grant  </code>（授予） / <code>recoke </code>（召回）</li>
+</ol>
+</li>
+<li><p>MySQL命令行工具——数据库操作</p>
+<ol>
+<li>显示所有数据库：<code>show databases;</code></li>
+<li>创建数据库：<code>create database school default charset utf8mb4; </code> 创建数据库并设置默认字符集为<code>utf8mb4</code></li>
+<li>删除数据库：<code>drop database if exists school;</code></li>
+<li>修改数据库：<code>alter database school default charset linet1;</code>修改数据库宁设置默认字符集为```</li>
+<li><code>切换数据库：</code>use  school;`</li>
+</ol>
+</li>
+<li><p>MySQL命令行工具——数据表操作</p>
+<ol>
+<li>显示数据表：<code>show tables;</code></li>
+<li>创建数据表：<code>create table 表名(字段名);</code></li>
+<li>查看表结构：<code>desc tb_student;</code> </li>
+<li>删除表：<code>drop table if exists tb_student;</code></li>
+<li>修改表：<ol>
+<li>添加列：<code>alter table tb_student add column stu_tel varchar(20) not null;</code>表中有数据不能进行非空约束</li>
+<li>删除指定列：<code>alter table tb_student drop column stu_addr;</code></li>
+</ol>
+</li>
+<li>修改指定列：<ol>
+<li><code>alter table tb_student modify column stu_gender char(1) default "M";</code>只改变列的类型</li>
+<li><code>alter table tb_student change column stu_gender stu_sex  char(1) not null default "男";</code>  修改类型</li>
+</ol>
+</li>
+<li>添加约束条件：<ol>
+<li>添加唯一性约束：<code>alter table tb_student add constraint uk_student_tel unique (stu_tel);</code>   <code>add constraint</code>添加约束， <code>uk_student_tel </code>是起的名，便于后续操作，后面同理</li>
+<li>添加检查约束：<code>alter table tb_student add constraint ck_student_tel check (stu_birth &gt;= '1990-1-1');</code>  </li>
+<li>删除约束条件：<code>alter table tb_student drop constraint uk_student_tel;</code> 删除添加约束是起的名</li>
+</ol>
+</li>
+<li>约束<ol>
+<li>非空约束：<code>not null</code>  保证字段的值不能为空</li>
+<li>默认约束：<code>default</code> 默认约束，保证字段总会有值，即使没有插入值，都会有默认值！</li>
+<li>唯一性约束：<code>unique</code>保证唯一性但是可以为空，比如座位号</li>
+<li>检查性约束：<code>check</code>检查性约束</li>
+<li>外键约束：<code>foreign key</code>同时保证唯一性和非空</li>
+<li>主键约束：<code>primary key</code>用于限制两个表的关系，保证从表该字段的值来自于主表相关联的字段的值！</li>
+<li>引擎<ol>
+<li><code>engine = innodb</code>使用<code>innodb</code>引擎</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>数据类型：<ol>
+<li>查看数据类型帮助：<code>?data types;</code></li>
+<li>整数：<code>int / intrger</code> (32位)   ——&gt; <code>bigint</code> (64位 )/  <code>samllint</code>  （16位）/<code>tinyint</code> (8位)  ——&gt; <code>undignet</code>无长度整数</li>
+<li>小数：<code>float / double</code> ——&gt; <code>decimal</code></li>
+<li>日期和时间：<code>date</code> /  <code>time </code> /  <code>datetime</code>   ——&gt;   <code>timestamp</code></li>
+<li>字符串：<code>varchar  /  char</code></li>
+<li>二进制文件：<code>bolb</code></li>
+<li>JSON：<code>json</code> 保存json数据或json对象</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>SQL</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jieba的学习和使用</title>
+    <url>/2020/06/13/jieba%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="jieba"><a href="#jieba" class="headerlink" title="jieba"></a>jieba</h1><p>转载至：<a href="https://github.com/fxsjy/jieba">原文地址</a></p>
+<p>“结巴”中文分词：做最好的 Python 中文分词组件</p>
+<p><em>“Jieba” (Chinese for “to stutter”) Chinese text segmentation: built to be the best Python Chinese word segmentation module.</em></p>
+<ul>
+<li><em>Scroll down for English documentation.</em></li>
+</ul>
+<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ul>
+<li>支持四种分词模式：<ul>
+<li>精确模式，试图将句子最精确地切开，适合文本分析；</li>
+<li>全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；</li>
+<li>搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</li>
+<li>paddle模式，利用PaddlePaddle深度学习框架，训练序列标注（双向GRU）网络模型实现分词。同时支持词性标注。paddle模式使用需安装paddlepaddle-tiny，<code>pip install paddlepaddle-tiny==1.6.1</code>。目前paddle模式支持jieba v0.40及以上版本。jieba v0.40以下版本，请升级jieba，<code>pip install jieba --upgrade</code> 。<a href="https://www.paddlepaddle.org.cn/">PaddlePaddle官网</a></li>
+</ul>
+</li>
+<li>支持繁体分词</li>
+<li>支持自定义词典</li>
+<li>MIT 授权协议</li>
+</ul>
+<h1 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h1><p>代码对 Python 2/3 均兼容</p>
+<ul>
+<li>全自动安装：<code>easy_install jieba</code> 或者 <code>pip install jieba</code> / <code>pip3 install jieba</code></li>
+<li>半自动安装：先下载 <a href="http://pypi.python.org/pypi/jieba/">http://pypi.python.org/pypi/jieba/</a> ，解压后运行 <code>python setup.py install</code></li>
+<li>手动安装：将 jieba 目录放置于当前目录或者 site-packages 目录</li>
+<li>通过 <code>import jieba</code> 来引用</li>
+<li>如果需要使用paddle模式下的分词和词性标注功能，请先安装paddlepaddle-tiny，<code>pip install paddlepaddle-tiny==1.6.1</code>。</li>
+</ul>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><ul>
+<li>基于前缀词典实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图 (DAG)</li>
+<li>采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合</li>
+<li>对于未登录词，采用了基于汉字成词能力的 HMM 模型，使用了 Viterbi 算法</li>
+</ul>
+<h1 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h1><h3 id="分词："><a href="#分词：" class="headerlink" title="分词："></a>分词：</h3><ul>
+<li><code>jieba.cut</code> 方法接受四个输入参数: 需要分词的字符串；cut_all 参数用来控制是否采用全模式；HMM 参数用来控制是否使用 HMM 模型；use_paddle 参数用来控制是否使用paddle模式下的分词模式，paddle模式采用延迟加载方式，通过enable_paddle接口安装paddlepaddle-tiny，并且import相关代码；</li>
+<li><code>jieba.cut_for_search</code> 方法接受两个参数：需要分词的字符串；是否使用 HMM 模型。该方法适合用于搜索引擎构建倒排索引的分词，粒度比较细</li>
+<li>待分词的字符串可以是 unicode 或 UTF-8 字符串、GBK 字符串。注意：不建议直接输入 GBK 字符串，可能无法预料地错误解码成 UTF-8</li>
+<li><code>jieba.cut</code> 以及 <code>jieba.cut_for_search</code> 返回的结构都是一个可迭代的 generator，可以使用 for 循环来获得分词后得到的每一个词语(unicode)，或者用</li>
+<li><code>jieba.lcut</code> 以及 <code>jieba.lcut_for_search</code> 直接返回 list</li>
+<li><code>jieba.Tokenizer(dictionary=DEFAULT_DICT)</code> 新建自定义分词器，可用于同时使用不同词典。<code>jieba.dt</code> 为默认分词器，所有全局分词相关函数都是该分词器的映射。</li>
+</ul>
+<p>代码示例</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># encoding=utf-8</span><br><span class="hljs-keyword">import</span> jieba<br><br>jieba.enable_paddle()<span class="hljs-comment"># 启动paddle模式。 0.40版之后开始支持，早期版本不支持</span><br>strs=[<span class="hljs-string">"我来到北京清华大学"</span>,<span class="hljs-string">"乒乓球拍卖完了"</span>,<span class="hljs-string">"中国科学技术大学"</span>]<br><span class="hljs-keyword">for</span> <span class="hljs-built_in">str</span> <span class="hljs-keyword">in</span> strs:<br>    seg_list = jieba.cut(<span class="hljs-built_in">str</span>,use_paddle=<span class="hljs-literal">True</span>) <span class="hljs-comment"># 使用paddle模式</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Paddle Mode: "</span> + <span class="hljs-string">'/'</span>.join(<span class="hljs-built_in">list</span>(seg_list)))<br><br>seg_list = jieba.cut(<span class="hljs-string">"我来到北京清华大学"</span>, cut_all=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"Full Mode: "</span> + <span class="hljs-string">"/ "</span>.join(seg_list))  <span class="hljs-comment"># 全模式</span><br><br>seg_list = jieba.cut(<span class="hljs-string">"我来到北京清华大学"</span>, cut_all=<span class="hljs-literal">False</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">"Default Mode: "</span> + <span class="hljs-string">"/ "</span>.join(seg_list))  <span class="hljs-comment"># 精确模式</span><br><br>seg_list = jieba.cut(<span class="hljs-string">"他来到了网易杭研大厦"</span>)  <span class="hljs-comment"># 默认是精确模式</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">", "</span>.join(seg_list))<br><br>seg_list = jieba.cut_for_search(<span class="hljs-string">"小明硕士毕业于中国科学院计算所，后在日本京都大学深造"</span>)  <span class="hljs-comment"># 搜索引擎模式</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">", "</span>.join(seg_list))<br></code></pre></td></tr></tbody></table></figure>
+
+<p>输出:</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">【全模式】: 我/ 来到/ 北京/ 清华/ 清华大学/ 华大/ 大学<br><br>【精确模式】: 我/ 来到/ 北京/ 清华大学<br><br>【新词识别】：他, 来到, 了, 网易, 杭研, 大厦    (此处，“杭研”并没有在词典中，但是也被Viterbi算法识别出来了)<br><br>【搜索引擎模式】： 小明, 硕士, 毕业, 于, 中国, 科学, 学院, 科学院, 中国科学院, 计算, 计算所, 后, 在, 日本, 京都, 大学, 日本京都大学, 深造<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="添加自定义词典"><a href="#添加自定义词典" class="headerlink" title="添加自定义词典"></a>添加自定义词典</h3><h3 id="载入词典"><a href="#载入词典" class="headerlink" title="载入词典"></a>载入词典</h3><ul>
+<li>开发者可以指定自己自定义的词典，以便包含 jieba 词库里没有的词。虽然 jieba 有新词识别能力，但是自行添加新词可以保证更高的正确率</li>
+<li>用法： jieba.load_userdict(file_name) # file_name 为文件类对象或自定义词典的路径</li>
+<li>词典格式和 <code>dict.txt</code> 一样，一个词占一行；每一行分三部分：词语、词频（可省略）、词性（可省略），用空格隔开，顺序不可颠倒。<code>file_name</code> 若为路径或二进制方式打开的文件，则文件必须为 UTF-8 编码。</li>
+<li>词频省略时使用自动计算的能保证分出该词的词频。</li>
+</ul>
+<p><strong>例如：</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">创新办 <span class="hljs-number">3</span> i<br>云计算 <span class="hljs-number">5</span><br>凱特琳 nz<br>台中<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>更改分词器（默认为 <code>jieba.dt</code>）的 <code>tmp_dir</code> 和 <code>cache_file</code> 属性，可分别指定缓存文件所在的文件夹及其文件名，用于受限的文件系统。</li>
+<li>范例：<ul>
+<li>自定义词典：<a href="https://github.com/fxsjy/jieba/blob/master/test/userdict.txt">https://github.com/fxsjy/jieba/blob/master/test/userdict.txt</a></li>
+<li>用法示例：<a href="https://github.com/fxsjy/jieba/blob/master/test/test_userdict.py">https://github.com/fxsjy/jieba/blob/master/test/test_userdict.py</a><ul>
+<li>之前： 李小福 / 是 / 创新 / 办 / 主任 / 也 / 是 / 云 / 计算 / 方面 / 的 / 专家 /</li>
+<li>加载自定义词库后：　李小福 / 是 / 创新办 / 主任 / 也 / 是 / 云计算 / 方面 / 的 / 专家 /</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="调整词典"><a href="#调整词典" class="headerlink" title="调整词典"></a>调整词典</h3><ul>
+<li>使用 <code>add_word(word, freq=None, tag=None)</code> 和 <code>del_word(word)</code> 可在程序中动态修改词典。</li>
+<li>使用 <code>suggest_freq(segment, tune=True)</code> 可调节单个词语的词频，使其能（或不能）被分出来。</li>
+<li>注意：自动计算的词频在使用 HMM 新词发现功能时可能无效。</li>
+</ul>
+<p>代码示例：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-string">'/'</span>.join(jieba.cut(<span class="hljs-string">'如果放到post中将出错。'</span>, HMM=<span class="hljs-literal">False</span>)))<br>如果/放到/post/中将/出错/。<br><span class="hljs-meta">&gt;&gt;&gt; </span>jieba.suggest_freq((<span class="hljs-string">'中'</span>, <span class="hljs-string">'将'</span>), <span class="hljs-literal">True</span>)<br><span class="hljs-number">494</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-string">'/'</span>.join(jieba.cut(<span class="hljs-string">'如果放到post中将出错。'</span>, HMM=<span class="hljs-literal">False</span>)))<br>如果/放到/post/中/将/出错/。<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-string">'/'</span>.join(jieba.cut(<span class="hljs-string">'「台中」正确应该不会被切开'</span>, HMM=<span class="hljs-literal">False</span>)))<br>「/台/中/」/正确/应该/不会/被/切开<br><span class="hljs-meta">&gt;&gt;&gt; </span>jieba.suggest_freq(<span class="hljs-string">'台中'</span>, <span class="hljs-literal">True</span>)<br><span class="hljs-number">69</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-string">'/'</span>.join(jieba.cut(<span class="hljs-string">'「台中」正确应该不会被切开'</span>, HMM=<span class="hljs-literal">False</span>)))<br>「/台中/」/正确/应该/不会/被/切开<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>“通过用户自定义词典来增强歧义纠错能力” — <a href="https://github.com/fxsjy/jieba/issues/14">#14</a></li>
+</ul>
+<ol>
+<li>关键词提取</li>
+</ol>
+<hr>
+<h3 id="基于-TF-IDF-算法的关键词抽取"><a href="#基于-TF-IDF-算法的关键词抽取" class="headerlink" title="基于 TF-IDF 算法的关键词抽取"></a>基于 TF-IDF 算法的关键词抽取</h3><figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> jieba.analyse<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>jieba.analyse.extract_tags(sentence, topK=20, withWeight=False, allowPOS=())<ul>
+<li>sentence 为待提取的文本</li>
+<li>topK 为返回几个 TF/IDF 权重最大的关键词，默认值为 20</li>
+<li>withWeight 为是否一并返回关键词权重值，默认值为 False</li>
+<li>allowPOS 仅包括指定词性的词，默认值为空，即不筛选</li>
+</ul>
+</li>
+<li>jieba.analyse.TFIDF(idf_path=None) 新建 TFIDF 实例，idf_path 为 IDF 频率文件</li>
+</ul>
+<p>代码示例 （关键词提取）</p>
+<p><a href="https://github.com/fxsjy/jieba/blob/master/test/extract_tags.py">https://github.com/fxsjy/jieba/blob/master/test/extract_tags.py</a></p>
+<p>关键词提取所使用逆向文件频率（IDF）文本语料库可以切换成自定义语料库的路径</p>
+<ul>
+<li>用法： jieba.analyse.set_idf_path(file_name) # file_name为自定义语料库的路径</li>
+<li>自定义语料库示例：<a href="https://github.com/fxsjy/jieba/blob/master/extra_dict/idf.txt.big">https://github.com/fxsjy/jieba/blob/master/extra_dict/idf.txt.big</a></li>
+<li>用法示例：<a href="https://github.com/fxsjy/jieba/blob/master/test/extract_tags_idfpath.py">https://github.com/fxsjy/jieba/blob/master/test/extract_tags_idfpath.py</a></li>
+</ul>
+<p>关键词提取所使用停止词（Stop Words）文本语料库可以切换成自定义语料库的路径</p>
+<ul>
+<li>用法： jieba.analyse.set_stop_words(file_name) # file_name为自定义语料库的路径</li>
+<li>自定义语料库示例：<a href="https://github.com/fxsjy/jieba/blob/master/extra_dict/stop_words.txt">https://github.com/fxsjy/jieba/blob/master/extra_dict/stop_words.txt</a></li>
+<li>用法示例：<a href="https://github.com/fxsjy/jieba/blob/master/test/extract_tags_stop_words.py">https://github.com/fxsjy/jieba/blob/master/test/extract_tags_stop_words.py</a></li>
+</ul>
+<p>关键词一并返回关键词权重值示例</p>
+<ul>
+<li>用法示例：<a href="https://github.com/fxsjy/jieba/blob/master/test/extract_tags_with_weight.py">https://github.com/fxsjy/jieba/blob/master/test/extract_tags_with_weight.py</a></li>
+</ul>
+<h3 id="基于-TextRank-算法的关键词抽取"><a href="#基于-TextRank-算法的关键词抽取" class="headerlink" title="基于 TextRank 算法的关键词抽取"></a>基于 TextRank 算法的关键词抽取</h3><ul>
+<li>jieba.analyse.textrank(sentence, topK=20, withWeight=False, allowPOS=(‘ns’, ‘n’, ‘vn’, ‘v’)) 直接使用，接口相同，注意默认过滤词性。</li>
+<li>jieba.analyse.TextRank() 新建自定义 TextRank 实例</li>
+</ul>
+<p>算法论文： <a href="http://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf">TextRank: Bringing Order into Texts</a></p>
+<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想:"></a>基本思想:</h4><ol>
+<li>将待抽取关键词的文本进行分词</li>
+<li>以固定窗口大小(默认为5，通过span属性调整)，词之间的共现关系，构建图</li>
+<li>计算图中节点的PageRank，注意是无向带权图</li>
+</ol>
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例:"></a>使用示例:</h4><p>见 <a href="https://github.com/fxsjy/jieba/blob/master/test/demo.py">test/demo.py</a></p>
+<ol>
+<li>词性标注</li>
+</ol>
+<hr>
+<ul>
+<li><code>jieba.posseg.POSTokenizer(tokenizer=None)</code> 新建自定义分词器，<code>tokenizer</code> 参数可指定内部使用的 <code>jieba.Tokenizer</code> 分词器。<code>jieba.posseg.dt</code> 为默认词性标注分词器。</li>
+<li>标注句子分词后每个词的词性，采用和 ictclas 兼容的标记法。</li>
+<li>除了jieba默认分词模式，提供paddle模式下的词性标注功能。paddle模式采用延迟加载方式，通过enable_paddle()安装paddlepaddle-tiny，并且import相关代码；</li>
+<li>用法示例</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> jieba<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> jieba.posseg <span class="hljs-keyword">as</span> pseg<br><span class="hljs-meta">&gt;&gt;&gt; </span>words = pseg.cut(<span class="hljs-string">"我爱北京天安门"</span>) <span class="hljs-comment">#jieba默认模式</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>jieba.enable_paddle() <span class="hljs-comment">#启动paddle模式。 0.40版之后开始支持，早期版本不支持</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>words = pseg.cut(<span class="hljs-string">"我爱北京天安门"</span>,use_paddle=<span class="hljs-literal">True</span>) <span class="hljs-comment">#paddle模式</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> word, flag <span class="hljs-keyword">in</span> words:<br><span class="hljs-meta">... </span>   <span class="hljs-built_in">print</span>(<span class="hljs-string">'%s %s'</span> % (word, flag))<br>...<br>我 r<br>爱 v<br>北京 ns<br>天安门 ns<br></code></pre></td></tr></tbody></table></figure>
+
+<p>paddle模式词性标注对应表如下：</p>
+<p>paddle模式词性和专名类别标签集合如下表，其中词性标签 24 个（小写字母），专名类别标签 4 个（大写字母）。</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>含义</th>
+<th>标签</th>
+<th>含义</th>
+<th>标签</th>
+<th>含义</th>
+<th>标签</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>n</td>
+<td>普通名词</td>
+<td>f</td>
+<td>方位名词</td>
+<td>s</td>
+<td>处所名词</td>
+<td>t</td>
+<td>时间</td>
+</tr>
+<tr>
+<td>nr</td>
+<td>人名</td>
+<td>ns</td>
+<td>地名</td>
+<td>nt</td>
+<td>机构名</td>
+<td>nw</td>
+<td>作品名</td>
+</tr>
+<tr>
+<td>nz</td>
+<td>其他专名</td>
+<td>v</td>
+<td>普通动词</td>
+<td>vd</td>
+<td>动副词</td>
+<td>vn</td>
+<td>名动词</td>
+</tr>
+<tr>
+<td>a</td>
+<td>形容词</td>
+<td>ad</td>
+<td>副形词</td>
+<td>an</td>
+<td>名形词</td>
+<td>d</td>
+<td>副词</td>
+</tr>
+<tr>
+<td>m</td>
+<td>数量词</td>
+<td>q</td>
+<td>量词</td>
+<td>r</td>
+<td>代词</td>
+<td>p</td>
+<td>介词</td>
+</tr>
+<tr>
+<td>c</td>
+<td>连词</td>
+<td>u</td>
+<td>助词</td>
+<td>xc</td>
+<td>其他虚词</td>
+<td>w</td>
+<td>标点符号</td>
+</tr>
+<tr>
+<td>PER</td>
+<td>人名</td>
+<td>LOC</td>
+<td>地名</td>
+<td>ORG</td>
+<td>机构名</td>
+<td>TIME</td>
+<td>时间</td>
+</tr>
+</tbody></table>
+<ol>
+<li>并行分词</li>
+</ol>
+<hr>
+<ul>
+<li>原理：将目标文本按行分隔后，把各行文本分配到多个 Python 进程并行分词，然后归并结果，从而获得分词速度的可观提升</li>
+<li>基于 python 自带的 multiprocessing 模块，目前暂不支持 Windows</li>
+<li>用法：<ul>
+<li><code>jieba.enable_parallel(4)</code> # 开启并行分词模式，参数为并行进程数</li>
+<li><code>jieba.disable_parallel()</code> # 关闭并行分词模式</li>
+</ul>
+</li>
+<li>例子：<a href="https://github.com/fxsjy/jieba/blob/master/test/parallel/test_file.py">https://github.com/fxsjy/jieba/blob/master/test/parallel/test_file.py</a></li>
+<li>实验结果：在 4 核 3.4GHz Linux 机器上，对金庸全集进行精确分词，获得了 1MB/s 的速度，是单进程版的 3.3 倍。</li>
+<li><strong>注意</strong>：并行分词仅支持默认分词器 <code>jieba.dt</code> 和 <code>jieba.posseg.dt</code>。</li>
+</ul>
+<ol>
+<li>Tokenize：返回词语在原文的起止位置</li>
+</ol>
+<hr>
+<ul>
+<li>注意，输入参数只接受 unicode</li>
+<li>默认模式</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">result = jieba.tokenize(<span class="hljs-string">u'永和服装饰品有限公司'</span>)<br><span class="hljs-keyword">for</span> tk <span class="hljs-keyword">in</span> result:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"word %s\t\t start: %d \t\t end:%d"</span> % (tk[<span class="hljs-number">0</span>],tk[<span class="hljs-number">1</span>],tk[<span class="hljs-number">2</span>]))<br>word 永和                start: <span class="hljs-number">0</span>                end:<span class="hljs-number">2</span><br>word 服装                start: <span class="hljs-number">2</span>                end:<span class="hljs-number">4</span><br>word 饰品                start: <span class="hljs-number">4</span>                end:<span class="hljs-number">6</span><br>word 有限公司            start: <span class="hljs-number">6</span>                end:<span class="hljs-number">10</span><br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>搜索模式</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">result = jieba.tokenize(<span class="hljs-string">u'永和服装饰品有限公司'</span>, mode=<span class="hljs-string">'search'</span>)<br><span class="hljs-keyword">for</span> tk <span class="hljs-keyword">in</span> result:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"word %s\t\t start: %d \t\t end:%d"</span> % (tk[<span class="hljs-number">0</span>],tk[<span class="hljs-number">1</span>],tk[<span class="hljs-number">2</span>]))<br>word 永和                start: <span class="hljs-number">0</span>                end:<span class="hljs-number">2</span><br>word 服装                start: <span class="hljs-number">2</span>                end:<span class="hljs-number">4</span><br>word 饰品                start: <span class="hljs-number">4</span>                end:<span class="hljs-number">6</span><br>word 有限                start: <span class="hljs-number">6</span>                end:<span class="hljs-number">8</span><br>word 公司                start: <span class="hljs-number">8</span>                end:<span class="hljs-number">10</span><br>word 有限公司            start: <span class="hljs-number">6</span>                end:<span class="hljs-number">10</span><br></code></pre></td></tr></tbody></table></figure>
+
+<ol>
+<li>ChineseAnalyzer for Whoosh 搜索引擎</li>
+</ol>
+<hr>
+<ul>
+<li>引用： <code>from jieba.analyse import ChineseAnalyzer</code></li>
+<li>用法示例：<a href="https://github.com/fxsjy/jieba/blob/master/test/test_whoosh.py">https://github.com/fxsjy/jieba/blob/master/test/test_whoosh.py</a></li>
+</ul>
+<ol>
+<li>命令行分词</li>
+</ol>
+<hr>
+<p>使用示例：<code>python -m jieba news.txt &gt; cut_result.txt</code></p>
+<p>命令行选项（翻译）：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">使用: python -m jieba [options] filename<br><br>结巴命令行界面。<br><br>固定参数:<br>  filename              输入文件<br><br>可选参数:<br>  -h, --<span class="hljs-built_in">help</span>            显示此帮助信息并退出<br>  -d [DELIM], --delimiter [DELIM]<br>                        使用 DELIM 分隔词语，而不是用默认的<span class="hljs-string">' / '</span>。<br>                        若不指定 DELIM，则使用一个空格分隔。<br>  -p [DELIM], --pos [DELIM]<br>                        启用词性标注；如果指定 DELIM，词语和词性之间<br>                        用它分隔，否则用 _ 分隔<br>  -D DICT, --<span class="hljs-built_in">dict</span> DICT  使用 DICT 代替默认词典<br>  -u USER_DICT, --user-<span class="hljs-built_in">dict</span> USER_DICT<br>                        使用 USER_DICT 作为附加词典，与默认词典或自定义词典配合使用<br>  -a, --cut-<span class="hljs-built_in">all</span>         全模式分词（不支持词性标注）<br>  -n, --no-hmm          不使用隐含马尔可夫模型<br>  -q, --quiet           不输出载入信息到 STDERR<br>  -V, --version         显示版本信息并退出<br><br>如果没有指定文件名，则使用标准输入。<br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>--help</code> 选项输出：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">$&gt; python -m jieba --<span class="hljs-built_in">help</span><br>Jieba command line interface.<br><br>positional arguments:<br>  filename              <span class="hljs-built_in">input</span> file<br><br>optional arguments:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message <span class="hljs-keyword">and</span> exit<br>  -d [DELIM], --delimiter [DELIM]<br>                        use DELIM instead of <span class="hljs-string">' / '</span> <span class="hljs-keyword">for</span> word delimiter; <span class="hljs-keyword">or</span> a<br>                        space <span class="hljs-keyword">if</span> it <span class="hljs-keyword">is</span> used without DELIM<br>  -p [DELIM], --pos [DELIM]<br>                        enable POS tagging; <span class="hljs-keyword">if</span> DELIM <span class="hljs-keyword">is</span> specified, use DELIM<br>                        instead of <span class="hljs-string">'_'</span> <span class="hljs-keyword">for</span> POS delimiter<br>  -D DICT, --<span class="hljs-built_in">dict</span> DICT  use DICT <span class="hljs-keyword">as</span> dictionary<br>  -u USER_DICT, --user-<span class="hljs-built_in">dict</span> USER_DICT<br>                        use USER_DICT together <span class="hljs-keyword">with</span> the default dictionary <span class="hljs-keyword">or</span><br>                        DICT (<span class="hljs-keyword">if</span> specified)<br>  -a, --cut-<span class="hljs-built_in">all</span>         full pattern cutting (ignored <span class="hljs-keyword">with</span> POS tagging)<br>  -n, --no-hmm          don<span class="hljs-string">'t use the Hidden Markov Model</span><br><span class="hljs-string">  -q, --quiet           don'</span>t <span class="hljs-built_in">print</span> loading messages to stderr<br>  -V, --version         show program<span class="hljs-string">'s version number and exit</span><br><span class="hljs-string"></span><br><span class="hljs-string">If no filename specified, use STDIN instead.</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="延迟加载机制"><a href="#延迟加载机制" class="headerlink" title="延迟加载机制"></a>延迟加载机制</h2><p>jieba 采用延迟加载，<code>import jieba</code> 和 <code>jieba.Tokenizer()</code> 不会立即触发词典的加载，一旦有必要才开始加载词典构建前缀字典。如果你想手工初始 jieba，也可以手动初始化。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> jieba<br>jieba.initialize()  <span class="hljs-comment"># 手动初始化（可选）</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>在 0.28 之前的版本是不能指定主词典的路径的，有了延迟加载机制后，你可以改变主词典的路径:</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><code class="hljs python">jieba.set_dictionary(<span class="hljs-string">'data/dict.txt.big'</span>)<br></code></pre></td></tr></tbody></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>第三方库</category>
+        <category>jieba</category>
+      </categories>
+      <tags>
+        <tag>Spider</tag>
       </tags>
   </entry>
 </search>

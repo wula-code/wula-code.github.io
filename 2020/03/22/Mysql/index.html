@@ -16,26 +16,24 @@
   <meta name="author" content="Wula`s Story">
   <meta name="keywords" content="">
   
-    <meta name="description" content="penalty：惩罚项，str类型，可选参数为l1和l2，默认为l2。用于指定惩罚项中使用的规范。newton-cg、sag和lbfgs求解算法只支持L2规范。L1G规范假设的是模型的参数满足拉普拉斯分布，L2假设的模型参数满足高斯分布，所谓的范式就是加上对参数的约束，使得模型更不会过拟合(overfit)，但是如果要说是不是加了约束就会好，这个没有人能回答，只能说，加约束的情况下，理论上应该可">
+    <meta name="description" content="关系(型)数据库：MySQL、Oracle、SQLServer、MariaDB、DB2、PostgreSQL、SQLite（嵌入式数据库）等 非关系型数据库：NoSQL数据库&#x2F;NewSQL数据库  关系代数：关系运算  ——&gt; 集合运算 &#x2F; 关系运算 &#x2F; (一阶)谓词逻辑  交集、 并集、 差集、 笛卡尔积、 子集、 超级 、 存在  关系运算：投影、别名、选择、连接、排除、与、或、非  a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="逻辑斯蒂回归参数">
-<meta property="og:url" content="https://blog.wlstory.xyz/2022/06/03/%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E5%8F%82%E6%95%B0/index.html">
+<meta property="og:title" content="Mysql基础语法">
+<meta property="og:url" content="https://blog.wlstory.xyz/2020/03/22/Mysql/index.html">
 <meta property="og:site_name" content="乌拉的故事">
-<meta property="og:description" content="penalty：惩罚项，str类型，可选参数为l1和l2，默认为l2。用于指定惩罚项中使用的规范。newton-cg、sag和lbfgs求解算法只支持L2规范。L1G规范假设的是模型的参数满足拉普拉斯分布，L2假设的模型参数满足高斯分布，所谓的范式就是加上对参数的约束，使得模型更不会过拟合(overfit)，但是如果要说是不是加了约束就会好，这个没有人能回答，只能说，加约束的情况下，理论上应该可">
+<meta property="og:description" content="关系(型)数据库：MySQL、Oracle、SQLServer、MariaDB、DB2、PostgreSQL、SQLite（嵌入式数据库）等 非关系型数据库：NoSQL数据库&#x2F;NewSQL数据库  关系代数：关系运算  ——&gt; 集合运算 &#x2F; 关系运算 &#x2F; (一阶)谓词逻辑  交集、 并集、 差集、 笛卡尔积、 子集、 超级 、 存在  关系运算：投影、别名、选择、连接、排除、与、或、非  a">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.wlstory.xyz/img/images/LogisticRegression.webp">
-<meta property="article:published_time" content="2022-06-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-18T08:50:44.143Z">
+<meta property="og:image" content="https://blog.wlstory.xyz/img/images/mysql.webp">
+<meta property="article:published_time" content="2020-03-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-22T14:21:24.904Z">
 <meta property="article:author" content="Wula&#96;s Story">
-<meta property="article:tag" content="ML">
+<meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blog.wlstory.xyz/img/images/LogisticRegression.webp">
+<meta name="twitter:image" content="https://blog.wlstory.xyz/img/images/mysql.webp">
   
   
-    <meta name="referrer" content="no-referrer-when-downgrade">
   
-  
-  <title>逻辑斯蒂回归参数 - 乌拉的故事</title>
+  <title>Mysql基础语法 - 乌拉的故事</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -73,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"blog.wlstory.xyz","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"blog.wlstory.xyz","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -83,6 +81,21 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
   
@@ -202,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="逻辑斯蒂回归参数"></span>
+            <span id="subtitle" data-typed-text="Mysql基础语法"></span>
           
         </div>
 
@@ -213,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-03 00:00" pubdate>
-          2022年6月3日 凌晨
+        <time datetime="2020-03-22 00:00" pubdate>
+          2020年3月22日 凌晨
         </time>
       </span>
     
@@ -225,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          1.8k 字
         
       </span>
     
@@ -236,7 +249,7 @@
         
         
         
-          29 分钟
+          16 分钟
         
       </span>
     
@@ -274,75 +287,95 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">逻辑斯蒂回归参数</h1>
+            <h1 style="display: none">Mysql基础语法</h1>
             
             
               <div class="markdown-body">
                 
-                <ul>
-<li><p><strong>penalty：</strong>惩罚项，<strong>str类型</strong>，可选参数为<code>l1和l2</code>，默认为<strong>l2</strong>。用于指定惩罚项中使用的规范。<code>newton-cg</code>、<code>sag</code>和<code>lbfgs</code>求解算法只支持L2规范。<code>L1G</code>规范假设的是模型的参数满足拉普拉斯分布，L2假设的模型参数满足高斯分布，所谓的范式就是加上对参数的约束，使得模型更不会过拟合(overfit)，但是如果要说是不是加了约束就会好，这个没有人能回答，只能说，加约束的情况下，理论上应该可以获得泛化能力更强的结果。</p>
+                <h2 id="关系-型-数据库："><a href="#关系-型-数据库：" class="headerlink" title="关系(型)数据库："></a>关系(型)数据库：</h2><p><code>MySQL</code>、<code>Oracle</code>、<code>SQLServer</code>、<code>MariaDB</code>、<code>DB2</code>、<code>PostgreSQL</code>、<code>SQLite</code>（嵌入式数据库）等</p>
+<p>非关系型数据库：<code>NoSQL</code>数据库/<code>NewSQL</code>数据库</p>
+<ol>
+<li><p>关系代数：关系运算  ——&gt; 集合运算 / 关系运算 / (一阶)谓词逻辑</p>
+<ol>
+<li><p>交集、 并集、 差集、 笛卡尔积、 子集、 超级 、 存在</p>
 </li>
-<li><p><strong>dual：</strong>对偶或原始方法，bool类型，默认为False。对偶方法只用在求解线性多核(<code>liblinear</code>)的L2惩罚项上。当样本数量&gt;样本特征的时候，dual通常设置为False。</p>
+<li><p>关系运算：投影、别名、选择、连接、排除、与、或、非</p>
 </li>
-<li><p><strong>tol：</strong>停止求解的标准，float类型，默认为1e-4。就是求解到多少的时候，停止，认为已经求出最优解。</p>
+<li><p>all  /  any  / exists</p>
 </li>
-<li><p><strong>c：</strong>正则化系数λ的倒数，float类型，默认为1.0。必须是正浮点型数。像SVM一样，越小的数值表示越强的正则化。</p>
+</ol>
 </li>
-<li><p><strong>fit_intercept：</strong>是否存在截距或偏差，bool类型，默认为True。</p>
+<li><p>具体表象：使用二维表保存数据</p>
+<ol>
+<li>行： 记录 —— 元组(tuple)</li>
+<li>列： 字段 —— 属性（attribute）</li>
+</ol>
 </li>
-<li><p><strong>intercept_scaling：</strong>仅在正则化项为”<code>liblinear</code>“，且<code>fit_intercept</code>设置为<code>True</code>时有用。float类型，默认为1。</p>
+<li><p>编程语言：SQL (Structured  Query  Language) ——结构化查询语言</p>
+<ol>
+<li>DDL： 数据定义语言 —— <code>creat  </code>（创建）  /  <code>drop </code>（删除）  /  <code>alter  </code>（修改）</li>
+<li>DML：数据操作语言 ——  <code>insert  </code>（插入） /  <code>delete  </code>（删除）  /  <code>updata  </code>（更新）</li>
+<li>DQL：数据查询语言 ——  <code>select  </code>（选择）</li>
+<li>DCL：数据控制语言  —— <code>grant  </code>（授予） / <code>recoke </code>（召回）</li>
+</ol>
 </li>
-<li><p>class_weight：</p>
-<p>用于标示分类模型中各种类型的权重，可以是一个字典或者’balanced’字符串，默认为不输入，也就是不考虑权重，即为None。如果选择输入的话，可以选择balanced让类库自己计算类型权重，或者自己输入各个类型的权重。举个例子，比如对于0,1的二元模型，我们可以定义class_weight={0:0.9,1:0.1}，这样类型0的权重为90%，而类型1的权重为10%。如果class_weight选择balanced，那么类库会根据训练样本量来计算权重。某种类型样本量越多，则权重越低，样本量越少，则权重越高。当class_weight为balanced时，类权重计算方法如下：n_samples / (n_classes * np.bincount(y))。n_samples为样本数，n_classes为类别数量，np.bincount(y)会输出每个类的样本数，例如y=[1,0,0,1,1],则np.bincount(y)=[2,3]。</p>
-<ul>
-<li>那么class_weight有什么作用呢？<ul>
-<li>在分类模型中，我们经常会遇到两类问题：</li>
-<li>1.第一种是误分类的代价很高。比如对合法用户和非法用户进行分类，将非法用户分类为合法用户的代价很高，我们宁愿将合法用户分类为非法用户，这时可以人工再甄别，但是却不愿将非法用户分类为合法用户。这时，我们可以适当提高非法用户的权重。</li>
-<li>\2. 第二种是样本是高度失衡的，比如我们有合法用户和非法用户的二元样本数据10000条，里面合法用户有9995条，非法用户只有5条，如果我们不考虑权重，则我们可以将所有的测试集都预测为合法用户，这样预测准确率理论上有99.95%，但是却没有任何意义。这时，我们可以选择balanced，让类库自动提高非法用户样本的权重。提高了某种分类的权重，相比不考虑权重，会有更多的样本分类划分到高权重的类别，从而可以解决上面两类问题。</li>
-</ul>
+<li><p>MySQL命令行工具——数据库操作</p>
+<ol>
+<li>显示所有数据库：<code>show databases;</code></li>
+<li>创建数据库：<code>create database school default charset utf8mb4; </code> 创建数据库并设置默认字符集为<code>utf8mb4</code></li>
+<li>删除数据库：<code>drop database if exists school;</code></li>
+<li>修改数据库：<code>alter database school default charset linet1;</code>修改数据库宁设置默认字符集为```</li>
+<li><code>切换数据库：</code>use  school;`</li>
+</ol>
 </li>
-</ul>
+<li><p>MySQL命令行工具——数据表操作</p>
+<ol>
+<li>显示数据表：<code>show tables;</code></li>
+<li>创建数据表：<code>create table 表名(字段名);</code></li>
+<li>查看表结构：<code>desc tb_student;</code> </li>
+<li>删除表：<code>drop table if exists tb_student;</code></li>
+<li>修改表：<ol>
+<li>添加列：<code>alter table tb_student add column stu_tel varchar(20) not null;</code>表中有数据不能进行非空约束</li>
+<li>删除指定列：<code>alter table tb_student drop column stu_addr;</code></li>
+</ol>
 </li>
-<li><p><strong>random_state：</strong>随机数种子，int类型，可选参数，默认为无，仅在正则化优化算法为sag,liblinear时有用。</p>
+<li>修改指定列：<ol>
+<li><code>alter table tb_student modify column stu_gender char(1) default "M";</code>只改变列的类型</li>
+<li><code>alter table tb_student change column stu_gender stu_sex  char(1) not null default "男";</code>  修改类型</li>
+</ol>
 </li>
-<li><p>solver：</p>
-<p>优化算法选择参数，只有五个可选参数，即newton-cg,lbfgs,liblinear,sag,saga。默认为liblinear。solver参数决定了我们对逻辑回归损失函数的优化方法，有四种算法可以选择，分别是：</p>
-<ul>
-<li><strong>liblinear：</strong>使用了开源的liblinear库实现，内部使用了坐标轴下降法来迭代优化损失函数。</li>
-<li><strong>lbfgs：</strong>拟牛顿法的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</li>
-<li><strong>newton-cg：</strong>也是牛顿法家族的一种，利用损失函数二阶导数矩阵即海森矩阵来迭代优化损失函数。</li>
-<li><strong>sag：</strong>即随机平均梯度下降，是梯度下降法的变种，和普通梯度下降法的区别是每次迭代仅仅用一部分的样本来计算梯度，适合于样本数据多的时候。</li>
-<li><strong>saga：</strong>线性收敛的随机优化算法的的变重。</li>
-<li>总结：<ul>
-<li>liblinear适用于小数据集，而sag和saga适用于大数据集因为速度更快。</li>
-<li>对于多分类问题，只有newton-cg,sag,saga和lbfgs能够处理多项损失，而liblinear受限于一对剩余(OvR)。啥意思，就是用liblinear的时候，如果是多分类问题，得先把一种类别作为一个类别，剩余的所有类别作为另外一个类别。一次类推，遍历所有类别，进行分类。</li>
-<li>newton-cg,sag和lbfgs这三种优化算法时都需要损失函数的一阶或者二阶连续导数，因此不能用于没有连续导数的L1正则化，只能用于L2正则化。而liblinear和saga通吃L1正则化和L2正则化。</li>
-<li>同时，sag每次仅仅使用了部分样本进行梯度迭代，所以当样本量少的时候不要选择它，而如果样本量非常大，比如大于10万，sag是第一选择。但是sag不能用于L1正则化，所以当你有大量的样本，又需要L1正则化的话就要自己做取舍了。要么通过对样本采样来降低样本量，要么回到L2正则化。</li>
-<li>从上面的描述，大家可能觉得，既然newton-cg, lbfgs和sag这么多限制，如果不是大样本，我们选择liblinear不就行了嘛！错，因为liblinear也有自己的弱点！我们知道，逻辑回归有二元逻辑回归和多元逻辑回归。对于多元逻辑回归常见的有one-vs-rest(OvR)和many-vs-many(MvM)两种。而MvM一般比OvR分类相对准确一些。郁闷的是liblinear只支持OvR，不支持MvM，这样如果我们需要相对精确的多元逻辑回归时，就不能选择liblinear了。也意味着如果我们需要相对精确的多元逻辑回归不能使用L1正则化了。</li>
-</ul>
+<li>添加约束条件：<ol>
+<li>添加唯一性约束：<code>alter table tb_student add constraint uk_student_tel unique (stu_tel);</code>   <code>add constraint</code>添加约束， <code>uk_student_tel </code>是起的名，便于后续操作，后面同理</li>
+<li>添加检查约束：<code>alter table tb_student add constraint ck_student_tel check (stu_birth &gt;= '1990-1-1');</code>  </li>
+<li>删除约束条件：<code>alter table tb_student drop constraint uk_student_tel;</code> 删除添加约束是起的名</li>
+</ol>
 </li>
-</ul>
+<li>约束<ol>
+<li>非空约束：<code>not null</code>  保证字段的值不能为空</li>
+<li>默认约束：<code>default</code> 默认约束，保证字段总会有值，即使没有插入值，都会有默认值！</li>
+<li>唯一性约束：<code>unique</code>保证唯一性但是可以为空，比如座位号</li>
+<li>检查性约束：<code>check</code>检查性约束</li>
+<li>外键约束：<code>foreign key</code>同时保证唯一性和非空</li>
+<li>主键约束：<code>primary key</code>用于限制两个表的关系，保证从表该字段的值来自于主表相关联的字段的值！</li>
+<li>引擎<ol>
+<li><code>engine = innodb</code>使用<code>innodb</code>引擎</li>
+</ol>
 </li>
-<li><p><strong>max_iter：</strong>算法收敛最大迭代次数，int类型，默认为10。仅在正则化优化算法为newton-cg, sag和lbfgs才有用，算法收敛的最大迭代次数。</p>
+</ol>
 </li>
-<li><p>multi_class：</p>
-<p>分类方式选择参数，str类型，可选参数为ovr和multinomial，默认为ovr。ovr即前面提到的one-vs-rest(OvR)，而multinomial即前面提到的many-vs-many(MvM)。如果是二元逻辑回归，ovr和multinomial并没有任何区别，区别主要在多元逻辑回归上。</p>
-<ul>
-<li>OvR和MvM有什么不同？<ul>
-<li>OvR的思想很简单，无论你是多少元逻辑回归，我们都可以看做二元逻辑回归。具体做法是，对于第K类的分类决策，我们把所有第K类的样本作为正例，除了第K类样本以外的所有样本都作为负例，然后在上面做二元逻辑回归，得到第K类的分类模型。其他类的分类模型获得以此类推。</li>
-<li>而MvM则相对复杂，这里举MvM的特例one-vs-one(OvO)作讲解。如果模型有T类，我们每次在所有的T类样本里面选择两类样本出来，不妨记为T1类和T2类，把所有的输出为T1和T2的样本放在一起，把T1作为正例，T2作为负例，进行二元逻辑回归，得到模型参数。我们一共需要T(T-1)/2次分类。</li>
-<li>可以看出OvR相对简单，但分类效果相对略差（这里指大多数样本分布情况，某些样本分布下OvR可能更好）。而MvM分类相对精确，但是分类速度没有OvR快。如果选择了ovr，则4种损失函数的优化方法liblinear，newton-cg,lbfgs和sag都可以选择。但是如果选择了multinomial,则只能选择newton-cg, lbfgs和sag了。</li>
-</ul>
+<li>数据类型：<ol>
+<li>查看数据类型帮助：<code>?data types;</code></li>
+<li>整数：<code>int / intrger</code> (32位)   ——&gt; <code>bigint</code> (64位 )/  <code>samllint</code>  （16位）/<code>tinyint</code> (8位)  ——&gt; <code>undignet</code>无长度整数</li>
+<li>小数：<code>float / double</code> ——&gt; <code>decimal</code></li>
+<li>日期和时间：<code>date</code> /  <code>time </code> /  <code>datetime</code>   ——&gt;   <code>timestamp</code></li>
+<li>字符串：<code>varchar  /  char</code></li>
+<li>二进制文件：<code>bolb</code></li>
+<li>JSON：<code>json</code> 保存json数据或json对象</li>
+</ol>
 </li>
-</ul>
+</ol>
 </li>
-<li><p><strong>verbose：</strong>日志冗长度，int类型。默认为0。就是不输出训练过程，1的时候偶尔输出结果，大于1，对于每个子模型都输出。</p>
-</li>
-<li><p><strong>warm_start：</strong>热启动参数，bool类型。默认为False。如果为True，则下一次训练是以追加树的形式进行（重新使用上一次的调用作为初始化）。</p>
-</li>
-<li><p><strong>n_jobs：</strong>并行数。int类型，默认为1。1的时候，用CPU的一个内核运行程序，2的时候，用CPU的2个内核运行程序。为-1的时候，用所有CPU的内核运行程序。</p>
-</li>
-</ul>
+</ol>
 
                 
               </div>
@@ -361,12 +394,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
+  <a href="/categories/SQL/" class="category-chain-item">SQL</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/LogisticRegression/" class="category-chain-item">LogisticRegression</a>
+  <a href="/categories/SQL/MySQL/" class="category-chain-item">MySQL</a>
   
   
 
@@ -383,7 +416,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ML/">#ML</a>
+        <a href="/tags/SQL/">#SQL</a>
       
     </div>
   
@@ -395,8 +428,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>逻辑斯蒂回归参数</div>
-      <div>https://blog.wlstory.xyz/2022/06/03/逻辑斯蒂回归参数/</div>
+      <div>Mysql基础语法</div>
+      <div>https://blog.wlstory.xyz/2020/03/22/Mysql/</div>
     </div>
     <div class="license-meta">
       
@@ -408,7 +441,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月3日</div>
+          <div>2020年3月22日</div>
         </div>
       
       
@@ -438,15 +471,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2020/03/22/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="Python面向对象">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python面向对象</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2022/06/02/Vim/" title="vim语法">
-                        <span class="hidden-mobile">vim语法</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
@@ -553,24 +586,53 @@
 
   
     
-      <span id="busuanzi_container_site_pv" style="display: none">
+      <span id="leancloud-site-pv-container" style="display: none">
         总访问量 
-        <span id="busuanzi_value_site_pv"></span>
+        <span id="leancloud-site-pv"></span>
          次
       </span>
     
     
-      <span id="busuanzi_container_site_uv" style="display: none">
+      <span id="leancloud-site-uv-container" style="display: none">
         总访客数 
-        <span id="busuanzi_value_site_uv"></span>
+        <span id="leancloud-site-uv"></span>
          人
       </span>
     
     
+
   
 </div>
 
   
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
   
   
 </div>
@@ -690,7 +752,7 @@
 
   <script  src="/js/local-search.js" ></script>
 
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
